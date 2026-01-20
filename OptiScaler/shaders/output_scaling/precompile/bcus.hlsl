@@ -11,10 +11,21 @@
 // Author(s):  James Stanard
 //
 
+#ifdef VK_MODE
+[[vk::binding(1, 0)]]
+#endif
 Texture2D<float3> Source : register(t0);
+
+#ifdef VK_MODE
+[[vk::binding(2, 0)]]
+#endif
 RWTexture2D<float3> Dest : register(u0);
 
+#ifdef VK_MODE
+cbuffer Params : register(b0, space0)
+#else
 cbuffer Params : register(b0)
+#endif
 {
     int _SrcWidth;
     int _SrcHeight;

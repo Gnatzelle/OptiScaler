@@ -2724,15 +2724,27 @@ AF4 AZolSignedF4(AF4 x) { return ASatF4(x * AF4_(A_INFN_F)); }
 AF1 AZolZeroPassF1(AF1 x, AF1 y) { return AF1_AU1((AU1_AF1(x) != AU1_(0)) ? AU1_(0) : AU1_AF1(y)); }
 AF2 AZolZeroPassF2(AF2 x, AF2 y)
 {
+#ifdef VK_MODE
+    return AF2_AU2(select(AU2_AF2(x) != AU2_(0), AU2_(0), AU2_AF2(y)));
+#else
     return AF2_AU2((AU2_AF2(x) != AU2_(0)) ? AU2_(0) : AU2_AF2(y));
+#endif
 } // select((asuint(float2(x)) != AU2_x(uint(0))), AU2_x(uint(0)), asuint(float2(y)));}
 AF3 AZolZeroPassF3(AF3 x, AF3 y)
 {
+#ifdef VK_MODE
+    return AF3_AU3(select(AU3_AF3(x) != AU3_(0), AU3_(0), AU3_AF3(y)));
+#else
     return AF3_AU3((AU3_AF3(x) != AU3_(0)) ? AU3_(0) : AU3_AF3(y));
+#endif
 } // select((asuint(float3(x)) != AU3_x(uint(0))), AU3_x(uint(0)), asuint(float3(y)));}
 AF4 AZolZeroPassF4(AF4 x, AF4 y)
 {
+#ifdef VK_MODE
+    return AF4_AU4(select(AU4_AF4(x) != AU4_(0), AU4_(0), AU4_AF4(y)));
+#else
     return AF4_AU4((AU4_AF4(x) != AU4_(0)) ? AU4_(0) : AU4_AF4(y));
+#endif
 } // select((asuint(float4(x)) != AU4_x(uint(0))), AU4_x(uint(0)), asuint(float4(y)));}
 #endif
 //==============================================================================================================================

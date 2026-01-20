@@ -5,7 +5,11 @@
 
 #include "ffx_a.h"
 
+#ifdef VK_MODE
+cbuffer cb : register(b0, space0)
+#else
 cbuffer cb : register(b0)
+#endif
 {
     uint4 Const0;
     uint4 Const1;
@@ -16,8 +20,19 @@ cbuffer cb : register(b0)
     uint _padding;
 };
 
+#ifdef VK_MODE
+[[vk::binding(3, 0)]]
+#endif
 SamplerState samLinearClamp : register(s0);
+
+#ifdef VK_MODE
+[[vk::binding(1, 0)]]
+#endif
 Texture2D<AF4> InputTexture : register(t0);
+
+#ifdef VK_MODE
+[[vk::binding(2, 0)]]
+#endif
 RWTexture2D<AF4> OutputTexture : register(u0);
 
 AF4 FsrEasuRF(AF2 p)
@@ -50,7 +65,7 @@ void Bilinear(int2 pos)
 }
 
 [numthreads(64, 1, 1)]
-void main(uint3 LocalThreadId : SV_GroupThreadID, uint3 WorkGroupId : SV_GroupID, uint3 Dtid : SV_DispatchThreadID)
+void CSMain(uint3 LocalThreadId : SV_GroupThreadID, uint3 WorkGroupId : SV_GroupID, uint3 Dtid : SV_DispatchThreadID)
 {
 	// Do remapping of local xy in workgroup for a more PS-like swizzle pattern.
 	AU2 gxy = ARmp8x8(LocalThreadId.x) + AU2(WorkGroupId.x << 4u, WorkGroupId.y << 4u);

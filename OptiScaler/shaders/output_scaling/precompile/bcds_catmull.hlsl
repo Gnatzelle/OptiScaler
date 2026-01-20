@@ -1,4 +1,8 @@
+#ifdef VK_MODE
+cbuffer Params : register(b0, space0)
+#else
 cbuffer Params : register(b0)
+#endif
 {
     int _SrcWidth; // Source texture width
     int _SrcHeight; // Source texture height
@@ -7,7 +11,14 @@ cbuffer Params : register(b0)
 }
 
 // Texture resources
+#ifdef VK_MODE
+[[vk::binding(1, 0)]]
+#endif
 Texture2D<float4> InputTexture : register(t0); // Input texture (source image)
+
+#ifdef VK_MODE
+[[vk::binding(2, 0)]]
+#endif
 RWTexture2D<float4> OutputTexture : register(u0); // Output texture (downsampled image)
 
 float luminance(float3 color)

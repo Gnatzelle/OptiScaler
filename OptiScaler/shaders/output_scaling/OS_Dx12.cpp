@@ -244,13 +244,13 @@ OS_Dx12::OS_Dx12(std::string InName, ID3D12Device* InDevice, bool InUpsample)
         if (Config::Instance()->OutputScalingUseFsr.value_or_default())
         {
             computePsoDesc.CS =
-                CD3DX12_SHADER_BYTECODE(reinterpret_cast<const void*>(fsr_easu_cso), sizeof(fsr_easu_cso));
+                CD3DX12_SHADER_BYTECODE(reinterpret_cast<const void*>(FSR_EASU_cso), sizeof(FSR_EASU_cso));
         }
         else
         {
             if (_upsample)
             {
-                computePsoDesc.CS = CD3DX12_SHADER_BYTECODE(reinterpret_cast<const void*>(BCUS_cso), sizeof(BCUS_cso));
+                computePsoDesc.CS = CD3DX12_SHADER_BYTECODE(reinterpret_cast<const void*>(bcus_cso), sizeof(bcus_cso));
             }
             else
             {
@@ -367,31 +367,6 @@ OS_Dx12::~OS_Dx12()
 {
     if (!_init || State::Instance().isShuttingDown)
         return;
-
-    // ID3D12Fence* d3d12Fence = nullptr;
-
-    // do
-    //{
-    //     if (_device->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&d3d12Fence)) != S_OK)
-    //         break;
-
-    //    d3d12Fence->Signal(999);
-
-    //    HANDLE fenceEvent = CreateEvent(nullptr, FALSE, FALSE, nullptr);
-
-    //    if (fenceEvent != NULL && d3d12Fence->SetEventOnCompletion(999, fenceEvent) == S_OK)
-    //    {
-    //        WaitForSingleObject(fenceEvent, INFINITE);
-    //        CloseHandle(fenceEvent);
-    //    }
-
-    //} while (false);
-
-    // if (d3d12Fence != nullptr)
-    //{
-    //     d3d12Fence->Release();
-    //     d3d12Fence = nullptr;
-    // }
 
     if (_pipelineState != nullptr)
     {
