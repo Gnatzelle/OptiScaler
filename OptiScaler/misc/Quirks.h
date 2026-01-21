@@ -31,6 +31,7 @@ enum class GameQuirk : uint64_t
     DisableXeFGChecks,
     UseFsr2Dx11Inputs,
     UseFsr2VulkanInputs,
+    ForceBorderlessWhenUsingXeFG,
 
     // Quirks that are applied deeper in code
     CyberpunkHudlessStateOverride,
@@ -203,13 +204,16 @@ static const QuirkEntry quirkTable[] = {
     QUIRK_ENTRY("milesmorales.exe", GameQuirk::DisableDxgiSpoofing),
     QUIRK_ENTRY("spider-man2.exe", GameQuirk::DisableDxgiSpoofing),
 
+    // Dead Space Remake
+    QUIRK_ENTRY("dead space.exe", GameQuirk::DisableDxgiSpoofing, GameQuirk::ForceBorderlessWhenUsingXeFG),
+
     // SL spoof enough to unlock everything DLSS/No spoof needed for DLSS inputs
     //
     // The Witcher 3, Alan Wake 2, Crysis 3 Remastered, Marvel's Guardians of the Galaxy, UNCHARTED: Legacy of Thieves
     // Collection, Warhammer 40,000: Darktide, Dying Light 2 Stay Human, Dying Light: The Beast, Observer: System Redux,
     // Sackboy: A Big Adventure, Hellblade: Senua's Sacrifice, Pumpkin Jack, Metro Exodus Enhanced Edition, Rise of the
     // Ronin, DYNASTY WARRIORS: ORIGINS, Crysis Remastered, Crysis 2 Remastered, Mortal Shell, Sekiro: Shadows Die
-    // Twice (for SekiroTSR mod), The Medium, NINJA GAIDEN 4 (+ WinGDK), Dead Space Remake, God of War (2018), Europa
+    // Twice (for SekiroTSR mod), The Medium, NINJA GAIDEN 4 (+ WinGDK), God of War (2018), Europa
     // Universalis V, Need for Speed Unbound, Nioh 2 – The Complete Edition, Control Ultimate Edition, Deathloop, Where
     // Winds Meet, FINAL FANTASY VII REMAKE INTERGRADE (for Luma mod), Assassin’s Creed Shadows, Farming Simulator 2025
     QUIRK_ENTRY("witcher3.exe", GameQuirk::DisableDxgiSpoofing),
@@ -237,7 +241,6 @@ static const QuirkEntry quirkTable[] = {
     QUIRK_ENTRY_UE(medium, GameQuirk::DisableDxgiSpoofing),
     QUIRK_ENTRY("ninjagaiden4-steam.exe", GameQuirk::DisableDxgiSpoofing),
     QUIRK_ENTRY("ninjagaiden4-wingdk.exe", GameQuirk::DisableDxgiSpoofing), // NG4 WinGDK
-    QUIRK_ENTRY("dead space.exe", GameQuirk::DisableDxgiSpoofing),
     QUIRK_ENTRY("gow.exe", GameQuirk::DisableDxgiSpoofing),
     QUIRK_ENTRY("eu5.exe", GameQuirk::DisableDxgiSpoofing),
     QUIRK_ENTRY("needforspeedunbound.exe", GameQuirk::DisableDxgiSpoofing),

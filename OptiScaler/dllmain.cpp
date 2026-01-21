@@ -1221,6 +1221,12 @@ static void printQuirks(flag_set<GameQuirk>& quirks)
         state->detectedQuirks.push_back("Use FSR2 Vulkan inputs");
     }
 
+    if (quirks & GameQuirk::ForceBorderlessWhenUsingXeFG)
+    {
+        spdlog::info("Quirk: Force borderless when using XeFG");
+        state->detectedQuirks.push_back("Force borderless when using XeFG");
+    }
+
     return;
 }
 
@@ -1333,6 +1339,13 @@ static void CheckQuirks()
 
     if (quirks & GameQuirk::UseFsr2VulkanInputs && !Config::Instance()->UseFsr2VulkanInputs.has_value())
         Config::Instance()->UseFsr2VulkanInputs.set_volatile_value(true);
+
+    if (quirks & GameQuirk::ForceBorderlessWhenUsingXeFG && !Config::Instance()->FGXeFGForceBorderless.has_value() &&
+        State::Instance().activeFgOutput == FGOutput::XeFG && State::Instance().activeFgInput != FGInput::NoFG &&
+        State::Instance().activeFgInput != FGInput::Nukems)
+    {
+        Config::Instance()->FGXeFGForceBorderless.set_volatile_value(true);
+    }
 
     // For Luma, we assume if Luma addon in game folder it's used
     const auto dir = Util::ExePath().parent_path();
