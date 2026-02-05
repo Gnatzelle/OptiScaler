@@ -524,6 +524,12 @@ bool Config::Reload(std::filesystem::path iniPath)
             MipmapBiasOverrideAll.set_from_config(readBool("Mipmap", "MipmapBiasOverrideAll"));
         }
 
+        // Process Filter
+        {
+            ProcessExclusionList.set_from_config(readWString("ProcessFilter", "ProcessExclusionList", true));
+            TargetProcess.set_from_config(readWString("ProcessFilter", "TargetProcessName", true));
+        }
+
         // Hotfixes
         {
             CheckForUpdate.set_from_config(readBool("Hotfix", "CheckForUpdate"));
@@ -1114,6 +1120,14 @@ bool Config::SaveIni()
                      GetBoolValue(Instance()->MipmapBiasFixedOverride.value_for_config()).c_str());
         ini.SetValue("Mipmap", "MipmapBiasScaleOverride",
                      GetBoolValue(Instance()->MipmapBiasScaleOverride.value_for_config()).c_str());
+    }
+
+    // Process Filter
+    {
+        ini.SetValue("ProcessFilter", "TargetProcessName",
+                     wstring_to_string(Instance()->TargetProcess.value_for_config_or(L"auto")).c_str());
+        ini.SetValue("ProcessFilter", "ProcessExclusionList",
+                     wstring_to_string(Instance()->ProcessExclusionList.value_for_config_or(L"auto")).c_str());
     }
 
     // Hotfixes

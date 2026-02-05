@@ -43,6 +43,7 @@
 #include <version_check.h>
 
 static std::vector<HMODULE> _asiHandles;
+static bool _passThruMode = false;
 
 #pragma warning(disable : 4996)
 
@@ -240,7 +241,8 @@ void LoadAsiPlugins()
 
 static void CheckWorkingMode()
 {
-    LOG_FUNC();
+    if (!_passThruMode)
+        LOG_FUNC();
 
     bool modeFound = false;
     std::string filename = wstring_to_string(Util::DllPath().filename().wstring()); // .string() can crash
@@ -258,7 +260,8 @@ static void CheckWorkingMode()
         if (lCaseFilename == "nvngx.dll" || lCaseFilename == "_nvngx.dll" ||
             lCaseFilename == "dlss-enabler-upscaler.dll")
         {
-            LOG_INFO("OptiScaler working as native upscaler: {0}", filename);
+            if (!_passThruMode)
+                LOG_INFO("OptiScaler working as native upscaler: {0}", filename);
 
             dllNames.push_back("OptiScaler_DontLoad.dll");
             dllNames.push_back("OptiScaler_DontLoad");
@@ -269,7 +272,7 @@ static void CheckWorkingMode()
             break;
         }
 
-        if (Config::Instance()->EarlyHooking.value_or_default())
+        if (!_passThruMode && Config::Instance()->EarlyHooking.value_or_default())
         {
             NtdllHooks::Hook();
             KernelHooks::Hook();
@@ -286,7 +289,9 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as version.dll, original dll loaded from plugin folder");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as version.dll, original dll loaded from plugin folder");
+
                     break;
                 }
 
@@ -294,14 +299,16 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as version.dll, version-original.dll loaded");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as version.dll, version-original.dll loaded");
+
                     break;
                 }
 
                 auto sysFilePath = sysPath / L"version.dll";
                 originalModule = NtdllProxy::LoadLibraryExW_Ldr(sysFilePath.wstring().c_str(), NULL, 0);
 
-                if (originalModule != nullptr)
+                if (originalModule != nullptr && !_passThruMode)
                     LOG_INFO("OptiScaler working as version.dll, system dll loaded");
 
             } while (false);
@@ -320,7 +327,8 @@ static void CheckWorkingMode()
             }
             else
             {
-                spdlog::error("OptiScaler can't find original version.dll!");
+                if (!_passThruMode)
+                    LOG_ERROR("OptiScaler can't find original version.dll!");
             }
 
             break;
@@ -336,7 +344,9 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as winmm.dll, original dll loaded from plugin folder");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as winmm.dll, original dll loaded from plugin folder");
+
                     break;
                 }
 
@@ -344,14 +354,16 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as winmm.dll, winmm-original.dll loaded");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as winmm.dll, winmm-original.dll loaded");
+
                     break;
                 }
 
                 auto sysFilePath = sysPath / L"winmm.dll";
                 originalModule = NtdllProxy::LoadLibraryExW_Ldr(sysFilePath.wstring().c_str(), NULL, 0);
 
-                if (originalModule != nullptr)
+                if (originalModule != nullptr && !_passThruMode)
                     LOG_INFO("OptiScaler working as winmm.dll, system dll loaded");
 
             } while (false);
@@ -369,7 +381,8 @@ static void CheckWorkingMode()
             }
             else
             {
-                spdlog::error("OptiScaler can't find original winmm.dll!");
+                if (!_passThruMode)
+                    LOG_ERROR("OptiScaler can't find original winmm.dll!");
             }
 
             break;
@@ -385,7 +398,9 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as wininet.dll, original dll loaded from plugin folder");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as wininet.dll, original dll loaded from plugin folder");
+
                     break;
                 }
 
@@ -393,14 +408,16 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as wininet.dll, wininet-original.dll loaded");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as wininet.dll, wininet-original.dll loaded");
+
                     break;
                 }
 
                 auto sysFilePath = sysPath / L"wininet.dll";
                 originalModule = NtdllProxy::LoadLibraryExW_Ldr(sysFilePath.wstring().c_str(), NULL, 0);
 
-                if (originalModule != nullptr)
+                if (originalModule != nullptr && !_passThruMode)
                     LOG_INFO("OptiScaler working as wininet.dll, system dll loaded");
 
             } while (false);
@@ -418,7 +435,8 @@ static void CheckWorkingMode()
             }
             else
             {
-                spdlog::error("OptiScaler can't find original wininet.dll!");
+                if (!_passThruMode)
+                    LOG_ERROR("OptiScaler can't find original wininet.dll!");
             }
 
             break;
@@ -434,7 +452,9 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as dbghelp.dll, original dll loaded from plugin folder");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as dbghelp.dll, original dll loaded from plugin folder");
+
                     break;
                 }
 
@@ -442,14 +462,16 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as dbghelp.dll, dbghelp-original.dll loaded");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as dbghelp.dll, dbghelp-original.dll loaded");
+
                     break;
                 }
 
                 auto sysFilePath = sysPath / L"dbghelp.dll";
                 originalModule = NtdllProxy::LoadLibraryExW_Ldr(sysFilePath.wstring().c_str(), NULL, 0);
 
-                if (originalModule != nullptr)
+                if (originalModule != nullptr && !_passThruMode)
                     LOG_INFO("OptiScaler working as dbghelp.dll, system dll loaded");
 
             } while (false);
@@ -467,7 +489,8 @@ static void CheckWorkingMode()
             }
             else
             {
-                spdlog::error("OptiScaler can't find original dbghelp.dll!");
+                if (!_passThruMode)
+                    LOG_ERROR("OptiScaler can't find original dbghelp.dll!");
             }
 
             break;
@@ -476,7 +499,8 @@ static void CheckWorkingMode()
         // optiscaler.dll
         if (lCaseFilename == "optiscaler.dll")
         {
-            LOG_INFO("OptiScaler working as OptiScaler.dll");
+            if (!_passThruMode)
+                LOG_INFO("OptiScaler working as OptiScaler.dll");
 
             // quick hack for testing
             originalModule = dllModule;
@@ -493,7 +517,8 @@ static void CheckWorkingMode()
         // optiscaler.asi
         if (lCaseFilename == "optiscaler.asi")
         {
-            LOG_INFO("OptiScaler working as OptiScaler.asi");
+            if (!_passThruMode)
+                LOG_INFO("OptiScaler working as OptiScaler.asi");
 
             // quick hack for testing
             originalModule = dllModule;
@@ -517,7 +542,9 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as winhttp.dll, original dll loaded from plugin folder");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as winhttp.dll, original dll loaded from plugin folder");
+
                     break;
                 }
 
@@ -525,14 +552,16 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as winhttp.dll, winhttp-original.dll loaded");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as winhttp.dll, winhttp-original.dll loaded");
+
                     break;
                 }
 
                 auto sysFilePath = sysPath / L"winhttp.dll";
                 originalModule = NtdllProxy::LoadLibraryExW_Ldr(sysFilePath.wstring().c_str(), NULL, 0);
 
-                if (originalModule != nullptr)
+                if (originalModule != nullptr && !_passThruMode)
                     LOG_INFO("OptiScaler working as winhttp.dll, system dll loaded");
 
             } while (false);
@@ -550,7 +579,8 @@ static void CheckWorkingMode()
             }
             else
             {
-                spdlog::error("OptiScaler can't find original winhttp.dll!");
+                if (!_passThruMode)
+                    LOG_ERROR("OptiScaler can't find original winhttp.dll!");
             }
 
             break;
@@ -566,7 +596,9 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as dxgi.dll, original dll loaded from plugin folder");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as dxgi.dll, original dll loaded from plugin folder");
+
                     break;
                 }
 
@@ -574,14 +606,16 @@ static void CheckWorkingMode()
 
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as dxgi.dll, dxgi-original.dll loaded");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as dxgi.dll, dxgi-original.dll loaded");
+
                     break;
                 }
 
                 auto sysFilePath = sysPath / L"dxgi.dll";
                 originalModule = NtdllProxy::LoadLibraryExW_Ldr(sysFilePath.wstring().c_str(), NULL, 0);
 
-                if (originalModule != nullptr)
+                if (originalModule != nullptr && !_passThruMode)
                     LOG_INFO("OptiScaler working as dxgi.dll, system dll loaded");
 
             } while (false);
@@ -601,7 +635,8 @@ static void CheckWorkingMode()
             }
             else
             {
-                spdlog::error("OptiScaler can't find original dxgi.dll!");
+                if (!_passThruMode)
+                    LOG_ERROR("OptiScaler can't find original dxgi.dll!");
             }
 
             break;
@@ -613,28 +648,35 @@ static void CheckWorkingMode()
             do
             {
                 // Moved here to cover agility sdk
-                NtdllHooks::Hook();
-                KernelHooks::HookBase();
+                if (!_passThruMode)
+                {
+                    NtdllHooks::Hook();
+                    KernelHooks::HookBase();
+                }
 
                 auto pluginFilePath = pluginPath / L"d3d12.dll";
                 originalModule = NtdllProxy::LoadLibraryExW_Ldr(pluginFilePath.wstring().c_str(), NULL, 0);
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as d3d12.dll, original dll loaded from plugin folder");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as d3d12.dll, original dll loaded from plugin folder");
+
                     break;
                 }
 
                 originalModule = NtdllProxy::LoadLibraryExW_Ldr(L"d3d12-original.dll", NULL, 0);
                 if (originalModule != nullptr)
                 {
-                    LOG_INFO("OptiScaler working as d3d12.dll, d3d12-original.dll loaded");
+                    if (!_passThruMode)
+                        LOG_INFO("OptiScaler working as d3d12.dll, d3d12-original.dll loaded");
+
                     break;
                 }
 
                 auto sysFilePath = sysPath / L"d3d12.dll";
                 originalModule = NtdllProxy::LoadLibraryExW_Ldr(sysFilePath.wstring().c_str(), NULL, 0);
 
-                if (originalModule != nullptr)
+                if (originalModule != nullptr && !_passThruMode)
                     LOG_INFO("OptiScaler working as d3d12.dll, system dll loaded");
 
             } while (false);
@@ -655,13 +697,18 @@ static void CheckWorkingMode()
             }
             else
             {
-                spdlog::error("OptiScaler can't find original d3d12.dll!");
+                if (!_passThruMode)
+                    LOG_ERROR("OptiScaler can't find original d3d12.dll!");
             }
 
             break;
         }
 
     } while (false);
+
+    // Work as a dummy dll
+    if (_passThruMode)
+        return;
 
     if (modeFound)
     {
@@ -1262,7 +1309,7 @@ static void printQuirks(flag_set<GameQuirk>& quirks)
 
 static void CheckQuirks()
 {
-    auto exePathFilename = wstring_to_string(Util::ExePath().filename().wstring()); // .string() can crash
+    auto exePathFilename = Util::ExePath().filename().string();
 
     State::Instance().GameExe = exePathFilename;
     State::Instance().GameName = wstring_to_string(Util::GetExeProductName());
@@ -1570,6 +1617,52 @@ bool isNvidia()
     return nvidiaDetected;
 }
 
+void CheckForExcludedProcess()
+{
+    std::wstring exeLower = Util::ExePath().filename().wstring();
+    std::transform(exeLower.begin(), exeLower.end(), exeLower.begin(), ::towlower);
+
+    // If target process is set, only that process is hooked
+    if (Config::Instance()->TargetProcess.has_value())
+    {
+        // Config reads string as lowercase already
+        std::wstring targetProcess = Config::Instance()->TargetProcess.value();
+
+        if (exeLower != targetProcess)
+        {
+            _passThruMode = true;
+            return;
+        }
+    }
+
+    // Config reads string as lowercase already
+    static const std::wstring exclusionList = Config::Instance()->ProcessExclusionList.value_or_default() + L"|";
+
+    static std::vector<std::wstring> exclusions = []()
+    {
+        std::vector<std::wstring> result;
+        size_t start = 0, end;
+
+        while ((end = exclusionList.find(L'|', start)) != std::wstring::npos)
+        {
+            result.emplace_back(exclusionList.substr(start, end - start));
+            start = end + 1;
+        }
+        return result;
+    }();
+
+    for (auto& e : exclusions)
+    {
+        if (exeLower == e)
+        {
+            _passThruMode = true;
+            return;
+        }
+    }
+
+    _passThruMode = false;
+}
+
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
     HMODULE handle = nullptr;
@@ -1583,6 +1676,18 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
         dllModule = hModule;
         exeModule = GetModuleHandle(nullptr);
         processId = GetCurrentProcessId();
+
+        CheckForExcludedProcess();
+
+        if (_passThruMode)
+        {
+            NtdllProxy::Init();
+            KernelBaseProxy::Init();
+            Kernel32Proxy::Init();
+
+            CheckWorkingMode();
+            break;
+        }
 
 #ifdef _DEBUG // VER_PRE_RELEASE
         // Enable file logging for pre builds

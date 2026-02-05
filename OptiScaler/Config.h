@@ -291,6 +291,14 @@ class Config
     CustomOptional<float> QualityRatio_Performance { 2.0f };
     CustomOptional<float> QualityRatio_UltraPerformance { 3.0f };
 
+    // ProcessFilter
+    CustomOptional<std::wstring, NoDefault> TargetProcess;
+    CustomOptional<std::wstring> ProcessExclusionList = {
+        L"crashpad_handler.exe|crashreport.exe|crashreporter.exe|crs-handler.exe|unitycrashhandler64.exe|"
+        L"idtechlauncher.exe|cefviewwing.exe|ace-setup64.exe|ace-service64.exe|qtwebengineprocess.exe|"
+        L"platformprocess.exe"
+    };
+
     // Hotfixes
     CustomOptional<bool> CheckForUpdate { true };
     CustomOptional<bool> DisableOverlays { false };
