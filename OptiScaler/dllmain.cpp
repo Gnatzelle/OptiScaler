@@ -1304,6 +1304,12 @@ static void printQuirks(flag_set<GameQuirk>& quirks)
         state->detectedQuirks.push_back("Set Hudless as ValidNow");
     }
 
+    if (quirks & GameQuirk::DisableResizeSkip)
+    {
+        spdlog::info("Quirk: Disable Resize Skip");
+        state->detectedQuirks.push_back("Disable Resize Skip");
+    }
+
     return;
 }
 
@@ -1450,6 +1456,11 @@ static void CheckQuirks()
         State::Instance().activeFgOutput != FGOutput::Nukems)
     {
         Config::Instance()->FGHudlessValidNow.set_volatile_value(true);
+    }
+
+    if (quirks & GameQuirk::DisableResizeSkip && !Config::Instance()->FGXeFGSkipResizeBuffers.has_value())
+    {
+        Config::Instance()->FGXeFGSkipResizeBuffers.set_volatile_value(false);
     }
 
     // For Luma, we assume if Luma addon in game folder it's used

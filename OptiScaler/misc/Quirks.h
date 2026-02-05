@@ -36,6 +36,7 @@ enum class GameQuirk : uint64_t
     SetDepthValidNow,
     SetVelocityValidNow,
     SetHudlessValidNow,
+    DisableResizeSkip,
 
     // Quirks that are applied deeper in code
     CyberpunkHudlessFixes,
@@ -109,6 +110,9 @@ static const QuirkEntry quirkTable[] = {
 
     // Trails in the Sky 1st Chapter
     QUIRK_ENTRY("sora_1st.exe", GameQuirk::UseFsr2Dx11Inputs, GameQuirk::DisableDxgiSpoofing),
+
+    // Ninja Gaiden 4 (Steam)
+    QUIRK_ENTRY("ninjagaiden4-steam.exe", GameQuirk::DisableResizeSkip),
 
     // The Last of Us Part I
     QUIRK_ENTRY("tlou-i.exe", GameQuirk::AllowedFrameAhead2),
