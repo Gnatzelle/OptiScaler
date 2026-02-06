@@ -11,6 +11,8 @@
 #include <misc/FrameLimit.h>
 #include "Reflex_Hooks.h"
 
+#include <spoofing/Vulkan_Spoofing.h>
+
 #include <vulkan/vulkan.hpp>
 
 #include <detours/detours.h>
@@ -33,11 +35,13 @@ typedef VkResult (*PFN_vkCreateWin32SurfaceKHR)(VkInstance, const VkWin32Surface
 PFN_vkCreateDevice o_vkCreateDevice = nullptr;
 PFN_vkCreateInstance o_vkCreateInstance = nullptr;
 PFN_vkCreateWin32SurfaceKHR o_vkCreateWin32SurfaceKHR = nullptr;
-PFN_vkCmdPipelineBarrier o_vkCmdPipelineBarrier = nullptr;
+// PFN_vkCmdPipelineBarrier o_vkCmdPipelineBarrier = nullptr;
 PFN_QueuePresentKHR o_QueuePresentKHR = nullptr;
 PFN_CreateSwapchainKHR o_CreateSwapchainKHR = nullptr;
+static PFN_vkGetInstanceProcAddr o_vkGetInstanceProcAddr = nullptr;
+static PFN_vkGetDeviceProcAddr o_vkGetDeviceProcAddr = nullptr;
 
-static VkResult hkvkCreateDevice(VkPhysicalDevice physicalDevice, const VkDeviceCreateInfo* pCreateInfo,
+static VkResult hkvkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo* pCreateInfo,
                                  const VkAllocationCallbacks* pAllocator, VkDevice* pDevice);
 static VkResult hkvkQueuePresentKHR(VkQueue queue, VkPresentInfoKHR* pPresentInfo);
 static VkResult hkvkCreateSwapchainKHR(VkDevice device, const VkSwapchainCreateInfoKHR* pCreateInfo,
@@ -68,60 +72,61 @@ static void HookDevice(VkDevice InDevice)
     }
 }
 
-static void hkvkCmdPipelineBarrier(VkCommandBuffer commandBuffer, VkPipelineStageFlags srcStageMask,
-                                   VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags,
-                                   uint32_t memoryBarrierCount, const VkMemoryBarrier* pMemoryBarriers,
-                                   uint32_t bufferMemoryBarrierCount,
-                                   const VkBufferMemoryBarrier* pBufferMemoryBarriers, uint32_t imageMemoryBarrierCount,
-                                   const VkImageMemoryBarrier* pImageMemoryBarriers)
-{
-    if (State::Instance().gameQuirks & GameQuirk::VulkanDLSSBarrierFixup &&
-        (!State::Instance().isRunningOnNvidia || State::Instance().isPascalOrOlder))
-    {
-        // AMD drivers on the cards around RDNA2 didn't treat VK_IMAGE_LAYOUT_UNDEFINED in the same way Nvidia does.
-        // Doesn't seem like a bug, just a different way of handling an UB but we need to adjust.
-
-        // DLSSG Present
-        if (imageMemoryBarrierCount == 2)
-        {
-            if (pImageMemoryBarriers[0].oldLayout == VK_IMAGE_LAYOUT_PRESENT_SRC_KHR &&
-                pImageMemoryBarriers[0].newLayout == VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL &&
-                pImageMemoryBarriers[1].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED &&
-                pImageMemoryBarriers[1].newLayout == VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL)
-            {
-                LOG_TRACE("Changing an UNDEFINED barrier in DLSSG Present");
-
-                VkImageMemoryBarrier newImageBarriers[2];
-                std::memcpy(newImageBarriers, pImageMemoryBarriers, sizeof(newImageBarriers));
-
-                newImageBarriers[1].oldLayout = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL;
-
-                return o_vkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags,
-                                              memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount,
-                                              pBufferMemoryBarriers, imageMemoryBarrierCount, newImageBarriers);
-            }
-        }
-
-        // DLSS
-        // Those are already in the correct layouts
-        if (imageMemoryBarrierCount == 4)
-        {
-            // In the Voyagers update, the 2nd oldLayout has changed
-            if (pImageMemoryBarriers[0].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED &&
-                // pImageMemoryBarriers[1].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED &&
-                pImageMemoryBarriers[2].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED &&
-                pImageMemoryBarriers[3].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED)
-            {
-                LOG_TRACE("Removing an UNDEFINED barrier in DLSS");
-                return;
-            }
-        }
-    }
-
-    return o_vkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount,
-                                  pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers,
-                                  imageMemoryBarrierCount, pImageMemoryBarriers);
-}
+// Moved to VulkanwDx12_Hooks.cpp !!
+// static void hkvkCmdPipelineBarrier(VkCommandBuffer commandBuffer, VkPipelineStageFlags srcStageMask,
+//                                   VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags,
+//                                   uint32_t memoryBarrierCount, const VkMemoryBarrier* pMemoryBarriers,
+//                                   uint32_t bufferMemoryBarrierCount,
+//                                   const VkBufferMemoryBarrier* pBufferMemoryBarriers, uint32_t
+//                                   imageMemoryBarrierCount, const VkImageMemoryBarrier* pImageMemoryBarriers)
+//{
+//    if (State::Instance().gameQuirks & GameQuirk::VulkanDLSSBarrierFixup &&
+//        (!State::Instance().isRunningOnNvidia || State::Instance().isPascalOrOlder))
+//    {
+//        // AMD drivers on the cards around RDNA2 didn't treat VK_IMAGE_LAYOUT_UNDEFINED in the same way Nvidia does.
+//        // Doesn't seem like a bug, just a different way of handling an UB but we need to adjust.
+//
+//        // DLSSG Present
+//        if (imageMemoryBarrierCount == 2)
+//        {
+//            if (pImageMemoryBarriers[0].oldLayout == VK_IMAGE_LAYOUT_PRESENT_SRC_KHR &&
+//                pImageMemoryBarriers[0].newLayout == VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL &&
+//                pImageMemoryBarriers[1].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED &&
+//                pImageMemoryBarriers[1].newLayout == VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL)
+//            {
+//                LOG_TRACE("Changing an UNDEFINED barrier in DLSSG Present");
+//
+//                VkImageMemoryBarrier newImageBarriers[2];
+//                std::memcpy(newImageBarriers, pImageMemoryBarriers, sizeof(newImageBarriers));
+//
+//                newImageBarriers[1].oldLayout = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL;
+//
+//                return o_vkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags,
+//                                              memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount,
+//                                              pBufferMemoryBarriers, imageMemoryBarrierCount, newImageBarriers);
+//            }
+//        }
+//
+//        // DLSS
+//        // Those are already in the correct layouts
+//        if (imageMemoryBarrierCount == 4)
+//        {
+//            // In the Voyagers update, the 2nd oldLayout has changed
+//            if (pImageMemoryBarriers[0].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED &&
+//                // pImageMemoryBarriers[1].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED &&
+//                pImageMemoryBarriers[2].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED &&
+//                pImageMemoryBarriers[3].oldLayout == VK_IMAGE_LAYOUT_UNDEFINED)
+//            {
+//                LOG_TRACE("Removing an UNDEFINED barrier in DLSS");
+//                return;
+//            }
+//        }
+//    }
+//
+//    return o_vkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount,
+//                                  pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers,
+//                                  imageMemoryBarrierCount, pImageMemoryBarriers);
+//}
 
 static VkResult hkvkCreateWin32SurfaceKHR(VkInstance instance, const VkWin32SurfaceCreateInfoKHR* pCreateInfo,
                                           const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
@@ -150,10 +155,12 @@ static VkResult hkvkCreateWin32SurfaceKHR(VkInstance instance, const VkWin32Surf
     return result;
 }
 
-static VkResult hkvkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator,
+static VkResult hkvkCreateInstance(VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator,
                                    VkInstance* pInstance)
 {
     LOG_FUNC();
+
+    VulkanSpoofing::hkvkCreateInstance(pCreateInfo, pAllocator, pInstance);
 
     VkResult result;
     {
@@ -161,12 +168,22 @@ static VkResult hkvkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, cons
         result = o_vkCreateInstance(pCreateInfo, pAllocator, pInstance);
     }
 
+    if (result == VK_SUCCESS)
+    {
+        State::Instance().VulkanInstance = *pInstance;
+        LOG_DEBUG("State::Instance().VulkanInstance captured: {0:X}", (UINT64) State::Instance().VulkanInstance);
+
+#ifdef VULKAN_DEBUG_LAYER
+        auto address = vkGetInstanceProcAddr(State::Instance().VulkanInstance, "vkCreateDebugUtilsMessengerEXT");
+        auto vkCreateDebugUtilsMessengerEXT = (PFN_vkCreateDebugUtilsMessengerEXT) address;
+        VkDebugUtilsMessengerEXT debugMessenger;
+        vkCreateDebugUtilsMessengerEXT(State::Instance().VulkanInstance, &debugCreateInfo, nullptr, &debugMessenger);
+#endif
+    }
+
     if (result == VK_SUCCESS && !State::Instance().vulkanSkipHooks)
     {
         MenuOverlayVk::DestroyVulkanObjects(false);
-
-        State::Instance().VulkanInstance = *pInstance;
-        LOG_DEBUG("State::Instance().VulkanInstance captured: {0:X}", (UINT64) State::Instance().VulkanInstance);
     }
 
     LOG_FUNC_RESULT(result);
@@ -174,25 +191,14 @@ static VkResult hkvkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, cons
     return result;
 }
 
-static VkResult hkvkCreateDevice(VkPhysicalDevice physicalDevice, const VkDeviceCreateInfo* pCreateInfo,
+static VkResult hkvkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo* pCreateInfo,
                                  const VkAllocationCallbacks* pAllocator, VkDevice* pDevice)
 {
     LOG_FUNC();
 
+    VulkanSpoofing::hkvkCreateDevice(physicalDevice, pCreateInfo, pAllocator, pDevice);
+
     auto result = o_vkCreateDevice(physicalDevice, pCreateInfo, pAllocator, pDevice);
-
-    if (o_vkCmdPipelineBarrier == nullptr)
-    {
-        o_vkCmdPipelineBarrier = (PFN_vkCmdPipelineBarrier) vkGetDeviceProcAddr(*pDevice, "vkCmdPipelineBarrier");
-
-        DetourTransactionBegin();
-        DetourUpdateThread(GetCurrentThread());
-
-        if (o_vkCmdPipelineBarrier != nullptr)
-            DetourAttach(&(PVOID&) o_vkCmdPipelineBarrier, hkvkCmdPipelineBarrier);
-
-        DetourTransactionCommit();
-    }
 
     if (result == VK_SUCCESS && !State::Instance().vulkanSkipHooks && Config::Instance()->OverlayMenu.value())
     {
@@ -286,12 +292,85 @@ static VkResult hkvkCreateSwapchainKHR(VkDevice device, const VkSwapchainCreateI
     return result;
 }
 
+PFN_vkVoidFunction hkvkGetInstanceProcAddr(VkInstance instance, const char* pName)
+{
+    auto orgFunc = o_vkGetInstanceProcAddr(instance, pName);
+
+    if (orgFunc == VK_NULL_HANDLE)
+        return VK_NULL_HANDLE;
+
+    auto procName = std::string(pName);
+
+    if (procName == std::string("vkCreateInstance"))
+    {
+        LOG_DEBUG("vkCreateInstance");
+        return (PFN_vkVoidFunction) hkvkCreateInstance;
+    }
+    else if (procName == std::string("vkCreateDevice"))
+    {
+        LOG_DEBUG("vkCreateDevice");
+        return (PFN_vkVoidFunction) hkvkCreateDevice;
+    }
+
+    auto result = VulkanSpoofing::hkvkGetInstanceProcAddr(orgFunc, pName);
+    if (result != VK_NULL_HANDLE)
+        return result;
+
+    return orgFunc;
+}
+
+PFN_vkVoidFunction hkvkGetDeviceProcAddr(VkDevice device, const char* pName)
+{
+    auto orgFunc = o_vkGetDeviceProcAddr(device, pName);
+
+    if (orgFunc == VK_NULL_HANDLE)
+        return VK_NULL_HANDLE;
+
+    auto procName = std::string(pName);
+
+    if (procName == std::string("vkCreateInstance"))
+    {
+        LOG_DEBUG("vkCreateInstance");
+        return (PFN_vkVoidFunction) hkvkCreateInstance;
+    }
+    else if (procName == std::string("vkCreateDevice"))
+    {
+        LOG_DEBUG("vkCreateDevice");
+        return (PFN_vkVoidFunction) hkvkCreateDevice;
+    }
+
+    auto result = VulkanSpoofing::hkvkGetDeviceProcAddr(orgFunc, pName);
+    if (result != VK_NULL_HANDLE)
+        return result;
+
+    return orgFunc;
+}
+
 void VulkanHooks::Hook(HMODULE vulkan1)
 {
+    VulkanSpoofing::HookForVulkanSpoofing(vulkan1);
+    VulkanSpoofing::HookForVulkanExtensionSpoofing(vulkan1);
+    VulkanSpoofing::HookForVulkanVRAMSpoofing(vulkan1);
+
     if (o_vkCreateDevice != nullptr)
         return;
 
+    FARPROC address = nullptr;
+
     o_vkCreateDevice = (PFN_vkCreateDevice) KernelBaseProxy::GetProcAddress_()(vulkan1, "vkCreateDevice");
+    o_vkCreateInstance = (PFN_vkCreateInstance) KernelBaseProxy::GetProcAddress_()(vulkan1, "vkCreateInstance");
+
+    address = KernelBaseProxy::GetProcAddress_()(vulkan1, "vkGetInstanceProcAddr");
+    o_vkGetInstanceProcAddr = (PFN_vkGetInstanceProcAddr) address;
+
+    address = KernelBaseProxy::GetProcAddress_()(vulkan1, "vkGetDeviceProcAddr");
+    o_vkGetDeviceProcAddr = (PFN_vkGetDeviceProcAddr) address;
+
+    address = KernelBaseProxy::GetProcAddress_()(vulkan1, "vkCreateWin32SurfaceKHR");
+    o_vkCreateWin32SurfaceKHR = (PFN_vkCreateWin32SurfaceKHR) address;
+
+    // address = KernelBaseProxy::GetProcAddress_()(vulkan1, "vkCmdPipelineBarrier");
+    // o_vkCmdPipelineBarrier = (PFN_vkCmdPipelineBarrier) address;
 
     DetourTransactionBegin();
     DetourUpdateThread(GetCurrentThread());
@@ -299,25 +378,22 @@ void VulkanHooks::Hook(HMODULE vulkan1)
     if (o_vkCreateDevice != nullptr)
         DetourAttach(&(PVOID&) o_vkCreateDevice, hkvkCreateDevice);
 
+    if (o_vkGetInstanceProcAddr != nullptr)
+        DetourAttach(&(PVOID&) o_vkGetInstanceProcAddr, hkvkGetInstanceProcAddr);
+
+    if (o_vkGetDeviceProcAddr != nullptr)
+        DetourAttach(&(PVOID&) o_vkGetDeviceProcAddr, hkvkGetDeviceProcAddr);
+
+    if (o_vkCreateInstance != nullptr)
+        DetourAttach(&(PVOID&) o_vkCreateInstance, hkvkCreateInstance);
+
+    if (o_vkCreateWin32SurfaceKHR != nullptr)
+        DetourAttach(&(PVOID&) o_vkCreateWin32SurfaceKHR, hkvkCreateWin32SurfaceKHR);
+
+    // if (o_vkCmdPipelineBarrier != nullptr)
+    //     DetourAttach(&(PVOID&) o_vkCmdPipelineBarrier, hkvkCmdPipelineBarrier);
+
     DetourTransactionCommit();
-
-    if (Config::Instance()->OverlayMenu.value())
-    {
-        o_vkCreateInstance = (PFN_vkCreateInstance) KernelBaseProxy::GetProcAddress_()(vulkan1, "vkCreateInstance");
-        o_vkCreateWin32SurfaceKHR =
-            (PFN_vkCreateWin32SurfaceKHR) KernelBaseProxy::GetProcAddress_()(vulkan1, "vkCreateWin32SurfaceKHR");
-
-        DetourTransactionBegin();
-        DetourUpdateThread(GetCurrentThread());
-
-        if (o_vkCreateInstance != nullptr)
-            DetourAttach(&(PVOID&) o_vkCreateInstance, hkvkCreateInstance);
-
-        if (o_vkCreateWin32SurfaceKHR != nullptr)
-            DetourAttach(&(PVOID&) o_vkCreateWin32SurfaceKHR, hkvkCreateWin32SurfaceKHR);
-
-        DetourTransactionCommit();
-    }
 }
 
 void VulkanHooks::Unhook()
@@ -340,8 +416,8 @@ void VulkanHooks::Unhook()
     if (o_vkCreateWin32SurfaceKHR != nullptr)
         DetourDetach(&(PVOID&) o_vkCreateWin32SurfaceKHR, hkvkCreateWin32SurfaceKHR);
 
-    if (o_vkCmdPipelineBarrier != nullptr)
-        DetourDetach(&(PVOID&) o_vkCmdPipelineBarrier, hkvkCmdPipelineBarrier);
+    // if (o_vkCmdPipelineBarrier != nullptr)
+    //     DetourDetach(&(PVOID&) o_vkCmdPipelineBarrier, hkvkCmdPipelineBarrier);
 
     DetourTransactionCommit();
 }

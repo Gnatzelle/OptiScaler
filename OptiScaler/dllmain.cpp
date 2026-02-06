@@ -30,7 +30,7 @@
 #include "fsr4/FSR4Upgrade.h"
 #include <fsr4/FSR4ModelSelection.h>
 
-#include "spoofing/Vulkan_Spoofing.h"
+// #include "spoofing/Vulkan_Spoofing.h"
 
 #include <hooks/Dxgi_Hooks.h>
 #include <hooks/D3D11_Hooks.h>
@@ -853,9 +853,9 @@ static void CheckWorkingMode()
                 if (!State::Instance().isRunningOnDXVK && !State::Instance().isRunningOnLinux)
                     LOG_DEBUG("vulkan-1.dll already in memory");
 
-                VulkanSpoofing::HookForVulkanSpoofing(vulkanModule);
-                VulkanSpoofing::HookForVulkanExtensionSpoofing(vulkanModule);
-                VulkanSpoofing::HookForVulkanVRAMSpoofing(vulkanModule);
+                // VulkanSpoofing::HookForVulkanSpoofing(vulkanModule);
+                // VulkanSpoofing::HookForVulkanExtensionSpoofing(vulkanModule);
+                // VulkanSpoofing::HookForVulkanVRAMSpoofing(vulkanModule);
 
                 VulkanHooks::Hook(vulkanModule);
             }

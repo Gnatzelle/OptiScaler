@@ -8,15 +8,18 @@
 #include <vulkan/vulkan_win32.h>
 #endif
 
-// #define VULKAN_DEBUG_LAYER
-
 class VulkanSpoofing
 {
   private:
-    static PFN_vkVoidFunction hkvkGetDeviceProcAddr(VkDevice device, const char* pName);
-    static PFN_vkVoidFunction hkvkGetInstanceProcAddr(VkInstance instance, const char* pName);
-
   public:
+    static VkResult hkvkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo* pCreateInfo,
+                                     const VkAllocationCallbacks* pAllocator, VkDevice* pDevice);
+    static VkResult hkvkCreateInstance(VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator,
+                                       VkInstance* pInstance);
+
+    static PFN_vkVoidFunction hkvkGetDeviceProcAddr(const PFN_vkVoidFunction orgFunc, const char* pName);
+    static PFN_vkVoidFunction hkvkGetInstanceProcAddr(const PFN_vkVoidFunction orgFunc, const char* pName);
+
     static void HookForVulkanSpoofing(HMODULE vulkanModule);
     static void HookForVulkanExtensionSpoofing(HMODULE vulkanModule);
     static void HookForVulkanVRAMSpoofing(HMODULE vulkanModule);

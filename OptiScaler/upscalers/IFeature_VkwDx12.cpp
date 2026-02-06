@@ -833,7 +833,11 @@ bool IFeature_VkwDx12::CopyTextureFromVkToDx12(VkCommandBuffer InCmdBuffer, NVSD
                 dstViewInfo.image = OutResource->VkSharedImage;
                 dstViewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
                 dstViewInfo.format = VK_FORMAT_R32_SFLOAT;
-                dstViewInfo.subresourceRange = InParam->Resource.ImageViewInfo.SubresourceRange;
+                dstViewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+                dstViewInfo.subresourceRange.baseMipLevel = 0;
+                dstViewInfo.subresourceRange.levelCount = 1;
+                dstViewInfo.subresourceRange.baseArrayLayer = 0;
+                dstViewInfo.subresourceRange.layerCount = 1;
 
                 if (vkCreateImageView(VulkanDevice, &dstViewInfo, nullptr, &OutResource->VkSharedImageView) !=
                     VK_SUCCESS)

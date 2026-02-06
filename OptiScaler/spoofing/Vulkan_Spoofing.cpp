@@ -21,8 +21,6 @@ typedef struct VkDummyProps
     void* pNext;
 } VkDummyProps;
 
-static PFN_vkCreateDevice o_vkCreateDevice = nullptr;
-static PFN_vkCreateInstance o_vkCreateInstance = nullptr;
 static PFN_vkGetPhysicalDeviceProperties o_vkGetPhysicalDeviceProperties = nullptr;
 static PFN_vkGetPhysicalDeviceProperties2 o_vkGetPhysicalDeviceProperties2 = nullptr;
 static PFN_vkGetPhysicalDeviceProperties2KHR o_vkGetPhysicalDeviceProperties2KHR = nullptr;
@@ -31,8 +29,6 @@ static PFN_vkGetPhysicalDeviceMemoryProperties2 o_vkGetPhysicalDeviceMemoryPrope
 static PFN_vkGetPhysicalDeviceMemoryProperties2KHR o_vkGetPhysicalDeviceMemoryProperties2KHR = nullptr;
 static PFN_vkEnumerateDeviceExtensionProperties o_vkEnumerateDeviceExtensionProperties = nullptr;
 static PFN_vkEnumerateInstanceExtensionProperties o_vkEnumerateInstanceExtensionProperties = nullptr;
-static PFN_vkGetInstanceProcAddr o_vkGetInstanceProcAddr = nullptr;
-static PFN_vkGetDeviceProcAddr o_vkGetDeviceProcAddr = nullptr;
 
 static uint32_t vkEnumerateInstanceExtensionPropertiesCount = 0;
 static uint32_t vkEnumerateDeviceExtensionPropertiesCount = 0;
@@ -258,13 +254,14 @@ inline static VKAPI_ATTR VkBool32 VKAPI_CALL VulkanDebugCallback(
     return VK_FALSE; // return VK_TRUE to abort calls that triggered validation errors
 }
 
-inline static VkResult hkvkCreateInstance(VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator,
-                                          VkInstance* pInstance)
+VkResult VulkanSpoofing::hkvkCreateInstance(VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator,
+                                            VkInstance* pInstance)
 {
     if (pCreateInfo->pApplicationInfo->pApplicationName != nullptr)
         LOG_DEBUG("ApplicationName: {}", pCreateInfo->pApplicationInfo->pApplicationName);
 
-    std::vector<const char*> newExtensionList;
+    static std::vector<const char*> newExtensionList;
+    newExtensionList.clear();
 
     LOG_DEBUG("Extensions ({}):", pCreateInfo->enabledExtensionCount);
     for (size_t i = 0; i < pCreateInfo->enabledExtensionCount; i++)
@@ -346,43 +343,16 @@ inline static VkResult hkvkCreateInstance(VkInstanceCreateInfo* pCreateInfo, con
     pCreateInfo->enabledExtensionCount = static_cast<uint32_t>(newExtensionList.size());
     pCreateInfo->ppEnabledExtensionNames = newExtensionList.data();
 
-    // Skip spoofing for Intel Arc
-    VkResult result;
-    {
-        ScopedSkipSpoofing skipSpoofing {};
-        result = o_vkCreateInstance(pCreateInfo, pAllocator, pInstance);
-    }
-
-    LOG_DEBUG("o_vkCreateInstance result: {:X}", (INT) result);
-
-    if (result == VK_SUCCESS)
-    {
-        State::Instance().VulkanInstance = *pInstance;
-
-#ifdef VULKAN_DEBUG_LAYER
-        auto address = vkGetInstanceProcAddr(State::Instance().VulkanInstance, "vkCreateDebugUtilsMessengerEXT");
-        auto vkCreateDebugUtilsMessengerEXT = (PFN_vkCreateDebugUtilsMessengerEXT) address;
-        VkDebugUtilsMessengerEXT debugMessenger;
-        vkCreateDebugUtilsMessengerEXT(State::Instance().VulkanInstance, &debugCreateInfo, nullptr, &debugMessenger);
-#endif
-    }
-
-    auto head = (VkBaseInStructure*) pCreateInfo;
-    while (head->pNext != nullptr)
-    {
-        head = (VkBaseInStructure*) head->pNext;
-        LOG_DEBUG("o_vkCreateInstance type: {:X}", (UINT) head->sType);
-    }
-
-    return result;
+    return VK_SUCCESS;
 }
 
-inline static VkResult hkvkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo* pCreateInfo,
-                                        const VkAllocationCallbacks* pAllocator, VkDevice* pDevice)
+VkResult VulkanSpoofing::hkvkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo* pCreateInfo,
+                                          const VkAllocationCallbacks* pAllocator, VkDevice* pDevice)
 {
     LOG_FUNC();
 
-    std::vector<const char*> newExtensionList;
+    static std::vector<const char*> newExtensionList;
+    newExtensionList.clear();
 
     LOG_DEBUG("Checking extensions and removing Streamline ones");
     for (size_t i = 0; i < pCreateInfo->enabledExtensionCount; i++)
@@ -540,13 +510,7 @@ inline static VkResult hkvkCreateDevice(VkPhysicalDevice physicalDevice, VkDevic
     for (size_t i = 0; i < pCreateInfo->enabledExtensionCount; i++)
         LOG_DEBUG("  {0}", pCreateInfo->ppEnabledExtensionNames[i]);
 
-    // Skip spoofing for Intel Arc
-    ScopedSkipSpoofing skipSpoofing {};
-    auto result = o_vkCreateDevice(physicalDevice, pCreateInfo, pAllocator, pDevice);
-
-    LOG_FUNC_RESULT(result);
-
-    return result;
+    return VK_SUCCESS;
 }
 
 inline static VkResult hkvkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, const char* pLayerName,
@@ -607,28 +571,24 @@ inline static VkResult hkvkEnumerateDeviceExtensionProperties(VkPhysicalDevice p
             VkExtensionProperties bda { VK_EXT_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME,
                                         VK_EXT_BUFFER_DEVICE_ADDRESS_SPEC_VERSION };
             memcpy(&pProperties[*pPropertyCount - 5], &bda, sizeof(VkExtensionProperties));
-
-            if (!vkEnumerateDeviceExtensionPropertiesListed)
-            {
-                vkEnumerateDeviceExtensionPropertiesListed = true;
-
-                LOG_DEBUG("Extensions returned:");
-                for (uint32_t i = 0; i < *pPropertyCount; i++)
-                {
-                    LOG_DEBUG("  {}", pProperties[i].extensionName);
-
-                    if (i < (*pPropertyCount - 5))
-                        vkDeviceExtensions.insert_or_assign(std::string(pProperties[i].extensionName), true);
-                }
-            }
-            else
-            {
-                LOG_DEBUG("Modified extension list returned");
-            }
         }
         else
         {
             LOG_DEBUG("Not adding any extensions!");
+        }
+    }
+
+    if (!vkEnumerateDeviceExtensionPropertiesListed && count != 0)
+    {
+        vkEnumerateDeviceExtensionPropertiesListed = true;
+
+        LOG_DEBUG("Extensions returned:");
+        for (uint32_t i = 0; i < *pPropertyCount; i++)
+        {
+            LOG_DEBUG("  {}", pProperties[i].extensionName);
+
+            if (i < (*pPropertyCount - 5))
+                vkDeviceExtensions.insert_or_assign(std::string(pProperties[i].extensionName), true);
         }
     }
 
@@ -664,23 +624,19 @@ inline static VkResult hkvkEnumerateInstanceExtensionProperties(const char* pLay
 
             return result;
         }
+    }
 
-        if (pPropertyCount != nullptr && pProperties != nullptr)
+    if (pPropertyCount != nullptr && pProperties != nullptr && count != 0)
+    {
+        if (!vkEnumerateInstanceExtensionPropertiesListed)
         {
-            if (!vkEnumerateInstanceExtensionPropertiesListed)
-            {
-                vkEnumerateInstanceExtensionPropertiesListed = true;
+            vkEnumerateInstanceExtensionPropertiesListed = true;
 
-                LOG_DEBUG("Extensions returned:");
-                for (size_t i = 0; i < *pPropertyCount; i++)
-                {
-                    LOG_DEBUG("  {}", pProperties[i].extensionName);
-                    vkInstanceExtensions.insert_or_assign(std::string(pProperties[i].extensionName), true);
-                }
-            }
-            else
+            LOG_DEBUG("Extensions returned:");
+            for (size_t i = 0; i < *pPropertyCount; i++)
             {
-                LOG_DEBUG("Modified extension list returned");
+                LOG_DEBUG("  {}", pProperties[i].extensionName);
+                vkInstanceExtensions.insert_or_assign(std::string(pProperties[i].extensionName), true);
             }
         }
     }
@@ -690,16 +646,13 @@ inline static VkResult hkvkEnumerateInstanceExtensionProperties(const char* pLay
     return result;
 }
 
-PFN_vkVoidFunction VulkanSpoofing::hkvkGetInstanceProcAddr(VkInstance instance, const char* pName)
+PFN_vkVoidFunction VulkanSpoofing::hkvkGetInstanceProcAddr(const PFN_vkVoidFunction orgFunc, const char* pName)
 {
-    auto orgFunc = o_vkGetInstanceProcAddr(instance, pName);
+    auto procName = std::string(pName);
 
     auto result = Vulkan_wDx12::GetInstanceProcAddr(orgFunc, pName);
-
     if (result != VK_NULL_HANDLE)
         return result;
-
-    auto procName = std::string(pName);
 
     if (Config::Instance()->VulkanSpoofing.value_or_default())
     {
@@ -718,17 +671,6 @@ PFN_vkVoidFunction VulkanSpoofing::hkvkGetInstanceProcAddr(VkInstance instance, 
             LOG_DEBUG("vkGetPhysicalDeviceProperties2KHR");
             return (PFN_vkVoidFunction) hkvkGetPhysicalDeviceProperties2KHR;
         }
-    }
-
-    if (procName == std::string("vkCreateInstance"))
-    {
-        LOG_DEBUG("vkCreateInstance");
-        return (PFN_vkVoidFunction) hkvkCreateInstance;
-    }
-    else if (procName == std::string("vkCreateDevice"))
-    {
-        LOG_DEBUG("vkCreateDevice");
-        return (PFN_vkVoidFunction) hkvkCreateDevice;
     }
 
     if (Config::Instance()->VulkanExtensionSpoofing.value_or_default())
@@ -767,27 +709,13 @@ PFN_vkVoidFunction VulkanSpoofing::hkvkGetInstanceProcAddr(VkInstance instance, 
     return orgFunc;
 }
 
-PFN_vkVoidFunction VulkanSpoofing::hkvkGetDeviceProcAddr(VkDevice device, const char* pName)
+PFN_vkVoidFunction VulkanSpoofing::hkvkGetDeviceProcAddr(const PFN_vkVoidFunction orgFunc, const char* pName)
 {
-    auto orgFunc = o_vkGetDeviceProcAddr(device, pName);
-
-    auto result = Vulkan_wDx12::GetDeviceProcAddr(orgFunc, pName);
-
-    if (result != VK_NULL_HANDLE)
-        return result;
-
     auto procName = std::string(pName);
 
-    if (procName == std::string("vkCreateInstance"))
-    {
-        LOG_DEBUG("vkCreateInstance");
-        return (PFN_vkVoidFunction) hkvkCreateInstance;
-    }
-    else if (procName == std::string("vkCreateDevice"))
-    {
-        LOG_DEBUG("vkCreateDevice");
-        return (PFN_vkVoidFunction) hkvkCreateDevice;
-    }
+    auto result = Vulkan_wDx12::GetDeviceProcAddr(orgFunc, pName);
+    if (result != VK_NULL_HANDLE)
+        return result;
 
     if (Config::Instance()->VulkanSpoofing.value_or_default())
     {
@@ -847,28 +775,6 @@ PFN_vkVoidFunction VulkanSpoofing::hkvkGetDeviceProcAddr(VkDevice device, const 
 
 void VulkanSpoofing::HookForVulkanSpoofing(HMODULE vulkanModule)
 {
-    if (o_vkGetInstanceProcAddr == nullptr)
-    {
-        FARPROC address = nullptr;
-
-        address = KernelBaseProxy::GetProcAddress_()(vulkanModule, "vkGetInstanceProcAddr");
-        o_vkGetInstanceProcAddr = (PFN_vkGetInstanceProcAddr) address;
-
-        address = KernelBaseProxy::GetProcAddress_()(vulkanModule, "vkGetDeviceProcAddr");
-        o_vkGetDeviceProcAddr = (PFN_vkGetDeviceProcAddr) address;
-
-        DetourTransactionBegin();
-        DetourUpdateThread(GetCurrentThread());
-
-        if (o_vkGetInstanceProcAddr)
-            DetourAttach(&(PVOID&) o_vkGetInstanceProcAddr, hkvkGetInstanceProcAddr);
-
-        if (o_vkGetDeviceProcAddr)
-            DetourAttach(&(PVOID&) o_vkGetDeviceProcAddr, hkvkGetDeviceProcAddr);
-
-        DetourTransactionCommit();
-    }
-
     Vulkan_wDx12::Hook(vulkanModule);
 
     if (!State::Instance().isWorkingAsNvngx && Config::Instance()->VulkanSpoofing.value_or_default() &&
@@ -908,15 +814,9 @@ void VulkanSpoofing::HookForVulkanSpoofing(HMODULE vulkanModule)
 
 void VulkanSpoofing::HookForVulkanExtensionSpoofing(HMODULE vulkanModule)
 {
-    if (!State::Instance().isWorkingAsNvngx && o_vkCreateDevice == nullptr)
+    if (!State::Instance().isWorkingAsNvngx && o_vkEnumerateInstanceExtensionProperties == nullptr)
     {
         FARPROC address = nullptr;
-
-        address = KernelBaseProxy::GetProcAddress_()(vulkanModule, "vkCreateDevice");
-        o_vkCreateDevice = (PFN_vkCreateDevice) address;
-
-        address = KernelBaseProxy::GetProcAddress_()(vulkanModule, "vkCreateInstance");
-        o_vkCreateInstance = (PFN_vkCreateInstance) address;
 
         if (Config::Instance()->VulkanExtensionSpoofing.value_or_default())
         {
@@ -927,19 +827,12 @@ void VulkanSpoofing::HookForVulkanExtensionSpoofing(HMODULE vulkanModule)
             o_vkEnumerateDeviceExtensionProperties = (PFN_vkEnumerateDeviceExtensionProperties) address;
         }
 
-        if (o_vkCreateDevice != nullptr || o_vkCreateInstance != nullptr ||
-            o_vkEnumerateInstanceExtensionProperties != nullptr || o_vkEnumerateDeviceExtensionProperties != nullptr)
+        if (o_vkEnumerateInstanceExtensionProperties != nullptr || o_vkEnumerateDeviceExtensionProperties != nullptr)
         {
             LOG_INFO("Attaching Vulkan extensions spoofing hooks");
 
             DetourTransactionBegin();
             DetourUpdateThread(GetCurrentThread());
-
-            if (o_vkCreateDevice)
-                DetourAttach(&(PVOID&) o_vkCreateDevice, hkvkCreateDevice);
-
-            if (o_vkCreateInstance)
-                DetourAttach(&(PVOID&) o_vkCreateInstance, hkvkCreateInstance);
 
             if (o_vkEnumerateInstanceExtensionProperties)
                 DetourAttach(&(PVOID&) o_vkEnumerateInstanceExtensionProperties,

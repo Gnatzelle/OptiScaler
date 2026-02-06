@@ -15,6 +15,7 @@ class Vulkan_wDx12
   private:
     static VkResult hk_vkQueueSubmit(VkQueue queue, uint32_t submitCount, VkSubmitInfo* pSubmits, VkFence fence);
     static VkResult hk_vkQueueSubmit2(VkQueue queue, uint32_t submitCount, VkSubmitInfo2* pSubmits, VkFence fence);
+    static VkResult hk_vkQueueSubmit2KHR(VkQueue queue, uint32_t submitCount, VkSubmitInfo2* pSubmits, VkFence fence);
     static VkResult hk_vkBeginCommandBuffer(VkCommandBuffer commandBuffer, const VkCommandBufferBeginInfo* pBeginInfo);
     static VkResult hk_vkEndCommandBuffer(VkCommandBuffer commandBuffer);
     static VkResult hk_vkResetCommandBuffer(VkCommandBuffer commandBuffer, VkCommandBufferResetFlags flags);
@@ -28,7 +29,7 @@ class Vulkan_wDx12
 
     static void hk_vkCmdExecuteCommands(VkCommandBuffer commandBuffer, uint32_t commandBufferCount,
                                         const VkCommandBuffer* pCommandBuffers);
-    static PFN_vkVoidFunction GetAddress(PFN_vkVoidFunction original, const char* pName);
+    static PFN_vkVoidFunction GetAddress(const PFN_vkVoidFunction original, const char* pName);
     static void InitializeStateTrackerFunctionTable();
 
 #pragma region Command Buffer Hooks
@@ -597,7 +598,7 @@ class Vulkan_wDx12
 
     static void Hook(HMODULE vulkanModule);
     static void Unhook();
-    static PFN_vkVoidFunction GetDeviceProcAddr(PFN_vkVoidFunction original, const char* pName);
-    static PFN_vkVoidFunction GetInstanceProcAddr(PFN_vkVoidFunction original, const char* pName);
+    static PFN_vkVoidFunction GetDeviceProcAddr(const PFN_vkVoidFunction original, const char* pName);
+    static PFN_vkVoidFunction GetInstanceProcAddr(const PFN_vkVoidFunction original, const char* pName);
     static void EndCmdBuffer(VkCommandBuffer commandBuffer);
 };
