@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "wrapped_swapchain.h"
 
 #include <Util.h>

@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "IFeature_Dx11wDx12.h"
 
 #include <Config.h>

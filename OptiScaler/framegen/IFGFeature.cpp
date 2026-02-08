@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "IFGFeature.h"
-
 #include <Config.h>
 
 int IFGFeature::GetIndex() { return (_frameCount % BUFFER_COUNT); }

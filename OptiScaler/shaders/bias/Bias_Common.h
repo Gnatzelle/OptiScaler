@@ -1,6 +1,6 @@
 #pragma once
 
-#include <pch.h>
+#include "SysUtils.h"
 #include <d3dcompiler.h>
 
 static std::string biasShader = R"(

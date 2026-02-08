@@ -1,9 +1,7 @@
 #pragma once
-
+#include "SysUtils.h"
 #include <framegen/IFGFeature_Dx12.h>
-
 #include <proxies/FfxApi_Proxy.h>
-
 #include <shaders/format_transfer/FT_Dx12.h>
 #include <shaders/hud_copy/HudCopy_Dx12.h>
 

@@ -1,7 +1,5 @@
 #pragma once
-
-#include <pch.h>
-
+#include "SysUtils.h"
 #include <NVNGX_Parameter.h>
 #include <upscalers/IFeature_Dx12.h>
 

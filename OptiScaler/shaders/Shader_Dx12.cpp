@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Shader_Dx12.h"
 #include <d3dx/d3dx12.h>
 

@@ -1,7 +1,5 @@
 #pragma once
-
-#include <pch.h>
-
+#include "SysUtils.h"
 #include <Util.h>
 #include <State.h>
 #include <Config.h>
@@ -161,7 +159,7 @@ class NtdllHooks
   public:
     static void Hook()
     {
-        LOG_DEBUG();
+        LOG_FUNC();
 
         if (!Config::Instance()->UseNtdllHooks.value_or_default())
             return;

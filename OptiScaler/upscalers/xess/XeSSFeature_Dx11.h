@@ -1,6 +1,6 @@
 #pragma once
 
-#include <pch.h>
+#include "SysUtils.h"
 
 #include <proxies/XeSS_Proxy.h>
 #include <upscalers/IFeature_Dx11.h>

@@ -1,7 +1,6 @@
+#include "pch.h"
 #include "DxgiFactory_Hooks.h"
-
 #include <Config.h>
-
 #include "D3D12_Hooks.h"
 
 #include <spoofing/Dxgi_Spoofing.h>
@@ -43,7 +42,7 @@ void DxgiFactoryHooks::HookToFactory(IDXGIFactory* pFactory)
     if (pFactory == nullptr)
         return;
 
-    LOG_DEBUG();
+    LOG_FUNC();
 
     IDXGIFactory* real = nullptr;
     if (!Util::CheckForRealObject(__FUNCTION__, pFactory, (IUnknown**) &real))

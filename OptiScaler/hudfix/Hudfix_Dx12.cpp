@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Hudfix_Dx12.h"
 
 #include <Util.h>

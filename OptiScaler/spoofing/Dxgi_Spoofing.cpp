@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Dxgi_Spoofing.h"
 
 #include <Config.h>

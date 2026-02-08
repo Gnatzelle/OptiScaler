@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "XeSS_Common.h"
-
 #include "XeSS_Base.h"
 
 #include <proxies/XeSS_Proxy.h>

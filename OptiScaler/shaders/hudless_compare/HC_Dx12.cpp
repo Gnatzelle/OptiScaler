@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "HC_Dx12.h"
 
 #include "HC_Common.h"

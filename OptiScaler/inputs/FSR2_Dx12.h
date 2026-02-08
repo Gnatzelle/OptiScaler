@@ -1,6 +1,5 @@
 #pragma once
-
-#include "pch.h"
+#include "SysUtils.h"
 
 void HookFSR2ExeInputs();
 void HookFSR2Inputs(HMODULE module);

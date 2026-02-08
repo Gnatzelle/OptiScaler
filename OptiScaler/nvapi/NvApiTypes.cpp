@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "NvApiTypes.h"
 
 #include <nvapi_interface.h>

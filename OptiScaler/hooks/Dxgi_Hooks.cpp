@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Dxgi_Hooks.h"
 
 #include "DxgiFactory_Hooks.h"

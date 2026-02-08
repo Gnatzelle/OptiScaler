@@ -1,6 +1,5 @@
-#include "DLSSFeature_Dx11.h"
-
 #include <pch.h>
+#include "DLSSFeature_Dx11.h"
 #include <Config.h>
 
 #include <dxgi.h>

@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "FSR4ModelSelection.h"
 #include <scanner/scanner.h>
 #include <detours/detours.h>

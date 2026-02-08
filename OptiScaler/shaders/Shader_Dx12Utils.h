@@ -1,6 +1,4 @@
 #pragma once
-
-#include <pch.h>
 #include <d3dx/d3dx12.h>
 #include <vector>
 #include <stdexcept>

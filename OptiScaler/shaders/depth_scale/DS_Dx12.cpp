@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "DS_Dx12.h"
 
 #include "DS_Common.h"

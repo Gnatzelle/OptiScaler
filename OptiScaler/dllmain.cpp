@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "dllmain.h"
 
 #include "Util.h"
@@ -45,7 +46,7 @@
 static std::vector<HMODULE> _asiHandles;
 static bool _passThruMode = false;
 
-#pragma warning(disable : 4996)
+
 
 typedef const char*(CDECL* PFN_wine_get_version)(void);
 typedef void (*PFN_InitializeASI)(void);

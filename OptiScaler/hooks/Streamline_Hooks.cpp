@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Streamline_Hooks.h"
 
 #include <json.hpp>

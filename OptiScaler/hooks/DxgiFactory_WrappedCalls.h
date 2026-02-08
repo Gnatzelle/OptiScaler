@@ -1,9 +1,6 @@
 #pragma once
-
-#include <pch.h>
-
+#include "SysUtils.h"
 #include <wrapped/wrapped_factory.h>
-
 #include <dxgi1_6.h>
 
 class DxgiFactoryWrappedCalls

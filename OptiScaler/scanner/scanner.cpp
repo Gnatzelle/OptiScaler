@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "scanner.h"
-
 #include <proxies/KernelBase_Proxy.h>
 
 struct SectionRange

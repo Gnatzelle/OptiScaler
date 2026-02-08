@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "ResTrack_dx12.h"
 
 #include <Config.h>
@@ -1719,7 +1720,7 @@ void ResTrack_Dx12::hkDrawIndexedInstanced(ID3D12GraphicsCommandList* This, UINT
 
 void ResTrack_Dx12::hkExecuteBundle(ID3D12GraphicsCommandList* This, ID3D12GraphicsCommandList* pCommandList)
 {
-    LOG_WARN();
+    LOG_FUNC();
 
     IFGFeature_Dx12* fg = State::Instance().currentFG;
     auto index = fg != nullptr ? fg->GetIndex() : 0;

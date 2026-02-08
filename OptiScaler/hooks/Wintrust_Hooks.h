@@ -1,7 +1,5 @@
 #pragma once
-
-#include "pch.h"
-
+#include "SysUtils.h"
 #include "Config.h"
 
 #include "detours/detours.h"

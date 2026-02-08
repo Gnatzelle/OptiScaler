@@ -1,6 +1,6 @@
 #pragma once
 
-#include <pch.h>
+#include "SysUtils.h"
 
 #include <proxies/Dxgi_Proxy.h>
 #include <proxies/KernelBase_Proxy.h>

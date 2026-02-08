@@ -1,5 +1,4 @@
 #pragma once
-
-#include "pch.h"
+#include "SysUtils.h"
 
 void HookFSR2VkExeInputs();

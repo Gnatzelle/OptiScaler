@@ -1,7 +1,5 @@
 #pragma once
-
-#include <pch.h>
-
+#include "SysUtils.h"
 #include <dxgi1_6.h>
 
 class FGHooks

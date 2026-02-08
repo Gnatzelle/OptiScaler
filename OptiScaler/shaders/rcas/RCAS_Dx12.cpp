@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "RCAS_Dx12.h"
 
 #include "precompile/RCAS_Shader.h"

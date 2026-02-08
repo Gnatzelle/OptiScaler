@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "FeatureProvider_Dx11.h"
 
 #include "Util.h"

@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "XeSSFeature_Vk.h"
 #include <nvsdk_ngx_vk.h>
 

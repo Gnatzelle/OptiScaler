@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "NvApiHooks.h"
 #include <NvApiDriverSettings.h>
 

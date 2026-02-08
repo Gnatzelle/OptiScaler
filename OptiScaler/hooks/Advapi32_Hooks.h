@@ -1,9 +1,6 @@
 #pragma once
-
-#include "pch.h"
-
+#include "SysUtils.h"
 #include "Config.h"
-
 #include "detours/detours.h"
 
 const HKEY signatureMark = (HKEY) 0xFFFFFFFF13372137;

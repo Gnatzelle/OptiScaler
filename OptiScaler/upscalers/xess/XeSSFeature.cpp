@@ -1,7 +1,6 @@
 #pragma once
-#include "XeSSFeature.h"
-
 #include <pch.h>
+#include "XeSSFeature.h"
 #include <Config.h>
 #include <Util.h>
 

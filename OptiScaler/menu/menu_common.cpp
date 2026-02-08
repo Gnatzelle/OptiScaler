@@ -1,4 +1,5 @@
-﻿#include "menu_common.h"
+﻿#include "pch.h"
+#include "menu_common.h"
 
 #include "font/Hack_Compressed.h"
 

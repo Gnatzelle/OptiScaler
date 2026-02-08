@@ -1,6 +1,5 @@
 #pragma once
-
-#include <pch.h>
+#include "SysUtils.h"
 
 #include <proxies/Kernel32_Proxy.h>
 #include <proxies/KernelBase_Proxy.h>

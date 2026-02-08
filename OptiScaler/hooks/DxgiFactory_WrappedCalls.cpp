@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "DxgiFactory_WrappedCalls.h"
 
 #include "FG_Hooks.h"

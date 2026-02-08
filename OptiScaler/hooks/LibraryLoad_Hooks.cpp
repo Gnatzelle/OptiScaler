@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "LibraryLoad_Hooks.h"
 
 #include <Config.h>
@@ -566,7 +567,7 @@ std::optional<NTSTATUS> LibraryLoadHooks::FreeLibrary(PVOID lpLibrary)
 
 HMODULE LibraryLoadHooks::LoadNvApi()
 {
-    LOG_DEBUG();
+    LOG_FUNC();
 
     HMODULE nvapi = nullptr;
 

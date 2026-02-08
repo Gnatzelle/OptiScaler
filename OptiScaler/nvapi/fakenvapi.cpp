@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "fakenvapi.h"
 #include "proxies/FfxApi_Proxy.h"
 

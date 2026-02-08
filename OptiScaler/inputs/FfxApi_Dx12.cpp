@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "FfxApi_Dx12.h"
 
 #include "Util.h"

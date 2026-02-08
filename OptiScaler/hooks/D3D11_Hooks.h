@@ -1,6 +1,5 @@
 #pragma once
-
-#include <pch.h>
+#include "SysUtils.h"
 
 class D3D11Hooks
 {

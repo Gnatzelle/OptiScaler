@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "HudCopy_Dx12.h"
-
 #include "HudCopy_Common.h"
 
 #include <Config.h>

@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "FSR2_Dx11.h"
 
 #include "Util.h"

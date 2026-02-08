@@ -1,6 +1,5 @@
-#include "IFeature_Dx12.h"
 #include <pch.h>
-
+#include "IFeature_Dx12.h"
 #include "State.h"
 
 void IFeature_Dx12::ResourceBarrier(ID3D12GraphicsCommandList* InCommandList, ID3D12Resource* InResource,

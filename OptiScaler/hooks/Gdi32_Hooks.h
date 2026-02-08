@@ -1,9 +1,6 @@
 #pragma once
-
-#include "pch.h"
-
+#include "SysUtils.h"
 #include "Config.h"
-
 #include "detours/detours.h"
 
 typedef decltype(&D3DKMTQueryAdapterInfo) PFN_D3DKMTQueryAdapterInfo;

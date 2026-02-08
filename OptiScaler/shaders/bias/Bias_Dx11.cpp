@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Bias_Dx11.h"
 
 #include "Bias_Common.h"

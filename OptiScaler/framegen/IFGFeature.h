@@ -1,8 +1,6 @@
 #pragma once
-#include <pch.h>
-
+#include "SysUtils.h"
 #include <OwnedMutex.h>
-
 #include <dxgi1_6.h>
 #include <flag-set-cpp/flag_set.hpp>
 

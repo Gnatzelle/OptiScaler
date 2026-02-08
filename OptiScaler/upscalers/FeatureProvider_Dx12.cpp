@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "FeatureProvider_Dx12.h"
 
 #include "Util.h"

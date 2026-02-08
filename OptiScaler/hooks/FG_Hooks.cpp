@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "FG_Hooks.h"
-
 #include <Config.h>
 
 #include <framegen/ffx/FSRFG_Dx12.h>

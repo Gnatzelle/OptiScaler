@@ -1,5 +1,6 @@
-#include "FSRFG_Dx12.h"
+#include "pch.h"
 
+#include "FSRFG_Dx12.h"
 #include <State.h>
 
 #include <hudfix/Hudfix_Dx12.h>
@@ -281,7 +282,7 @@ static void fgLogCallback(uint32_t type, const wchar_t* message)
 
 bool FSRFG_Dx12::Dispatch()
 {
-    LOG_DEBUG();
+    LOG_FUNC();
 
     if (_fgContext == nullptr)
     {

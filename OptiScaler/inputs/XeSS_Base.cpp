@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "XeSS_Base.h"
 
 std::unordered_map<xess_context_handle_t, NVSDK_NGX_Parameter*> _nvParams;

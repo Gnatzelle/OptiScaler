@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "UpscalerTime_Vk.h"
 
 #include <State.h>

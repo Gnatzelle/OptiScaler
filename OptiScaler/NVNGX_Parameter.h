@@ -1,5 +1,5 @@
 #pragma once
-#include "pch.h"
+#include "SysUtils.h"
 
 #include "Config.h"
 
@@ -18,6 +18,10 @@
 #define LOG_PARAM(msg, ...)
 #endif
 
+/// @brief Calculates the resolution scaling ratio override based on the provided quality level and current
+/// configuration.
+/// @param input The performance quality value (e.g. Quality, Balanced, Performance).
+/// @return An optional float containing the ratio if an override applies.
 inline static std::optional<float> GetQualityOverrideRatio(const NVSDK_NGX_PerfQuality_Value input)
 {
     std::optional<float> output;
@@ -81,6 +85,10 @@ inline static std::optional<float> GetQualityOverrideRatio(const NVSDK_NGX_PerfQ
     return output;
 }
 
+/// @brief Callback invoked by the game/SDK to calculate optimal DLSS render settings (resolution, scaling) based on
+/// inputs.
+/// @param InParams The parameter object containing input width/height and output destinations.
+/// @return Success or Failure result code.
 inline static NVSDK_NGX_Result NVSDK_CONV NVSDK_NGX_DLSS_GetOptimalSettingsCallback(NVSDK_NGX_Parameter* InParams)
 {
     unsigned int Width;
@@ -236,6 +244,9 @@ inline static NVSDK_NGX_Result NVSDK_CONV NVSDK_NGX_DLSS_GetOptimalSettingsCallb
     return NVSDK_NGX_Result_Success;
 }
 
+/// @brief Callback invoked by the game/SDK to calculate optimal DLSS-D (Ray Reconstruction) settings.
+/// @param InParams The parameter object containing input width/height and output destinations.
+/// @return Success or Failure result code.
 inline static NVSDK_NGX_Result NVSDK_CONV NVSDK_NGX_DLSSD_GetOptimalSettingsCallback(NVSDK_NGX_Parameter* InParams)
 {
     unsigned int Width;
@@ -245,6 +256,7 @@ inline static NVSDK_NGX_Result NVSDK_CONV NVSDK_NGX_DLSSD_GetOptimalSettingsCall
     float scalingRatio = 0.0f;
     int PerfQualityValue;
 
+    // If any of these params are uninitialized, return fail
     if (InParams->Get(NVSDK_NGX_Parameter_Width, &Width) != NVSDK_NGX_Result_Success ||
         InParams->Get(NVSDK_NGX_Parameter_Height, &Height) != NVSDK_NGX_Result_Success ||
         InParams->Get(NVSDK_NGX_Parameter_PerfQualityValue, &PerfQualityValue) != NVSDK_NGX_Result_Success)
@@ -377,6 +389,7 @@ inline static NVSDK_NGX_Result NVSDK_CONV NVSDK_NGX_DLSSD_GetOptimalSettingsCall
     return NVSDK_NGX_Result_Success;
 }
 
+/// @brief Callback used to retrieve statistics for DLSS.
 inline static NVSDK_NGX_Result NVSDK_CONV NVSDK_NGX_DLSS_GetStatsCallback(NVSDK_NGX_Parameter* InParams)
 {
     LOG_DEBUG("NVSDK_NGX_DLSS_GetStatsCallback");
@@ -394,6 +407,8 @@ inline static NVSDK_NGX_Result NVSDK_CONV NVSDK_NGX_DLSS_GetStatsCallback(NVSDK_
     return NVSDK_NGX_Result_Success;
 }
 
+/// @brief Initializes an NGX parameter object with supported feature flags (DLSS, FrameGen), version info, and default
+/// values.
 inline static void InitNGXParameters(NVSDK_NGX_Parameter* InParams)
 {
     InParams->Set(NVSDK_NGX_Parameter_SuperSampling_Available, 1);
@@ -517,6 +532,7 @@ inline static void InitNGXParameters(NVSDK_NGX_Parameter* InParams)
     //    InParams->Set("DLSSG.MultiFrameCountMax", 1);
 }
 
+/// @brief Internal variant structure holding the value of a single NGX parameter.
 struct Parameter
 {
     template <typename T> void operator=(T value)
@@ -648,6 +664,8 @@ struct Parameter
     size_t key = 0;
 };
 
+/// @brief Implementation of the NVSDK_NGX_Parameter interface, providing thread-safe storage and retrieval of NGX
+/// parameters.
 struct NVNGX_Parameters : public NVSDK_NGX_Parameter
 {
     std::string Name;
@@ -963,6 +981,7 @@ struct NVNGX_Parameters : public NVSDK_NGX_Parameter
     }
 };
 
+/// @brief Allocates and populates a new NGX param map.
 inline static NVNGX_Parameters* GetNGXParameters(std::string InName)
 {
     auto params = new NVNGX_Parameters();

@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "FT_Dx12.h"
-
 #include "FT_Common.h"
 
 #include "precompile/FT_Shader.h"

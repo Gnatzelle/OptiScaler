@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include <Config.h>
 #include <Logger.h>
 #include <resource.h>

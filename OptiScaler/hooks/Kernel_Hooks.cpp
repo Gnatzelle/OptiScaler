@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Kernel_Hooks.h"
 
 #include "Gdi32_Hooks.h"

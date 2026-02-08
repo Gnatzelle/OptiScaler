@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "menu_dx12.h"
 
 #include <d3dx/d3dx12.h>

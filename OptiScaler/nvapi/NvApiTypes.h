@@ -1,6 +1,6 @@
 #pragma once
 
-#include <pch.h>
+#include "SysUtils.h"
 #include <dxgi.h>
 #include <d3d12.h>
 #include <nvapi.h>

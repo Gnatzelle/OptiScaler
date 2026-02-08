@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "XeFG_Dx12.h"
-
 #include <hudfix/Hudfix_Dx12.h>
 #include <menu/menu_overlay_dx.h>
 #include <resource_tracking/ResTrack_dx12.h>
@@ -619,7 +619,7 @@ bool XeFG_Dx12::Shutdown()
 
 bool XeFG_Dx12::Dispatch()
 {
-    LOG_DEBUG();
+    LOG_FUNC();
 
     UINT64 willDispatchFrame = 0;
     auto fIndex = GetDispatchIndex(willDispatchFrame);

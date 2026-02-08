@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "XeSS_Vulkan.h"
 
 #include "NVNGX_Parameter.h"
@@ -397,7 +398,7 @@ xess_result_t hk_xessVKGetResourcesToDump(xess_context_handle_t hContext,
 xess_result_t hk_xessVKGetRequiredInstanceExtensions(uint32_t* instanceExtensionsCount,
                                                      const char* const** instanceExtensions, uint32_t* minVkApiVersion)
 {
-    LOG_DEBUG();
+    LOG_FUNC();
 
     ScopedSkipSpoofing skipSpoofing {};
 
@@ -411,7 +412,7 @@ xess_result_t hk_xessVKGetRequiredDeviceExtensions(VkInstance instance, VkPhysic
                                                    uint32_t* deviceExtensionsCount,
                                                    const char* const** deviceExtensions)
 {
-    LOG_DEBUG();
+    LOG_FUNC();
 
     ScopedSkipSpoofing skipSpoofing {};
 
@@ -423,7 +424,7 @@ xess_result_t hk_xessVKGetRequiredDeviceExtensions(VkInstance instance, VkPhysic
 
 xess_result_t hk_xessVKGetRequiredDeviceFeatures(VkInstance instance, VkPhysicalDevice physicalDevice, void** features)
 {
-    LOG_DEBUG();
+    LOG_FUNC();
 
     ScopedSkipSpoofing skipSpoofing {};
 

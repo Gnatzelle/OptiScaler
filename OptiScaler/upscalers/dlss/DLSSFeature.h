@@ -1,6 +1,6 @@
 #pragma once
 
-#include <pch.h>
+#include "SysUtils.h"
 #include <proxies/NVNGX_Proxy.h>
 #include <upscalers/IFeature.h>
 

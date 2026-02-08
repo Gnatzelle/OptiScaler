@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "IFGFeature_Dx12.h"
-
 #include <State.h>
 #include <Config.h>
 

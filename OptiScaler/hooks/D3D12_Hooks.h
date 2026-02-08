@@ -1,7 +1,5 @@
 #pragma once
-
-#include <pch.h>
-
+#include "SysUtils.h"
 #include <d3d12.h>
 
 class D3D12Hooks

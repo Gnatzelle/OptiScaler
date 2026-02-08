@@ -1,3 +1,4 @@
+#include <pch.h>
 #include "XeSSFeature_Dx11.h"
 
 static std::string ResultToString(xess_result_t result)

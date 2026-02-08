@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "D3D12_Hooks.h"
 
 #include <Util.h>
@@ -922,7 +923,7 @@ static void HookToDevice(ID3D12Device* InDevice)
 
 static void UnhookDevice()
 {
-    LOG_DEBUG();
+    LOG_FUNC();
 
     DetourTransactionBegin();
     DetourUpdateThread(GetCurrentThread());

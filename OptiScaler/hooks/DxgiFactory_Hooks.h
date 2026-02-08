@@ -1,9 +1,6 @@
 #pragma once
-
-#include <pch.h>
-
+#include "SysUtils.h"
 #include "FG_Hooks.h"
-
 #include <dxgi1_6.h>
 
 class DxgiFactoryHooks

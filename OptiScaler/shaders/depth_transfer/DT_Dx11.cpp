@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "DT_Dx11.h"
 
 #include "DT_Common.h"

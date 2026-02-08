@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Vulkan_Hooks.h"
 
 #include <Util.h>

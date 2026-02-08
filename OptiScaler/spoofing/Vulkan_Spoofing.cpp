@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Vulkan_Spoofing.h"
 
 #include <Config.h>

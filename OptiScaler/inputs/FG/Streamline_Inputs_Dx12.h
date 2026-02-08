@@ -1,6 +1,5 @@
 #pragma once
-
-#include <pch.h>
+#include "SysUtils.h"
 #include <sl.h>
 #include <framegen/IFGFeature_Dx12.h>
 

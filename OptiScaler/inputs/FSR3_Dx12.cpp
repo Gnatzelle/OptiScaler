@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "FSR3_Dx12.h"
 
 #include "Config.h"

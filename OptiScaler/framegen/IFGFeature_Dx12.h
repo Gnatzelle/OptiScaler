@@ -1,5 +1,5 @@
 #pragma once
-#include <pch.h>
+#include "SysUtils.h"
 #include "IFGFeature.h"
 
 #include <upscalers/IFeature.h>

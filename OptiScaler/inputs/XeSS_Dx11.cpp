@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "XeSS_Dx11.h"
 
 #include "NVNGX_Parameter.h"

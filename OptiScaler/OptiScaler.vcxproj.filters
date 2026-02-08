@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Header Files">
@@ -653,6 +653,18 @@
     <ClInclude Include="shaders\output_scaling\fsr1\ffx_fsr1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SysUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="upscalers\xess\XeSSFeature.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="upscalers\xess\XeSSFeature_Dx12.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="upscalers\IFeature_Dx11wDx12.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp">
@@ -698,17 +710,11 @@
     <ClCompile Include="upscalers\xess\XeSSFeature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="upscalers\xess\XeSSFeature.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="upscalers\xess\XeSSFeature_Dx11.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="upscalers\xess\XeSSFeature_Dx12.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="upscalers\xess\XeSSFeature_Dx12.h">
-      <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="upscalers\fsr2_212\FSR2Feature_212.cpp">
       <Filter>Source Files</Filter>
@@ -720,9 +726,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="upscalers\fsr2_212\FSR2Feature_Vk_212.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="upscalers\IFeature_Dx11wDx12.h">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="upscalers\IFeature_Dx11wDx12.cpp">
@@ -1038,6 +1041,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="shaders\output_scaling\OS_Vk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

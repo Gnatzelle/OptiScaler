@@ -1,11 +1,7 @@
 #pragma once
-
-#include "pch.h"
-
+#include "SysUtils.h"
 #include "Config.h"
-
 #include "fsr4/FSR4Upgrade.h"
-
 #include "detours/detours.h"
 #include <wincrypt.h>
 

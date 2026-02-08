@@ -1,6 +1,5 @@
 #pragma once
-#include <pch.h>
-
+#include "SysUtils.h"
 #include <shaders/format_transfer/FT_Dx12.h>
 
 #include <ankerl/unordered_dense.h>

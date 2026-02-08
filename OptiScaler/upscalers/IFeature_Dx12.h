@@ -2,7 +2,7 @@
 #include <d3d12.h>
 #include "IFeature.h"
 
-#include <pch.h>
+#include "SysUtils.h"
 #include <Util.h>
 #include <menu/menu_dx12.h>
 #include <shaders/output_scaling/OS_Dx12.h>

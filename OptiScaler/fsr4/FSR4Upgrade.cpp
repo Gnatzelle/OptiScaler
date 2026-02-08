@@ -1,6 +1,6 @@
+#include "pch.h"
 #include "FSR4Upgrade.h"
 
-#include <pch.h>
 #include <proxies/Dxgi_Proxy.h>
 #include <detours/detours.h>
 #include <scanner/scanner.h>

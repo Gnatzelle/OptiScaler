@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "Upscaler_Inputs_Dx12.h"
-
 #include <hudfix/Hudfix_Dx12.h>
 #include <resource_tracking/ResTrack_dx12.h>
 

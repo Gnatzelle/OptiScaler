@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "UpscalerTime_Dx12.h"
 
 #include <State.h>
