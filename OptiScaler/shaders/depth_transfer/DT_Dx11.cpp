@@ -2,7 +2,7 @@
 #include "DT_Dx11.h"
 
 #include "DT_Common.h"
-#include "precompile/dt_Shader_Dx11.h"
+#include "precompile/dt_dx11_Shader_Dx11.h"
 
 #include <Config.h>
 
@@ -147,7 +147,7 @@ DepthTransfer_Dx11::DepthTransfer_Dx11(std::string InName, ID3D11Device* InDevic
         Config::Instance()->OutputScalingUseFsr.value_or_default())
     {
         HRESULT hr;
-        hr = _device->CreateComputeShader(reinterpret_cast<const void*>(dt_cso), sizeof(dt_cso), nullptr,
+        hr = _device->CreateComputeShader(reinterpret_cast<const void*>(dt_dx11_cso), sizeof(dt_dx11_cso), nullptr,
                                           &_computeShader);
 
         if (FAILED(hr))
