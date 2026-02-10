@@ -6856,7 +6856,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
 
     if (procName == std::string("vkQueueSubmit"))
     {
-        LOG_DEBUG("vkQueueSubmit");
+        // LOG_DEBUG("vkQueueSubmit");
 
         if (o_vkQueueSubmit == nullptr)
             o_vkQueueSubmit = (PFN_vkQueueSubmitL) original;
@@ -6865,7 +6865,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkQueueSubmit2"))
     {
-        LOG_DEBUG("vkQueueSubmit2");
+        // LOG_DEBUG("vkQueueSubmit2");
 
         if (o_vkQueueSubmit2 == nullptr)
             o_vkQueueSubmit2 = (PFN_vkQueueSubmit2L) original;
@@ -6874,7 +6874,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkQueueSubmit2KHR"))
     {
-        LOG_DEBUG("vkQueueSubmit2KHR");
+        // LOG_DEBUG("vkQueueSubmit2KHR");
 
         if (o_vkQueueSubmit2KHR == nullptr)
             o_vkQueueSubmit2KHR = (PFN_vkQueueSubmit2L) original;
@@ -6883,7 +6883,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkBeginCommandBuffer"))
     {
-        LOG_DEBUG("vkBeginCommandBuffer");
+        // LOG_DEBUG("vkBeginCommandBuffer");
 
         if (o_vkBeginCommandBuffer == nullptr)
             o_vkBeginCommandBuffer = (PFN_vkBeginCommandBuffer) original;
@@ -6892,7 +6892,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkEndCommandBuffer"))
     {
-        LOG_DEBUG("vkEndCommandBuffer");
+        // LOG_DEBUG("vkEndCommandBuffer");
 
         if (o_vkEndCommandBuffer == nullptr)
             o_vkEndCommandBuffer = (PFN_vkEndCommandBuffer) original;
@@ -6901,7 +6901,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkResetCommandBuffer"))
     {
-        LOG_DEBUG("vkResetCommandBuffer");
+        // LOG_DEBUG("vkResetCommandBuffer");
 
         if (o_vkResetCommandBuffer == nullptr)
             o_vkResetCommandBuffer = (PFN_vkResetCommandBuffer) original;
@@ -6910,7 +6910,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdExecuteCommands"))
     {
-        LOG_DEBUG("vkCmdExecuteCommands");
+        // LOG_DEBUG("vkCmdExecuteCommands");
 
         if (o_vkCmdExecuteCommands == nullptr)
             o_vkCmdExecuteCommands = (PFN_vkCmdExecuteCommands) original;
@@ -6919,7 +6919,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCreateCommandPool"))
     {
-        LOG_DEBUG("vkCreateCommandPool");
+        // LOG_DEBUG("vkCreateCommandPool");
 
         if (o_vkCreateCommandPool == nullptr)
             o_vkCreateCommandPool = (PFN_vkCreateCommandPool) original;
@@ -6928,7 +6928,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkFreeCommandBuffers"))
     {
-        LOG_DEBUG("vkFreeCommandBuffers");
+        // LOG_DEBUG("vkFreeCommandBuffers");
 
         if (o_vkFreeCommandBuffers == nullptr)
             o_vkFreeCommandBuffers = (PFN_vkFreeCommandBuffers) original;
@@ -6937,7 +6937,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkResetCommandPool"))
     {
-        LOG_DEBUG("vkResetCommandPool");
+        // LOG_DEBUG("vkResetCommandPool");
 
         if (o_vkResetCommandPool == nullptr)
             o_vkResetCommandPool = (PFN_vkResetCommandPool) original;
@@ -6946,7 +6946,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkAllocateCommandBuffers"))
     {
-        LOG_DEBUG("vkAllocateCommandBuffers");
+        // LOG_DEBUG("vkAllocateCommandBuffers");
 
         if (o_vkAllocateCommandBuffers == nullptr)
             o_vkAllocateCommandBuffers = (PFN_vkAllocateCommandBuffers) original;
@@ -6955,7 +6955,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkDestroyCommandPool"))
     {
-        LOG_DEBUG("vkDestroyCommandPool");
+        // LOG_DEBUG("vkDestroyCommandPool");
 
         if (o_vkDestroyCommandPool == nullptr)
             o_vkDestroyCommandPool = (PFN_vkDestroyCommandPool) original;
@@ -6964,7 +6964,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindPipeline"))
     {
-        LOG_DEBUG("vkCmdBindPipeline");
+        // LOG_DEBUG("vkCmdBindPipeline");
 
         if (o_vkCmdBindPipeline == nullptr)
             o_vkCmdBindPipeline = (PFN_vkCmdBindPipeline) original;
@@ -6973,7 +6973,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetViewport"))
     {
-        LOG_DEBUG("vkCmdSetViewport");
+        // LOG_DEBUG("vkCmdSetViewport");
 
         if (o_vkCmdSetViewport == nullptr)
             o_vkCmdSetViewport = (PFN_vkCmdSetViewport) original;
@@ -6982,7 +6982,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetScissor"))
     {
-        LOG_DEBUG("vkCmdSetScissor");
+        // LOG_DEBUG("vkCmdSetScissor");
 
         if (o_vkCmdSetScissor == nullptr)
             o_vkCmdSetScissor = (PFN_vkCmdSetScissor) original;
@@ -6991,7 +6991,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetLineWidth"))
     {
-        LOG_DEBUG("vkCmdSetLineWidth");
+        // LOG_DEBUG("vkCmdSetLineWidth");
 
         if (o_vkCmdSetLineWidth == nullptr)
             o_vkCmdSetLineWidth = (PFN_vkCmdSetLineWidth) original;
@@ -7000,7 +7000,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthBias"))
     {
-        LOG_DEBUG("vkCmdSetDepthBias");
+        // LOG_DEBUG("vkCmdSetDepthBias");
 
         if (o_vkCmdSetDepthBias == nullptr)
             o_vkCmdSetDepthBias = (PFN_vkCmdSetDepthBias) original;
@@ -7009,7 +7009,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetBlendConstants"))
     {
-        LOG_DEBUG("vkCmdSetBlendConstants");
+        // LOG_DEBUG("vkCmdSetBlendConstants");
 
         if (o_vkCmdSetBlendConstants == nullptr)
             o_vkCmdSetBlendConstants = (PFN_vkCmdSetBlendConstants) original;
@@ -7018,7 +7018,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthBounds"))
     {
-        LOG_DEBUG("vkCmdSetDepthBounds");
+        // LOG_DEBUG("vkCmdSetDepthBounds");
 
         if (o_vkCmdSetDepthBounds == nullptr)
             o_vkCmdSetDepthBounds = (PFN_vkCmdSetDepthBounds) original;
@@ -7027,7 +7027,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetStencilCompareMask"))
     {
-        LOG_DEBUG("vkCmdSetStencilCompareMask");
+        // LOG_DEBUG("vkCmdSetStencilCompareMask");
 
         if (o_vkCmdSetStencilCompareMask == nullptr)
             o_vkCmdSetStencilCompareMask = (PFN_vkCmdSetStencilCompareMask) original;
@@ -7036,7 +7036,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetStencilWriteMask"))
     {
-        LOG_DEBUG("vkCmdSetStencilWriteMask");
+        // LOG_DEBUG("vkCmdSetStencilWriteMask");
 
         if (o_vkCmdSetStencilWriteMask == nullptr)
             o_vkCmdSetStencilWriteMask = (PFN_vkCmdSetStencilWriteMask) original;
@@ -7045,7 +7045,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetStencilReference"))
     {
-        LOG_DEBUG("vkCmdSetStencilReference");
+        // LOG_DEBUG("vkCmdSetStencilReference");
 
         if (o_vkCmdSetStencilReference == nullptr)
             o_vkCmdSetStencilReference = (PFN_vkCmdSetStencilReference) original;
@@ -7054,7 +7054,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindDescriptorSets"))
     {
-        LOG_DEBUG("vkCmdBindDescriptorSets");
+        // LOG_DEBUG("vkCmdBindDescriptorSets");
 
         if (o_vkCmdBindDescriptorSets == nullptr)
             o_vkCmdBindDescriptorSets = (PFN_vkCmdBindDescriptorSets) original;
@@ -7063,7 +7063,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindIndexBuffer"))
     {
-        LOG_DEBUG("vkCmdBindIndexBuffer");
+        // LOG_DEBUG("vkCmdBindIndexBuffer");
 
         if (o_vkCmdBindIndexBuffer == nullptr)
             o_vkCmdBindIndexBuffer = (PFN_vkCmdBindIndexBuffer) original;
@@ -7072,7 +7072,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindVertexBuffers"))
     {
-        LOG_DEBUG("vkCmdBindVertexBuffers");
+        // LOG_DEBUG("vkCmdBindVertexBuffers");
 
         if (o_vkCmdBindVertexBuffers == nullptr)
             o_vkCmdBindVertexBuffers = (PFN_vkCmdBindVertexBuffers) original;
@@ -7081,7 +7081,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDraw"))
     {
-        LOG_DEBUG("vkCmdDraw");
+        // LOG_DEBUG("vkCmdDraw");
 
         if (o_vkCmdDraw == nullptr)
             o_vkCmdDraw = (PFN_vkCmdDraw) original;
@@ -7090,7 +7090,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndexed"))
     {
-        LOG_DEBUG("vkCmdDrawIndexed");
+        // LOG_DEBUG("vkCmdDrawIndexed");
 
         if (o_vkCmdDrawIndexed == nullptr)
             o_vkCmdDrawIndexed = (PFN_vkCmdDrawIndexed) original;
@@ -7099,7 +7099,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndirect"))
     {
-        LOG_DEBUG("vkCmdDrawIndirect");
+        // LOG_DEBUG("vkCmdDrawIndirect");
 
         if (o_vkCmdDrawIndirect == nullptr)
             o_vkCmdDrawIndirect = (PFN_vkCmdDrawIndirect) original;
@@ -7108,7 +7108,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndexedIndirect"))
     {
-        LOG_DEBUG("vkCmdDrawIndexedIndirect");
+        // LOG_DEBUG("vkCmdDrawIndexedIndirect");
 
         if (o_vkCmdDrawIndexedIndirect == nullptr)
             o_vkCmdDrawIndexedIndirect = (PFN_vkCmdDrawIndexedIndirect) original;
@@ -7117,7 +7117,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDispatch"))
     {
-        LOG_DEBUG("vkCmdDispatch");
+        // LOG_DEBUG("vkCmdDispatch");
 
         if (o_vkCmdDispatch == nullptr)
             o_vkCmdDispatch = (PFN_vkCmdDispatch) original;
@@ -7126,7 +7126,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDispatchIndirect"))
     {
-        LOG_DEBUG("vkCmdDispatchIndirect");
+        // LOG_DEBUG("vkCmdDispatchIndirect");
 
         if (o_vkCmdDispatchIndirect == nullptr)
             o_vkCmdDispatchIndirect = (PFN_vkCmdDispatchIndirect) original;
@@ -7135,7 +7135,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyBuffer"))
     {
-        LOG_DEBUG("vkCmdCopyBuffer");
+        // LOG_DEBUG("vkCmdCopyBuffer");
 
         if (o_vkCmdCopyBuffer == nullptr)
             o_vkCmdCopyBuffer = (PFN_vkCmdCopyBuffer) original;
@@ -7144,7 +7144,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyImage"))
     {
-        LOG_DEBUG("vkCmdCopyImage");
+        // LOG_DEBUG("vkCmdCopyImage");
 
         if (o_vkCmdCopyImage == nullptr)
             o_vkCmdCopyImage = (PFN_vkCmdCopyImage) original;
@@ -7153,7 +7153,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBlitImage"))
     {
-        LOG_DEBUG("vkCmdBlitImage");
+        // LOG_DEBUG("vkCmdBlitImage");
 
         if (o_vkCmdBlitImage == nullptr)
             o_vkCmdBlitImage = (PFN_vkCmdBlitImage) original;
@@ -7162,7 +7162,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyBufferToImage"))
     {
-        LOG_DEBUG("vkCmdCopyBufferToImage");
+        // LOG_DEBUG("vkCmdCopyBufferToImage");
 
         if (o_vkCmdCopyBufferToImage == nullptr)
             o_vkCmdCopyBufferToImage = (PFN_vkCmdCopyBufferToImage) original;
@@ -7171,7 +7171,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyImageToBuffer"))
     {
-        LOG_DEBUG("vkCmdCopyImageToBuffer");
+        // LOG_DEBUG("vkCmdCopyImageToBuffer");
 
         if (o_vkCmdCopyImageToBuffer == nullptr)
             o_vkCmdCopyImageToBuffer = (PFN_vkCmdCopyImageToBuffer) original;
@@ -7180,7 +7180,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdUpdateBuffer"))
     {
-        LOG_DEBUG("vkCmdUpdateBuffer");
+        // LOG_DEBUG("vkCmdUpdateBuffer");
 
         if (o_vkCmdUpdateBuffer == nullptr)
             o_vkCmdUpdateBuffer = (PFN_vkCmdUpdateBuffer) original;
@@ -7189,7 +7189,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdFillBuffer"))
     {
-        LOG_DEBUG("vkCmdFillBuffer");
+        // LOG_DEBUG("vkCmdFillBuffer");
 
         if (o_vkCmdFillBuffer == nullptr)
             o_vkCmdFillBuffer = (PFN_vkCmdFillBuffer) original;
@@ -7198,7 +7198,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdClearColorImage"))
     {
-        LOG_DEBUG("vkCmdClearColorImage");
+        // LOG_DEBUG("vkCmdClearColorImage");
 
         if (o_vkCmdClearColorImage == nullptr)
             o_vkCmdClearColorImage = (PFN_vkCmdClearColorImage) original;
@@ -7207,7 +7207,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdClearDepthStencilImage"))
     {
-        LOG_DEBUG("vkCmdClearDepthStencilImage");
+        // LOG_DEBUG("vkCmdClearDepthStencilImage");
 
         if (o_vkCmdClearDepthStencilImage == nullptr)
             o_vkCmdClearDepthStencilImage = (PFN_vkCmdClearDepthStencilImage) original;
@@ -7216,7 +7216,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdClearAttachments"))
     {
-        LOG_DEBUG("vkCmdClearAttachments");
+        // LOG_DEBUG("vkCmdClearAttachments");
 
         if (o_vkCmdClearAttachments == nullptr)
             o_vkCmdClearAttachments = (PFN_vkCmdClearAttachments) original;
@@ -7225,7 +7225,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdResolveImage"))
     {
-        LOG_DEBUG("vkCmdResolveImage");
+        // LOG_DEBUG("vkCmdResolveImage");
 
         if (o_vkCmdResolveImage == nullptr)
             o_vkCmdResolveImage = (PFN_vkCmdResolveImage) original;
@@ -7234,7 +7234,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetEvent"))
     {
-        LOG_DEBUG("vkCmdSetEvent");
+        // LOG_DEBUG("vkCmdSetEvent");
 
         if (o_vkCmdSetEvent == nullptr)
             o_vkCmdSetEvent = (PFN_vkCmdSetEvent) original;
@@ -7243,7 +7243,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdResetEvent"))
     {
-        LOG_DEBUG("vkCmdResetEvent");
+        // LOG_DEBUG("vkCmdResetEvent");
 
         if (o_vkCmdResetEvent == nullptr)
             o_vkCmdResetEvent = (PFN_vkCmdResetEvent) original;
@@ -7252,7 +7252,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWaitEvents"))
     {
-        LOG_DEBUG("vkCmdWaitEvents");
+        // LOG_DEBUG("vkCmdWaitEvents");
 
         if (o_vkCmdWaitEvents == nullptr)
             o_vkCmdWaitEvents = (PFN_vkCmdWaitEvents) original;
@@ -7261,7 +7261,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPipelineBarrier"))
     {
-        LOG_DEBUG("vkCmdPipelineBarrier");
+        // LOG_DEBUG("vkCmdPipelineBarrier");
 
         if (o_vkCmdPipelineBarrier == nullptr)
             o_vkCmdPipelineBarrier = (PFN_vkCmdPipelineBarrier) original;
@@ -7270,7 +7270,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginQuery"))
     {
-        LOG_DEBUG("vkCmdBeginQuery");
+        // LOG_DEBUG("vkCmdBeginQuery");
 
         if (o_vkCmdBeginQuery == nullptr)
             o_vkCmdBeginQuery = (PFN_vkCmdBeginQuery) original;
@@ -7279,7 +7279,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndQuery"))
     {
-        LOG_DEBUG("vkCmdEndQuery");
+        // LOG_DEBUG("vkCmdEndQuery");
 
         if (o_vkCmdEndQuery == nullptr)
             o_vkCmdEndQuery = (PFN_vkCmdEndQuery) original;
@@ -7288,7 +7288,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdResetQueryPool"))
     {
-        LOG_DEBUG("vkCmdResetQueryPool");
+        // LOG_DEBUG("vkCmdResetQueryPool");
 
         if (o_vkCmdResetQueryPool == nullptr)
             o_vkCmdResetQueryPool = (PFN_vkCmdResetQueryPool) original;
@@ -7297,7 +7297,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWriteTimestamp"))
     {
-        LOG_DEBUG("vkCmdWriteTimestamp");
+        // LOG_DEBUG("vkCmdWriteTimestamp");
 
         if (o_vkCmdWriteTimestamp == nullptr)
             o_vkCmdWriteTimestamp = (PFN_vkCmdWriteTimestamp) original;
@@ -7306,7 +7306,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyQueryPoolResults"))
     {
-        LOG_DEBUG("vkCmdCopyQueryPoolResults");
+        // LOG_DEBUG("vkCmdCopyQueryPoolResults");
 
         if (o_vkCmdCopyQueryPoolResults == nullptr)
             o_vkCmdCopyQueryPoolResults = (PFN_vkCmdCopyQueryPoolResults) original;
@@ -7315,7 +7315,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushConstants"))
     {
-        LOG_DEBUG("vkCmdPushConstants");
+        // LOG_DEBUG("vkCmdPushConstants");
 
         if (o_vkCmdPushConstants == nullptr)
             o_vkCmdPushConstants = (PFN_vkCmdPushConstants) original;
@@ -7324,7 +7324,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginRenderPass"))
     {
-        LOG_DEBUG("vkCmdBeginRenderPass");
+        // LOG_DEBUG("vkCmdBeginRenderPass");
 
         if (o_vkCmdBeginRenderPass == nullptr)
             o_vkCmdBeginRenderPass = (PFN_vkCmdBeginRenderPass) original;
@@ -7333,7 +7333,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdNextSubpass"))
     {
-        LOG_DEBUG("vkCmdNextSubpass");
+        // LOG_DEBUG("vkCmdNextSubpass");
 
         if (o_vkCmdNextSubpass == nullptr)
             o_vkCmdNextSubpass = (PFN_vkCmdNextSubpass) original;
@@ -7342,7 +7342,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndRenderPass"))
     {
-        LOG_DEBUG("vkCmdEndRenderPass");
+        // LOG_DEBUG("vkCmdEndRenderPass");
 
         if (o_vkCmdEndRenderPass == nullptr)
             o_vkCmdEndRenderPass = (PFN_vkCmdEndRenderPass) original;
@@ -7351,7 +7351,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDeviceMask"))
     {
-        LOG_DEBUG("vkCmdSetDeviceMask");
+        // LOG_DEBUG("vkCmdSetDeviceMask");
 
         if (o_vkCmdSetDeviceMask == nullptr)
             o_vkCmdSetDeviceMask = (PFN_vkCmdSetDeviceMask) original;
@@ -7360,7 +7360,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDispatchBase"))
     {
-        LOG_DEBUG("vkCmdDispatchBase");
+        // LOG_DEBUG("vkCmdDispatchBase");
 
         if (o_vkCmdDispatchBase == nullptr)
             o_vkCmdDispatchBase = (PFN_vkCmdDispatchBase) original;
@@ -7369,7 +7369,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndirectCount"))
     {
-        LOG_DEBUG("vkCmdDrawIndirectCount");
+        // LOG_DEBUG("vkCmdDrawIndirectCount");
 
         if (o_vkCmdDrawIndirectCount == nullptr)
             o_vkCmdDrawIndirectCount = (PFN_vkCmdDrawIndirectCount) original;
@@ -7378,7 +7378,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndexedIndirectCount"))
     {
-        LOG_DEBUG("vkCmdDrawIndexedIndirectCount");
+        // LOG_DEBUG("vkCmdDrawIndexedIndirectCount");
 
         if (o_vkCmdDrawIndexedIndirectCount == nullptr)
             o_vkCmdDrawIndexedIndirectCount = (PFN_vkCmdDrawIndexedIndirectCount) original;
@@ -7387,7 +7387,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginRenderPass2"))
     {
-        LOG_DEBUG("vkCmdBeginRenderPass2");
+        // LOG_DEBUG("vkCmdBeginRenderPass2");
 
         if (o_vkCmdBeginRenderPass2 == nullptr)
             o_vkCmdBeginRenderPass2 = (PFN_vkCmdBeginRenderPass2) original;
@@ -7396,7 +7396,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdNextSubpass2"))
     {
-        LOG_DEBUG("vkCmdNextSubpass2");
+        // LOG_DEBUG("vkCmdNextSubpass2");
 
         if (o_vkCmdNextSubpass2 == nullptr)
             o_vkCmdNextSubpass2 = (PFN_vkCmdNextSubpass2) original;
@@ -7405,7 +7405,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndRenderPass2"))
     {
-        LOG_DEBUG("vkCmdEndRenderPass2");
+        // LOG_DEBUG("vkCmdEndRenderPass2");
 
         if (o_vkCmdEndRenderPass2 == nullptr)
             o_vkCmdEndRenderPass2 = (PFN_vkCmdEndRenderPass2) original;
@@ -7414,7 +7414,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetEvent2"))
     {
-        LOG_DEBUG("vkCmdSetEvent2");
+        // LOG_DEBUG("vkCmdSetEvent2");
 
         if (o_vkCmdSetEvent2 == nullptr)
             o_vkCmdSetEvent2 = (PFN_vkCmdSetEvent2) original;
@@ -7423,7 +7423,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdResetEvent2"))
     {
-        LOG_DEBUG("vkCmdResetEvent2");
+        // LOG_DEBUG("vkCmdResetEvent2");
 
         if (o_vkCmdResetEvent2 == nullptr)
             o_vkCmdResetEvent2 = (PFN_vkCmdResetEvent2) original;
@@ -7432,7 +7432,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWaitEvents2"))
     {
-        LOG_DEBUG("vkCmdWaitEvents2");
+        // LOG_DEBUG("vkCmdWaitEvents2");
 
         if (o_vkCmdWaitEvents2 == nullptr)
             o_vkCmdWaitEvents2 = (PFN_vkCmdWaitEvents2) original;
@@ -7441,7 +7441,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPipelineBarrier2"))
     {
-        LOG_DEBUG("vkCmdPipelineBarrier2");
+        // LOG_DEBUG("vkCmdPipelineBarrier2");
 
         if (o_vkCmdPipelineBarrier2 == nullptr)
             o_vkCmdPipelineBarrier2 = (PFN_vkCmdPipelineBarrier2) original;
@@ -7450,7 +7450,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWriteTimestamp2"))
     {
-        LOG_DEBUG("vkCmdWriteTimestamp2");
+        // LOG_DEBUG("vkCmdWriteTimestamp2");
 
         if (o_vkCmdWriteTimestamp2 == nullptr)
             o_vkCmdWriteTimestamp2 = (PFN_vkCmdWriteTimestamp2) original;
@@ -7459,7 +7459,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyBuffer2"))
     {
-        LOG_DEBUG("vkCmdCopyBuffer2");
+        // LOG_DEBUG("vkCmdCopyBuffer2");
 
         if (o_vkCmdCopyBuffer2 == nullptr)
             o_vkCmdCopyBuffer2 = (PFN_vkCmdCopyBuffer2) original;
@@ -7468,7 +7468,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyImage2"))
     {
-        LOG_DEBUG("vkCmdCopyImage2");
+        // LOG_DEBUG("vkCmdCopyImage2");
 
         if (o_vkCmdCopyImage2 == nullptr)
             o_vkCmdCopyImage2 = (PFN_vkCmdCopyImage2) original;
@@ -7477,7 +7477,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyBufferToImage2"))
     {
-        LOG_DEBUG("vkCmdCopyBufferToImage2");
+        // LOG_DEBUG("vkCmdCopyBufferToImage2");
 
         if (o_vkCmdCopyBufferToImage2 == nullptr)
             o_vkCmdCopyBufferToImage2 = (PFN_vkCmdCopyBufferToImage2) original;
@@ -7486,7 +7486,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyImageToBuffer2"))
     {
-        LOG_DEBUG("vkCmdCopyImageToBuffer2");
+        // LOG_DEBUG("vkCmdCopyImageToBuffer2");
 
         if (o_vkCmdCopyImageToBuffer2 == nullptr)
             o_vkCmdCopyImageToBuffer2 = (PFN_vkCmdCopyImageToBuffer2) original;
@@ -7495,7 +7495,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBlitImage2"))
     {
-        LOG_DEBUG("vkCmdBlitImage2");
+        // LOG_DEBUG("vkCmdBlitImage2");
 
         if (o_vkCmdBlitImage2 == nullptr)
             o_vkCmdBlitImage2 = (PFN_vkCmdBlitImage2) original;
@@ -7504,7 +7504,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdResolveImage2"))
     {
-        LOG_DEBUG("vkCmdResolveImage2");
+        // LOG_DEBUG("vkCmdResolveImage2");
 
         if (o_vkCmdResolveImage2 == nullptr)
             o_vkCmdResolveImage2 = (PFN_vkCmdResolveImage2) original;
@@ -7513,7 +7513,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginRendering"))
     {
-        LOG_DEBUG("vkCmdBeginRendering");
+        // LOG_DEBUG("vkCmdBeginRendering");
 
         if (o_vkCmdBeginRendering == nullptr)
             o_vkCmdBeginRendering = (PFN_vkCmdBeginRendering) original;
@@ -7522,7 +7522,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndRendering"))
     {
-        LOG_DEBUG("vkCmdEndRendering");
+        // LOG_DEBUG("vkCmdEndRendering");
 
         if (o_vkCmdEndRendering == nullptr)
             o_vkCmdEndRendering = (PFN_vkCmdEndRendering) original;
@@ -7531,7 +7531,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCullMode"))
     {
-        LOG_DEBUG("vkCmdSetCullMode");
+        // LOG_DEBUG("vkCmdSetCullMode");
 
         if (o_vkCmdSetCullMode == nullptr)
             o_vkCmdSetCullMode = (PFN_vkCmdSetCullMode) original;
@@ -7540,7 +7540,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetFrontFace"))
     {
-        LOG_DEBUG("vkCmdSetFrontFace");
+        // LOG_DEBUG("vkCmdSetFrontFace");
 
         if (o_vkCmdSetFrontFace == nullptr)
             o_vkCmdSetFrontFace = (PFN_vkCmdSetFrontFace) original;
@@ -7549,7 +7549,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetPrimitiveTopology"))
     {
-        LOG_DEBUG("vkCmdSetPrimitiveTopology");
+        // LOG_DEBUG("vkCmdSetPrimitiveTopology");
 
         if (o_vkCmdSetPrimitiveTopology == nullptr)
             o_vkCmdSetPrimitiveTopology = (PFN_vkCmdSetPrimitiveTopology) original;
@@ -7558,7 +7558,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetViewportWithCount"))
     {
-        LOG_DEBUG("vkCmdSetViewportWithCount");
+        // LOG_DEBUG("vkCmdSetViewportWithCount");
 
         if (o_vkCmdSetViewportWithCount == nullptr)
             o_vkCmdSetViewportWithCount = (PFN_vkCmdSetViewportWithCount) original;
@@ -7567,7 +7567,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetScissorWithCount"))
     {
-        LOG_DEBUG("vkCmdSetScissorWithCount");
+        // LOG_DEBUG("vkCmdSetScissorWithCount");
 
         if (o_vkCmdSetScissorWithCount == nullptr)
             o_vkCmdSetScissorWithCount = (PFN_vkCmdSetScissorWithCount) original;
@@ -7576,7 +7576,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindVertexBuffers2"))
     {
-        LOG_DEBUG("vkCmdBindVertexBuffers2");
+        // LOG_DEBUG("vkCmdBindVertexBuffers2");
 
         if (o_vkCmdBindVertexBuffers2 == nullptr)
             o_vkCmdBindVertexBuffers2 = (PFN_vkCmdBindVertexBuffers2) original;
@@ -7585,7 +7585,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthTestEnable"))
     {
-        LOG_DEBUG("vkCmdSetDepthTestEnable");
+        // LOG_DEBUG("vkCmdSetDepthTestEnable");
 
         if (o_vkCmdSetDepthTestEnable == nullptr)
             o_vkCmdSetDepthTestEnable = (PFN_vkCmdSetDepthTestEnable) original;
@@ -7594,7 +7594,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthWriteEnable"))
     {
-        LOG_DEBUG("vkCmdSetDepthWriteEnable");
+        // LOG_DEBUG("vkCmdSetDepthWriteEnable");
 
         if (o_vkCmdSetDepthWriteEnable == nullptr)
             o_vkCmdSetDepthWriteEnable = (PFN_vkCmdSetDepthWriteEnable) original;
@@ -7603,7 +7603,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthCompareOp"))
     {
-        LOG_DEBUG("vkCmdSetDepthCompareOp");
+        // LOG_DEBUG("vkCmdSetDepthCompareOp");
 
         if (o_vkCmdSetDepthCompareOp == nullptr)
             o_vkCmdSetDepthCompareOp = (PFN_vkCmdSetDepthCompareOp) original;
@@ -7612,7 +7612,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthBoundsTestEnable"))
     {
-        LOG_DEBUG("vkCmdSetDepthBoundsTestEnable");
+        // LOG_DEBUG("vkCmdSetDepthBoundsTestEnable");
 
         if (o_vkCmdSetDepthBoundsTestEnable == nullptr)
             o_vkCmdSetDepthBoundsTestEnable = (PFN_vkCmdSetDepthBoundsTestEnable) original;
@@ -7621,7 +7621,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetStencilTestEnable"))
     {
-        LOG_DEBUG("vkCmdSetStencilTestEnable");
+        // LOG_DEBUG("vkCmdSetStencilTestEnable");
 
         if (o_vkCmdSetStencilTestEnable == nullptr)
             o_vkCmdSetStencilTestEnable = (PFN_vkCmdSetStencilTestEnable) original;
@@ -7630,7 +7630,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetStencilOp"))
     {
-        LOG_DEBUG("vkCmdSetStencilOp");
+        // LOG_DEBUG("vkCmdSetStencilOp");
 
         if (o_vkCmdSetStencilOp == nullptr)
             o_vkCmdSetStencilOp = (PFN_vkCmdSetStencilOp) original;
@@ -7639,7 +7639,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRasterizerDiscardEnable"))
     {
-        LOG_DEBUG("vkCmdSetRasterizerDiscardEnable");
+        // LOG_DEBUG("vkCmdSetRasterizerDiscardEnable");
 
         if (o_vkCmdSetRasterizerDiscardEnable == nullptr)
             o_vkCmdSetRasterizerDiscardEnable = (PFN_vkCmdSetRasterizerDiscardEnable) original;
@@ -7648,7 +7648,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthBiasEnable"))
     {
-        LOG_DEBUG("vkCmdSetDepthBiasEnable");
+        // LOG_DEBUG("vkCmdSetDepthBiasEnable");
 
         if (o_vkCmdSetDepthBiasEnable == nullptr)
             o_vkCmdSetDepthBiasEnable = (PFN_vkCmdSetDepthBiasEnable) original;
@@ -7657,7 +7657,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetPrimitiveRestartEnable"))
     {
-        LOG_DEBUG("vkCmdSetPrimitiveRestartEnable");
+        // LOG_DEBUG("vkCmdSetPrimitiveRestartEnable");
 
         if (o_vkCmdSetPrimitiveRestartEnable == nullptr)
             o_vkCmdSetPrimitiveRestartEnable = (PFN_vkCmdSetPrimitiveRestartEnable) original;
@@ -7666,7 +7666,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetLineStipple"))
     {
-        LOG_DEBUG("vkCmdSetLineStipple");
+        // LOG_DEBUG("vkCmdSetLineStipple");
 
         if (o_vkCmdSetLineStipple == nullptr)
             o_vkCmdSetLineStipple = (PFN_vkCmdSetLineStipple) original;
@@ -7675,7 +7675,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindIndexBuffer2"))
     {
-        LOG_DEBUG("vkCmdBindIndexBuffer2");
+        // LOG_DEBUG("vkCmdBindIndexBuffer2");
 
         if (o_vkCmdBindIndexBuffer2 == nullptr)
             o_vkCmdBindIndexBuffer2 = (PFN_vkCmdBindIndexBuffer2) original;
@@ -7684,7 +7684,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushDescriptorSet"))
     {
-        LOG_DEBUG("vkCmdPushDescriptorSet");
+        // LOG_DEBUG("vkCmdPushDescriptorSet");
 
         if (o_vkCmdPushDescriptorSet == nullptr)
             o_vkCmdPushDescriptorSet = (PFN_vkCmdPushDescriptorSet) original;
@@ -7693,7 +7693,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushDescriptorSetWithTemplate"))
     {
-        LOG_DEBUG("vkCmdPushDescriptorSetWithTemplate");
+        // LOG_DEBUG("vkCmdPushDescriptorSetWithTemplate");
 
         if (o_vkCmdPushDescriptorSetWithTemplate == nullptr)
             o_vkCmdPushDescriptorSetWithTemplate = (PFN_vkCmdPushDescriptorSetWithTemplate) original;
@@ -7702,7 +7702,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRenderingAttachmentLocations"))
     {
-        LOG_DEBUG("vkCmdSetRenderingAttachmentLocations");
+        // LOG_DEBUG("vkCmdSetRenderingAttachmentLocations");
 
         if (o_vkCmdSetRenderingAttachmentLocations == nullptr)
             o_vkCmdSetRenderingAttachmentLocations = (PFN_vkCmdSetRenderingAttachmentLocations) original;
@@ -7711,7 +7711,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRenderingInputAttachmentIndices"))
     {
-        LOG_DEBUG("vkCmdSetRenderingInputAttachmentIndices");
+        // LOG_DEBUG("vkCmdSetRenderingInputAttachmentIndices");
 
         if (o_vkCmdSetRenderingInputAttachmentIndices == nullptr)
             o_vkCmdSetRenderingInputAttachmentIndices = (PFN_vkCmdSetRenderingInputAttachmentIndices) original;
@@ -7720,7 +7720,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindDescriptorSets2"))
     {
-        LOG_DEBUG("vkCmdBindDescriptorSets2");
+        // LOG_DEBUG("vkCmdBindDescriptorSets2");
 
         if (o_vkCmdBindDescriptorSets2 == nullptr)
             o_vkCmdBindDescriptorSets2 = (PFN_vkCmdBindDescriptorSets2) original;
@@ -7729,7 +7729,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushConstants2"))
     {
-        LOG_DEBUG("vkCmdPushConstants2");
+        // LOG_DEBUG("vkCmdPushConstants2");
 
         if (o_vkCmdPushConstants2 == nullptr)
             o_vkCmdPushConstants2 = (PFN_vkCmdPushConstants2) original;
@@ -7738,7 +7738,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushDescriptorSet2"))
     {
-        LOG_DEBUG("vkCmdPushDescriptorSet2");
+        // LOG_DEBUG("vkCmdPushDescriptorSet2");
 
         if (o_vkCmdPushDescriptorSet2 == nullptr)
             o_vkCmdPushDescriptorSet2 = (PFN_vkCmdPushDescriptorSet2) original;
@@ -7747,7 +7747,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushDescriptorSetWithTemplate2"))
     {
-        LOG_DEBUG("vkCmdPushDescriptorSetWithTemplate2");
+        // LOG_DEBUG("vkCmdPushDescriptorSetWithTemplate2");
 
         if (o_vkCmdPushDescriptorSetWithTemplate2 == nullptr)
             o_vkCmdPushDescriptorSetWithTemplate2 = (PFN_vkCmdPushDescriptorSetWithTemplate2) original;
@@ -7756,7 +7756,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginVideoCodingKHR"))
     {
-        LOG_DEBUG("vkCmdBeginVideoCodingKHR");
+        // LOG_DEBUG("vkCmdBeginVideoCodingKHR");
 
         if (o_vkCmdBeginVideoCodingKHR == nullptr)
             o_vkCmdBeginVideoCodingKHR = (PFN_vkCmdBeginVideoCodingKHR) original;
@@ -7765,7 +7765,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndVideoCodingKHR"))
     {
-        LOG_DEBUG("vkCmdEndVideoCodingKHR");
+        // LOG_DEBUG("vkCmdEndVideoCodingKHR");
 
         if (o_vkCmdEndVideoCodingKHR == nullptr)
             o_vkCmdEndVideoCodingKHR = (PFN_vkCmdEndVideoCodingKHR) original;
@@ -7774,7 +7774,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdControlVideoCodingKHR"))
     {
-        LOG_DEBUG("vkCmdControlVideoCodingKHR");
+        // LOG_DEBUG("vkCmdControlVideoCodingKHR");
 
         if (o_vkCmdControlVideoCodingKHR == nullptr)
             o_vkCmdControlVideoCodingKHR = (PFN_vkCmdControlVideoCodingKHR) original;
@@ -7783,7 +7783,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDecodeVideoKHR"))
     {
-        LOG_DEBUG("vkCmdDecodeVideoKHR");
+        // LOG_DEBUG("vkCmdDecodeVideoKHR");
 
         if (o_vkCmdDecodeVideoKHR == nullptr)
             o_vkCmdDecodeVideoKHR = (PFN_vkCmdDecodeVideoKHR) original;
@@ -7792,7 +7792,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginRenderingKHR"))
     {
-        LOG_DEBUG("vkCmdBeginRenderingKHR");
+        // LOG_DEBUG("vkCmdBeginRenderingKHR");
 
         if (o_vkCmdBeginRenderingKHR == nullptr)
             o_vkCmdBeginRenderingKHR = (PFN_vkCmdBeginRenderingKHR) original;
@@ -7801,7 +7801,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndRenderingKHR"))
     {
-        LOG_DEBUG("vkCmdEndRenderingKHR");
+        // LOG_DEBUG("vkCmdEndRenderingKHR");
 
         if (o_vkCmdEndRenderingKHR == nullptr)
             o_vkCmdEndRenderingKHR = (PFN_vkCmdEndRenderingKHR) original;
@@ -7810,7 +7810,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDeviceMaskKHR"))
     {
-        LOG_DEBUG("vkCmdSetDeviceMaskKHR");
+        // LOG_DEBUG("vkCmdSetDeviceMaskKHR");
 
         if (o_vkCmdSetDeviceMaskKHR == nullptr)
             o_vkCmdSetDeviceMaskKHR = (PFN_vkCmdSetDeviceMaskKHR) original;
@@ -7819,7 +7819,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDispatchBaseKHR"))
     {
-        LOG_DEBUG("vkCmdDispatchBaseKHR");
+        // LOG_DEBUG("vkCmdDispatchBaseKHR");
 
         if (o_vkCmdDispatchBaseKHR == nullptr)
             o_vkCmdDispatchBaseKHR = (PFN_vkCmdDispatchBaseKHR) original;
@@ -7828,7 +7828,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushDescriptorSetKHR"))
     {
-        LOG_DEBUG("vkCmdPushDescriptorSetKHR");
+        // LOG_DEBUG("vkCmdPushDescriptorSetKHR");
 
         if (o_vkCmdPushDescriptorSetKHR == nullptr)
             o_vkCmdPushDescriptorSetKHR = (PFN_vkCmdPushDescriptorSetKHR) original;
@@ -7837,7 +7837,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushDescriptorSetWithTemplateKHR"))
     {
-        LOG_DEBUG("vkCmdPushDescriptorSetWithTemplateKHR");
+        // LOG_DEBUG("vkCmdPushDescriptorSetWithTemplateKHR");
 
         if (o_vkCmdPushDescriptorSetWithTemplateKHR == nullptr)
             o_vkCmdPushDescriptorSetWithTemplateKHR = (PFN_vkCmdPushDescriptorSetWithTemplateKHR) original;
@@ -7846,7 +7846,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginRenderPass2KHR"))
     {
-        LOG_DEBUG("vkCmdBeginRenderPass2KHR");
+        // LOG_DEBUG("vkCmdBeginRenderPass2KHR");
 
         if (o_vkCmdBeginRenderPass2KHR == nullptr)
             o_vkCmdBeginRenderPass2KHR = (PFN_vkCmdBeginRenderPass2KHR) original;
@@ -7855,7 +7855,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdNextSubpass2KHR"))
     {
-        LOG_DEBUG("vkCmdNextSubpass2KHR");
+        // LOG_DEBUG("vkCmdNextSubpass2KHR");
 
         if (o_vkCmdNextSubpass2KHR == nullptr)
             o_vkCmdNextSubpass2KHR = (PFN_vkCmdNextSubpass2KHR) original;
@@ -7864,7 +7864,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndRenderPass2KHR"))
     {
-        LOG_DEBUG("vkCmdEndRenderPass2KHR");
+        // LOG_DEBUG("vkCmdEndRenderPass2KHR");
 
         if (o_vkCmdEndRenderPass2KHR == nullptr)
             o_vkCmdEndRenderPass2KHR = (PFN_vkCmdEndRenderPass2KHR) original;
@@ -7873,7 +7873,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndirectCountKHR"))
     {
-        LOG_DEBUG("vkCmdDrawIndirectCountKHR");
+        // LOG_DEBUG("vkCmdDrawIndirectCountKHR");
 
         if (o_vkCmdDrawIndirectCountKHR == nullptr)
             o_vkCmdDrawIndirectCountKHR = (PFN_vkCmdDrawIndirectCountKHR) original;
@@ -7882,7 +7882,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndexedIndirectCountKHR"))
     {
-        LOG_DEBUG("vkCmdDrawIndexedIndirectCountKHR");
+        // LOG_DEBUG("vkCmdDrawIndexedIndirectCountKHR");
 
         if (o_vkCmdDrawIndexedIndirectCountKHR == nullptr)
             o_vkCmdDrawIndexedIndirectCountKHR = (PFN_vkCmdDrawIndexedIndirectCountKHR) original;
@@ -7891,7 +7891,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetFragmentShadingRateKHR"))
     {
-        LOG_DEBUG("vkCmdSetFragmentShadingRateKHR");
+        // LOG_DEBUG("vkCmdSetFragmentShadingRateKHR");
 
         if (o_vkCmdSetFragmentShadingRateKHR == nullptr)
             o_vkCmdSetFragmentShadingRateKHR = (PFN_vkCmdSetFragmentShadingRateKHR) original;
@@ -7900,7 +7900,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRenderingAttachmentLocationsKHR"))
     {
-        LOG_DEBUG("vkCmdSetRenderingAttachmentLocationsKHR");
+        // LOG_DEBUG("vkCmdSetRenderingAttachmentLocationsKHR");
 
         if (o_vkCmdSetRenderingAttachmentLocationsKHR == nullptr)
             o_vkCmdSetRenderingAttachmentLocationsKHR = (PFN_vkCmdSetRenderingAttachmentLocationsKHR) original;
@@ -7909,7 +7909,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRenderingInputAttachmentIndicesKHR"))
     {
-        LOG_DEBUG("vkCmdSetRenderingInputAttachmentIndicesKHR");
+        // LOG_DEBUG("vkCmdSetRenderingInputAttachmentIndicesKHR");
 
         if (o_vkCmdSetRenderingInputAttachmentIndicesKHR == nullptr)
             o_vkCmdSetRenderingInputAttachmentIndicesKHR = (PFN_vkCmdSetRenderingInputAttachmentIndicesKHR) original;
@@ -7918,7 +7918,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEncodeVideoKHR"))
     {
-        LOG_DEBUG("vkCmdEncodeVideoKHR");
+        // LOG_DEBUG("vkCmdEncodeVideoKHR");
 
         if (o_vkCmdEncodeVideoKHR == nullptr)
             o_vkCmdEncodeVideoKHR = (PFN_vkCmdEncodeVideoKHR) original;
@@ -7927,7 +7927,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetEvent2KHR"))
     {
-        LOG_DEBUG("vkCmdSetEvent2KHR");
+        // LOG_DEBUG("vkCmdSetEvent2KHR");
 
         if (o_vkCmdSetEvent2KHR == nullptr)
             o_vkCmdSetEvent2KHR = (PFN_vkCmdSetEvent2KHR) original;
@@ -7936,7 +7936,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdResetEvent2KHR"))
     {
-        LOG_DEBUG("vkCmdResetEvent2KHR");
+        // LOG_DEBUG("vkCmdResetEvent2KHR");
 
         if (o_vkCmdResetEvent2KHR == nullptr)
             o_vkCmdResetEvent2KHR = (PFN_vkCmdResetEvent2KHR) original;
@@ -7945,7 +7945,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWaitEvents2KHR"))
     {
-        LOG_DEBUG("vkCmdWaitEvents2KHR");
+        // LOG_DEBUG("vkCmdWaitEvents2KHR");
 
         if (o_vkCmdWaitEvents2KHR == nullptr)
             o_vkCmdWaitEvents2KHR = (PFN_vkCmdWaitEvents2KHR) original;
@@ -7954,7 +7954,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPipelineBarrier2KHR"))
     {
-        LOG_DEBUG("vkCmdPipelineBarrier2KHR");
+        // LOG_DEBUG("vkCmdPipelineBarrier2KHR");
 
         if (o_vkCmdPipelineBarrier2KHR == nullptr)
             o_vkCmdPipelineBarrier2KHR = (PFN_vkCmdPipelineBarrier2KHR) original;
@@ -7963,7 +7963,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWriteTimestamp2KHR"))
     {
-        LOG_DEBUG("vkCmdWriteTimestamp2KHR");
+        // LOG_DEBUG("vkCmdWriteTimestamp2KHR");
 
         if (o_vkCmdWriteTimestamp2KHR == nullptr)
             o_vkCmdWriteTimestamp2KHR = (PFN_vkCmdWriteTimestamp2KHR) original;
@@ -7972,7 +7972,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyBuffer2KHR"))
     {
-        LOG_DEBUG("vkCmdCopyBuffer2KHR");
+        // LOG_DEBUG("vkCmdCopyBuffer2KHR");
 
         if (o_vkCmdCopyBuffer2KHR == nullptr)
             o_vkCmdCopyBuffer2KHR = (PFN_vkCmdCopyBuffer2KHR) original;
@@ -7981,7 +7981,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyImage2KHR"))
     {
-        LOG_DEBUG("vkCmdCopyImage2KHR");
+        // LOG_DEBUG("vkCmdCopyImage2KHR");
 
         if (o_vkCmdCopyImage2KHR == nullptr)
             o_vkCmdCopyImage2KHR = (PFN_vkCmdCopyImage2KHR) original;
@@ -7990,7 +7990,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyBufferToImage2KHR"))
     {
-        LOG_DEBUG("vkCmdCopyBufferToImage2KHR");
+        // LOG_DEBUG("vkCmdCopyBufferToImage2KHR");
 
         if (o_vkCmdCopyBufferToImage2KHR == nullptr)
             o_vkCmdCopyBufferToImage2KHR = (PFN_vkCmdCopyBufferToImage2KHR) original;
@@ -7999,7 +7999,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyImageToBuffer2KHR"))
     {
-        LOG_DEBUG("vkCmdCopyImageToBuffer2KHR");
+        // LOG_DEBUG("vkCmdCopyImageToBuffer2KHR");
 
         if (o_vkCmdCopyImageToBuffer2KHR == nullptr)
             o_vkCmdCopyImageToBuffer2KHR = (PFN_vkCmdCopyImageToBuffer2KHR) original;
@@ -8008,7 +8008,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBlitImage2KHR"))
     {
-        LOG_DEBUG("vkCmdBlitImage2KHR");
+        // LOG_DEBUG("vkCmdBlitImage2KHR");
 
         if (o_vkCmdBlitImage2KHR == nullptr)
             o_vkCmdBlitImage2KHR = (PFN_vkCmdBlitImage2KHR) original;
@@ -8017,7 +8017,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdResolveImage2KHR"))
     {
-        LOG_DEBUG("vkCmdResolveImage2KHR");
+        // LOG_DEBUG("vkCmdResolveImage2KHR");
 
         if (o_vkCmdResolveImage2KHR == nullptr)
             o_vkCmdResolveImage2KHR = (PFN_vkCmdResolveImage2KHR) original;
@@ -8026,7 +8026,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdTraceRaysIndirect2KHR"))
     {
-        LOG_DEBUG("vkCmdTraceRaysIndirect2KHR");
+        // LOG_DEBUG("vkCmdTraceRaysIndirect2KHR");
 
         if (o_vkCmdTraceRaysIndirect2KHR == nullptr)
             o_vkCmdTraceRaysIndirect2KHR = (PFN_vkCmdTraceRaysIndirect2KHR) original;
@@ -8035,7 +8035,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindIndexBuffer2KHR"))
     {
-        LOG_DEBUG("vkCmdBindIndexBuffer2KHR");
+        // LOG_DEBUG("vkCmdBindIndexBuffer2KHR");
 
         if (o_vkCmdBindIndexBuffer2KHR == nullptr)
             o_vkCmdBindIndexBuffer2KHR = (PFN_vkCmdBindIndexBuffer2KHR) original;
@@ -8044,7 +8044,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetLineStippleKHR"))
     {
-        LOG_DEBUG("vkCmdSetLineStippleKHR");
+        // LOG_DEBUG("vkCmdSetLineStippleKHR");
 
         if (o_vkCmdSetLineStippleKHR == nullptr)
             o_vkCmdSetLineStippleKHR = (PFN_vkCmdSetLineStippleKHR) original;
@@ -8053,7 +8053,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindDescriptorSets2KHR"))
     {
-        LOG_DEBUG("vkCmdBindDescriptorSets2KHR");
+        // LOG_DEBUG("vkCmdBindDescriptorSets2KHR");
 
         if (o_vkCmdBindDescriptorSets2KHR == nullptr)
             o_vkCmdBindDescriptorSets2KHR = (PFN_vkCmdBindDescriptorSets2KHR) original;
@@ -8062,7 +8062,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushConstants2KHR"))
     {
-        LOG_DEBUG("vkCmdPushConstants2KHR");
+        // LOG_DEBUG("vkCmdPushConstants2KHR");
 
         if (o_vkCmdPushConstants2KHR == nullptr)
             o_vkCmdPushConstants2KHR = (PFN_vkCmdPushConstants2KHR) original;
@@ -8071,7 +8071,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushDescriptorSet2KHR"))
     {
-        LOG_DEBUG("vkCmdPushDescriptorSet2KHR");
+        // LOG_DEBUG("vkCmdPushDescriptorSet2KHR");
 
         if (o_vkCmdPushDescriptorSet2KHR == nullptr)
             o_vkCmdPushDescriptorSet2KHR = (PFN_vkCmdPushDescriptorSet2KHR) original;
@@ -8080,7 +8080,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPushDescriptorSetWithTemplate2KHR"))
     {
-        LOG_DEBUG("vkCmdPushDescriptorSetWithTemplate2KHR");
+        // LOG_DEBUG("vkCmdPushDescriptorSetWithTemplate2KHR");
 
         if (o_vkCmdPushDescriptorSetWithTemplate2KHR == nullptr)
             o_vkCmdPushDescriptorSetWithTemplate2KHR = (PFN_vkCmdPushDescriptorSetWithTemplate2KHR) original;
@@ -8089,7 +8089,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDescriptorBufferOffsets2EXT"))
     {
-        LOG_DEBUG("vkCmdSetDescriptorBufferOffsets2EXT");
+        // LOG_DEBUG("vkCmdSetDescriptorBufferOffsets2EXT");
 
         if (o_vkCmdSetDescriptorBufferOffsets2EXT == nullptr)
             o_vkCmdSetDescriptorBufferOffsets2EXT = (PFN_vkCmdSetDescriptorBufferOffsets2EXT) original;
@@ -8098,7 +8098,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindDescriptorBufferEmbeddedSamplers2EXT"))
     {
-        LOG_DEBUG("vkCmdBindDescriptorBufferEmbeddedSamplers2EXT");
+        // LOG_DEBUG("vkCmdBindDescriptorBufferEmbeddedSamplers2EXT");
 
         if (o_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT == nullptr)
             o_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT =
@@ -8108,7 +8108,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDebugMarkerBeginEXT"))
     {
-        LOG_DEBUG("vkCmdDebugMarkerBeginEXT");
+        // LOG_DEBUG("vkCmdDebugMarkerBeginEXT");
 
         if (o_vkCmdDebugMarkerBeginEXT == nullptr)
             o_vkCmdDebugMarkerBeginEXT = (PFN_vkCmdDebugMarkerBeginEXT) original;
@@ -8117,7 +8117,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDebugMarkerEndEXT"))
     {
-        LOG_DEBUG("vkCmdDebugMarkerEndEXT");
+        // LOG_DEBUG("vkCmdDebugMarkerEndEXT");
 
         if (o_vkCmdDebugMarkerEndEXT == nullptr)
             o_vkCmdDebugMarkerEndEXT = (PFN_vkCmdDebugMarkerEndEXT) original;
@@ -8126,7 +8126,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDebugMarkerInsertEXT"))
     {
-        LOG_DEBUG("vkCmdDebugMarkerInsertEXT");
+        // LOG_DEBUG("vkCmdDebugMarkerInsertEXT");
 
         if (o_vkCmdDebugMarkerInsertEXT == nullptr)
             o_vkCmdDebugMarkerInsertEXT = (PFN_vkCmdDebugMarkerInsertEXT) original;
@@ -8135,7 +8135,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindTransformFeedbackBuffersEXT"))
     {
-        LOG_DEBUG("vkCmdBindTransformFeedbackBuffersEXT");
+        // LOG_DEBUG("vkCmdBindTransformFeedbackBuffersEXT");
 
         if (o_vkCmdBindTransformFeedbackBuffersEXT == nullptr)
             o_vkCmdBindTransformFeedbackBuffersEXT = (PFN_vkCmdBindTransformFeedbackBuffersEXT) original;
@@ -8144,7 +8144,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginTransformFeedbackEXT"))
     {
-        LOG_DEBUG("vkCmdBeginTransformFeedbackEXT");
+        // LOG_DEBUG("vkCmdBeginTransformFeedbackEXT");
 
         if (o_vkCmdBeginTransformFeedbackEXT == nullptr)
             o_vkCmdBeginTransformFeedbackEXT = (PFN_vkCmdBeginTransformFeedbackEXT) original;
@@ -8153,7 +8153,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndTransformFeedbackEXT"))
     {
-        LOG_DEBUG("vkCmdEndTransformFeedbackEXT");
+        // LOG_DEBUG("vkCmdEndTransformFeedbackEXT");
 
         if (o_vkCmdEndTransformFeedbackEXT == nullptr)
             o_vkCmdEndTransformFeedbackEXT = (PFN_vkCmdEndTransformFeedbackEXT) original;
@@ -8162,7 +8162,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginQueryIndexedEXT"))
     {
-        LOG_DEBUG("vkCmdBeginQueryIndexedEXT");
+        // LOG_DEBUG("vkCmdBeginQueryIndexedEXT");
 
         if (o_vkCmdBeginQueryIndexedEXT == nullptr)
             o_vkCmdBeginQueryIndexedEXT = (PFN_vkCmdBeginQueryIndexedEXT) original;
@@ -8171,7 +8171,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndQueryIndexedEXT"))
     {
-        LOG_DEBUG("vkCmdEndQueryIndexedEXT");
+        // LOG_DEBUG("vkCmdEndQueryIndexedEXT");
 
         if (o_vkCmdEndQueryIndexedEXT == nullptr)
             o_vkCmdEndQueryIndexedEXT = (PFN_vkCmdEndQueryIndexedEXT) original;
@@ -8180,7 +8180,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndirectByteCountEXT"))
     {
-        LOG_DEBUG("vkCmdDrawIndirectByteCountEXT");
+        // LOG_DEBUG("vkCmdDrawIndirectByteCountEXT");
 
         if (o_vkCmdDrawIndirectByteCountEXT == nullptr)
             o_vkCmdDrawIndirectByteCountEXT = (PFN_vkCmdDrawIndirectByteCountEXT) original;
@@ -8189,7 +8189,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCuLaunchKernelNVX"))
     {
-        LOG_DEBUG("vkCmdCuLaunchKernelNVX");
+        // LOG_DEBUG("vkCmdCuLaunchKernelNVX");
 
         if (o_vkCmdCuLaunchKernelNVX == nullptr)
             o_vkCmdCuLaunchKernelNVX = (PFN_vkCmdCuLaunchKernelNVX) original;
@@ -8198,7 +8198,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndirectCountAMD"))
     {
-        LOG_DEBUG("vkCmdDrawIndirectCountAMD");
+        // LOG_DEBUG("vkCmdDrawIndirectCountAMD");
 
         if (o_vkCmdDrawIndirectCountAMD == nullptr)
             o_vkCmdDrawIndirectCountAMD = (PFN_vkCmdDrawIndirectCountAMD) original;
@@ -8207,7 +8207,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawIndexedIndirectCountAMD"))
     {
-        LOG_DEBUG("vkCmdDrawIndexedIndirectCountAMD");
+        // LOG_DEBUG("vkCmdDrawIndexedIndirectCountAMD");
 
         if (o_vkCmdDrawIndexedIndirectCountAMD == nullptr)
             o_vkCmdDrawIndexedIndirectCountAMD = (PFN_vkCmdDrawIndexedIndirectCountAMD) original;
@@ -8216,7 +8216,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginConditionalRenderingEXT"))
     {
-        LOG_DEBUG("vkCmdBeginConditionalRenderingEXT");
+        // LOG_DEBUG("vkCmdBeginConditionalRenderingEXT");
 
         if (o_vkCmdBeginConditionalRenderingEXT == nullptr)
             o_vkCmdBeginConditionalRenderingEXT = (PFN_vkCmdBeginConditionalRenderingEXT) original;
@@ -8225,7 +8225,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndConditionalRenderingEXT"))
     {
-        LOG_DEBUG("vkCmdEndConditionalRenderingEXT");
+        // LOG_DEBUG("vkCmdEndConditionalRenderingEXT");
 
         if (o_vkCmdEndConditionalRenderingEXT == nullptr)
             o_vkCmdEndConditionalRenderingEXT = (PFN_vkCmdEndConditionalRenderingEXT) original;
@@ -8234,7 +8234,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetViewportWScalingNV"))
     {
-        LOG_DEBUG("vkCmdSetViewportWScalingNV");
+        // LOG_DEBUG("vkCmdSetViewportWScalingNV");
 
         if (o_vkCmdSetViewportWScalingNV == nullptr)
             o_vkCmdSetViewportWScalingNV = (PFN_vkCmdSetViewportWScalingNV) original;
@@ -8243,7 +8243,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDiscardRectangleEXT"))
     {
-        LOG_DEBUG("vkCmdSetDiscardRectangleEXT");
+        // LOG_DEBUG("vkCmdSetDiscardRectangleEXT");
 
         if (o_vkCmdSetDiscardRectangleEXT == nullptr)
             o_vkCmdSetDiscardRectangleEXT = (PFN_vkCmdSetDiscardRectangleEXT) original;
@@ -8252,7 +8252,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDiscardRectangleEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetDiscardRectangleEnableEXT");
+        // LOG_DEBUG("vkCmdSetDiscardRectangleEnableEXT");
 
         if (o_vkCmdSetDiscardRectangleEnableEXT == nullptr)
             o_vkCmdSetDiscardRectangleEnableEXT = (PFN_vkCmdSetDiscardRectangleEnableEXT) original;
@@ -8261,7 +8261,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDiscardRectangleModeEXT"))
     {
-        LOG_DEBUG("vkCmdSetDiscardRectangleModeEXT");
+        // LOG_DEBUG("vkCmdSetDiscardRectangleModeEXT");
 
         if (o_vkCmdSetDiscardRectangleModeEXT == nullptr)
             o_vkCmdSetDiscardRectangleModeEXT = (PFN_vkCmdSetDiscardRectangleModeEXT) original;
@@ -8270,7 +8270,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBeginDebugUtilsLabelEXT"))
     {
-        LOG_DEBUG("vkCmdBeginDebugUtilsLabelEXT");
+        // LOG_DEBUG("vkCmdBeginDebugUtilsLabelEXT");
 
         if (o_vkCmdBeginDebugUtilsLabelEXT == nullptr)
             o_vkCmdBeginDebugUtilsLabelEXT = (PFN_vkCmdBeginDebugUtilsLabelEXT) original;
@@ -8279,7 +8279,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdEndDebugUtilsLabelEXT"))
     {
-        LOG_DEBUG("vkCmdEndDebugUtilsLabelEXT");
+        // LOG_DEBUG("vkCmdEndDebugUtilsLabelEXT");
 
         if (o_vkCmdEndDebugUtilsLabelEXT == nullptr)
             o_vkCmdEndDebugUtilsLabelEXT = (PFN_vkCmdEndDebugUtilsLabelEXT) original;
@@ -8288,7 +8288,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdInsertDebugUtilsLabelEXT"))
     {
-        LOG_DEBUG("vkCmdInsertDebugUtilsLabelEXT");
+        // LOG_DEBUG("vkCmdInsertDebugUtilsLabelEXT");
 
         if (o_vkCmdInsertDebugUtilsLabelEXT == nullptr)
             o_vkCmdInsertDebugUtilsLabelEXT = (PFN_vkCmdInsertDebugUtilsLabelEXT) original;
@@ -8297,7 +8297,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetSampleLocationsEXT"))
     {
-        LOG_DEBUG("vkCmdSetSampleLocationsEXT");
+        // LOG_DEBUG("vkCmdSetSampleLocationsEXT");
 
         if (o_vkCmdSetSampleLocationsEXT == nullptr)
             o_vkCmdSetSampleLocationsEXT = (PFN_vkCmdSetSampleLocationsEXT) original;
@@ -8306,7 +8306,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindShadingRateImageNV"))
     {
-        LOG_DEBUG("vkCmdBindShadingRateImageNV");
+        // LOG_DEBUG("vkCmdBindShadingRateImageNV");
 
         if (o_vkCmdBindShadingRateImageNV == nullptr)
             o_vkCmdBindShadingRateImageNV = (PFN_vkCmdBindShadingRateImageNV) original;
@@ -8315,7 +8315,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetViewportShadingRatePaletteNV"))
     {
-        LOG_DEBUG("vkCmdSetViewportShadingRatePaletteNV");
+        // LOG_DEBUG("vkCmdSetViewportShadingRatePaletteNV");
 
         if (o_vkCmdSetViewportShadingRatePaletteNV == nullptr)
             o_vkCmdSetViewportShadingRatePaletteNV = (PFN_vkCmdSetViewportShadingRatePaletteNV) original;
@@ -8324,7 +8324,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCoarseSampleOrderNV"))
     {
-        LOG_DEBUG("vkCmdSetCoarseSampleOrderNV");
+        // LOG_DEBUG("vkCmdSetCoarseSampleOrderNV");
 
         if (o_vkCmdSetCoarseSampleOrderNV == nullptr)
             o_vkCmdSetCoarseSampleOrderNV = (PFN_vkCmdSetCoarseSampleOrderNV) original;
@@ -8333,7 +8333,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBuildAccelerationStructureNV"))
     {
-        LOG_DEBUG("vkCmdBuildAccelerationStructureNV");
+        // LOG_DEBUG("vkCmdBuildAccelerationStructureNV");
 
         if (o_vkCmdBuildAccelerationStructureNV == nullptr)
             o_vkCmdBuildAccelerationStructureNV = (PFN_vkCmdBuildAccelerationStructureNV) original;
@@ -8342,7 +8342,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyAccelerationStructureNV"))
     {
-        LOG_DEBUG("vkCmdCopyAccelerationStructureNV");
+        // LOG_DEBUG("vkCmdCopyAccelerationStructureNV");
 
         if (o_vkCmdCopyAccelerationStructureNV == nullptr)
             o_vkCmdCopyAccelerationStructureNV = (PFN_vkCmdCopyAccelerationStructureNV) original;
@@ -8351,7 +8351,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdTraceRaysNV"))
     {
-        LOG_DEBUG("vkCmdTraceRaysNV");
+        // LOG_DEBUG("vkCmdTraceRaysNV");
 
         if (o_vkCmdTraceRaysNV == nullptr)
             o_vkCmdTraceRaysNV = (PFN_vkCmdTraceRaysNV) original;
@@ -8360,7 +8360,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWriteAccelerationStructuresPropertiesNV"))
     {
-        LOG_DEBUG("vkCmdWriteAccelerationStructuresPropertiesNV");
+        // LOG_DEBUG("vkCmdWriteAccelerationStructuresPropertiesNV");
 
         if (o_vkCmdWriteAccelerationStructuresPropertiesNV == nullptr)
             o_vkCmdWriteAccelerationStructuresPropertiesNV =
@@ -8370,7 +8370,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWriteBufferMarkerAMD"))
     {
-        LOG_DEBUG("vkCmdWriteBufferMarkerAMD");
+        // LOG_DEBUG("vkCmdWriteBufferMarkerAMD");
 
         if (o_vkCmdWriteBufferMarkerAMD == nullptr)
             o_vkCmdWriteBufferMarkerAMD = (PFN_vkCmdWriteBufferMarkerAMD) original;
@@ -8379,7 +8379,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWriteBufferMarker2AMD"))
     {
-        LOG_DEBUG("vkCmdWriteBufferMarker2AMD");
+        // LOG_DEBUG("vkCmdWriteBufferMarker2AMD");
 
         if (o_vkCmdWriteBufferMarker2AMD == nullptr)
             o_vkCmdWriteBufferMarker2AMD = (PFN_vkCmdWriteBufferMarker2AMD) original;
@@ -8388,7 +8388,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawMeshTasksNV"))
     {
-        LOG_DEBUG("vkCmdDrawMeshTasksNV");
+        // LOG_DEBUG("vkCmdDrawMeshTasksNV");
 
         if (o_vkCmdDrawMeshTasksNV == nullptr)
             o_vkCmdDrawMeshTasksNV = (PFN_vkCmdDrawMeshTasksNV) original;
@@ -8397,7 +8397,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawMeshTasksIndirectNV"))
     {
-        LOG_DEBUG("vkCmdDrawMeshTasksIndirectNV");
+        // LOG_DEBUG("vkCmdDrawMeshTasksIndirectNV");
 
         if (o_vkCmdDrawMeshTasksIndirectNV == nullptr)
             o_vkCmdDrawMeshTasksIndirectNV = (PFN_vkCmdDrawMeshTasksIndirectNV) original;
@@ -8406,7 +8406,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawMeshTasksIndirectCountNV"))
     {
-        LOG_DEBUG("vkCmdDrawMeshTasksIndirectCountNV");
+        // LOG_DEBUG("vkCmdDrawMeshTasksIndirectCountNV");
 
         if (o_vkCmdDrawMeshTasksIndirectCountNV == nullptr)
             o_vkCmdDrawMeshTasksIndirectCountNV = (PFN_vkCmdDrawMeshTasksIndirectCountNV) original;
@@ -8415,7 +8415,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetExclusiveScissorEnableNV"))
     {
-        LOG_DEBUG("vkCmdSetExclusiveScissorEnableNV");
+        // LOG_DEBUG("vkCmdSetExclusiveScissorEnableNV");
 
         if (o_vkCmdSetExclusiveScissorEnableNV == nullptr)
             o_vkCmdSetExclusiveScissorEnableNV = (PFN_vkCmdSetExclusiveScissorEnableNV) original;
@@ -8424,7 +8424,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetExclusiveScissorNV"))
     {
-        LOG_DEBUG("vkCmdSetExclusiveScissorNV");
+        // LOG_DEBUG("vkCmdSetExclusiveScissorNV");
 
         if (o_vkCmdSetExclusiveScissorNV == nullptr)
             o_vkCmdSetExclusiveScissorNV = (PFN_vkCmdSetExclusiveScissorNV) original;
@@ -8433,7 +8433,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCheckpointNV"))
     {
-        LOG_DEBUG("vkCmdSetCheckpointNV");
+        // LOG_DEBUG("vkCmdSetCheckpointNV");
 
         if (o_vkCmdSetCheckpointNV == nullptr)
             o_vkCmdSetCheckpointNV = (PFN_vkCmdSetCheckpointNV) original;
@@ -8442,7 +8442,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetPerformanceMarkerINTEL"))
     {
-        LOG_DEBUG("vkCmdSetPerformanceMarkerINTEL");
+        // LOG_DEBUG("vkCmdSetPerformanceMarkerINTEL");
 
         if (o_vkCmdSetPerformanceMarkerINTEL == nullptr)
             o_vkCmdSetPerformanceMarkerINTEL = (PFN_vkCmdSetPerformanceMarkerINTEL) original;
@@ -8451,7 +8451,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetPerformanceStreamMarkerINTEL"))
     {
-        LOG_DEBUG("vkCmdSetPerformanceStreamMarkerINTEL");
+        // LOG_DEBUG("vkCmdSetPerformanceStreamMarkerINTEL");
 
         if (o_vkCmdSetPerformanceStreamMarkerINTEL == nullptr)
             o_vkCmdSetPerformanceStreamMarkerINTEL = (PFN_vkCmdSetPerformanceStreamMarkerINTEL) original;
@@ -8460,7 +8460,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetPerformanceOverrideINTEL"))
     {
-        LOG_DEBUG("vkCmdSetPerformanceOverrideINTEL");
+        // LOG_DEBUG("vkCmdSetPerformanceOverrideINTEL");
 
         if (o_vkCmdSetPerformanceOverrideINTEL == nullptr)
             o_vkCmdSetPerformanceOverrideINTEL = (PFN_vkCmdSetPerformanceOverrideINTEL) original;
@@ -8469,7 +8469,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetLineStippleEXT"))
     {
-        LOG_DEBUG("vkCmdSetLineStippleEXT");
+        // LOG_DEBUG("vkCmdSetLineStippleEXT");
 
         if (o_vkCmdSetLineStippleEXT == nullptr)
             o_vkCmdSetLineStippleEXT = (PFN_vkCmdSetLineStippleEXT) original;
@@ -8478,7 +8478,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCullModeEXT"))
     {
-        LOG_DEBUG("vkCmdSetCullModeEXT");
+        // LOG_DEBUG("vkCmdSetCullModeEXT");
 
         if (o_vkCmdSetCullModeEXT == nullptr)
             o_vkCmdSetCullModeEXT = (PFN_vkCmdSetCullModeEXT) original;
@@ -8487,7 +8487,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetFrontFaceEXT"))
     {
-        LOG_DEBUG("vkCmdSetFrontFaceEXT");
+        // LOG_DEBUG("vkCmdSetFrontFaceEXT");
 
         if (o_vkCmdSetFrontFaceEXT == nullptr)
             o_vkCmdSetFrontFaceEXT = (PFN_vkCmdSetFrontFaceEXT) original;
@@ -8496,7 +8496,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetPrimitiveTopologyEXT"))
     {
-        LOG_DEBUG("vkCmdSetPrimitiveTopologyEXT");
+        // LOG_DEBUG("vkCmdSetPrimitiveTopologyEXT");
 
         if (o_vkCmdSetPrimitiveTopologyEXT == nullptr)
             o_vkCmdSetPrimitiveTopologyEXT = (PFN_vkCmdSetPrimitiveTopologyEXT) original;
@@ -8505,7 +8505,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetViewportWithCountEXT"))
     {
-        LOG_DEBUG("vkCmdSetViewportWithCountEXT");
+        // LOG_DEBUG("vkCmdSetViewportWithCountEXT");
 
         if (o_vkCmdSetViewportWithCountEXT == nullptr)
             o_vkCmdSetViewportWithCountEXT = (PFN_vkCmdSetViewportWithCountEXT) original;
@@ -8514,7 +8514,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetScissorWithCountEXT"))
     {
-        LOG_DEBUG("vkCmdSetScissorWithCountEXT");
+        // LOG_DEBUG("vkCmdSetScissorWithCountEXT");
 
         if (o_vkCmdSetScissorWithCountEXT == nullptr)
             o_vkCmdSetScissorWithCountEXT = (PFN_vkCmdSetScissorWithCountEXT) original;
@@ -8523,7 +8523,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindVertexBuffers2EXT"))
     {
-        LOG_DEBUG("vkCmdBindVertexBuffers2EXT");
+        // LOG_DEBUG("vkCmdBindVertexBuffers2EXT");
 
         if (o_vkCmdBindVertexBuffers2EXT == nullptr)
             o_vkCmdBindVertexBuffers2EXT = (PFN_vkCmdBindVertexBuffers2EXT) original;
@@ -8532,7 +8532,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthTestEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthTestEnableEXT");
+        // LOG_DEBUG("vkCmdSetDepthTestEnableEXT");
 
         if (o_vkCmdSetDepthTestEnableEXT == nullptr)
             o_vkCmdSetDepthTestEnableEXT = (PFN_vkCmdSetDepthTestEnableEXT) original;
@@ -8541,7 +8541,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthWriteEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthWriteEnableEXT");
+        // LOG_DEBUG("vkCmdSetDepthWriteEnableEXT");
 
         if (o_vkCmdSetDepthWriteEnableEXT == nullptr)
             o_vkCmdSetDepthWriteEnableEXT = (PFN_vkCmdSetDepthWriteEnableEXT) original;
@@ -8550,7 +8550,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthCompareOpEXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthCompareOpEXT");
+        // LOG_DEBUG("vkCmdSetDepthCompareOpEXT");
 
         if (o_vkCmdSetDepthCompareOpEXT == nullptr)
             o_vkCmdSetDepthCompareOpEXT = (PFN_vkCmdSetDepthCompareOpEXT) original;
@@ -8559,7 +8559,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthBoundsTestEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthBoundsTestEnableEXT");
+        // LOG_DEBUG("vkCmdSetDepthBoundsTestEnableEXT");
 
         if (o_vkCmdSetDepthBoundsTestEnableEXT == nullptr)
             o_vkCmdSetDepthBoundsTestEnableEXT = (PFN_vkCmdSetDepthBoundsTestEnableEXT) original;
@@ -8568,7 +8568,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetStencilTestEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetStencilTestEnableEXT");
+        // LOG_DEBUG("vkCmdSetStencilTestEnableEXT");
 
         if (o_vkCmdSetStencilTestEnableEXT == nullptr)
             o_vkCmdSetStencilTestEnableEXT = (PFN_vkCmdSetStencilTestEnableEXT) original;
@@ -8577,7 +8577,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetStencilOpEXT"))
     {
-        LOG_DEBUG("vkCmdSetStencilOpEXT");
+        // LOG_DEBUG("vkCmdSetStencilOpEXT");
 
         if (o_vkCmdSetStencilOpEXT == nullptr)
             o_vkCmdSetStencilOpEXT = (PFN_vkCmdSetStencilOpEXT) original;
@@ -8586,7 +8586,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPreprocessGeneratedCommandsNV"))
     {
-        LOG_DEBUG("vkCmdPreprocessGeneratedCommandsNV");
+        // LOG_DEBUG("vkCmdPreprocessGeneratedCommandsNV");
 
         if (o_vkCmdPreprocessGeneratedCommandsNV == nullptr)
             o_vkCmdPreprocessGeneratedCommandsNV = (PFN_vkCmdPreprocessGeneratedCommandsNV) original;
@@ -8595,7 +8595,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdExecuteGeneratedCommandsNV"))
     {
-        LOG_DEBUG("vkCmdExecuteGeneratedCommandsNV");
+        // LOG_DEBUG("vkCmdExecuteGeneratedCommandsNV");
 
         if (o_vkCmdExecuteGeneratedCommandsNV == nullptr)
             o_vkCmdExecuteGeneratedCommandsNV = (PFN_vkCmdExecuteGeneratedCommandsNV) original;
@@ -8604,7 +8604,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindPipelineShaderGroupNV"))
     {
-        LOG_DEBUG("vkCmdBindPipelineShaderGroupNV");
+        // LOG_DEBUG("vkCmdBindPipelineShaderGroupNV");
 
         if (o_vkCmdBindPipelineShaderGroupNV == nullptr)
             o_vkCmdBindPipelineShaderGroupNV = (PFN_vkCmdBindPipelineShaderGroupNV) original;
@@ -8613,7 +8613,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthBias2EXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthBias2EXT");
+        // LOG_DEBUG("vkCmdSetDepthBias2EXT");
 
         if (o_vkCmdSetDepthBias2EXT == nullptr)
             o_vkCmdSetDepthBias2EXT = (PFN_vkCmdSetDepthBias2EXT) original;
@@ -8622,7 +8622,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCudaLaunchKernelNV"))
     {
-        LOG_DEBUG("vkCmdCudaLaunchKernelNV");
+        // LOG_DEBUG("vkCmdCudaLaunchKernelNV");
 
         if (o_vkCmdCudaLaunchKernelNV == nullptr)
             o_vkCmdCudaLaunchKernelNV = (PFN_vkCmdCudaLaunchKernelNV) original;
@@ -8631,7 +8631,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindDescriptorBuffersEXT"))
     {
-        LOG_DEBUG("vkCmdBindDescriptorBuffersEXT");
+        // LOG_DEBUG("vkCmdBindDescriptorBuffersEXT");
 
         if (o_vkCmdBindDescriptorBuffersEXT == nullptr)
             o_vkCmdBindDescriptorBuffersEXT = (PFN_vkCmdBindDescriptorBuffersEXT) original;
@@ -8640,7 +8640,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDescriptorBufferOffsetsEXT"))
     {
-        LOG_DEBUG("vkCmdSetDescriptorBufferOffsetsEXT");
+        // LOG_DEBUG("vkCmdSetDescriptorBufferOffsetsEXT");
 
         if (o_vkCmdSetDescriptorBufferOffsetsEXT == nullptr)
             o_vkCmdSetDescriptorBufferOffsetsEXT = (PFN_vkCmdSetDescriptorBufferOffsetsEXT) original;
@@ -8649,7 +8649,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindDescriptorBufferEmbeddedSamplersEXT"))
     {
-        LOG_DEBUG("vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
+        // LOG_DEBUG("vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
 
         if (o_vkCmdBindDescriptorBufferEmbeddedSamplersEXT == nullptr)
             o_vkCmdBindDescriptorBufferEmbeddedSamplersEXT =
@@ -8659,7 +8659,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetFragmentShadingRateEnumNV"))
     {
-        LOG_DEBUG("vkCmdSetFragmentShadingRateEnumNV");
+        // LOG_DEBUG("vkCmdSetFragmentShadingRateEnumNV");
 
         if (o_vkCmdSetFragmentShadingRateEnumNV == nullptr)
             o_vkCmdSetFragmentShadingRateEnumNV = (PFN_vkCmdSetFragmentShadingRateEnumNV) original;
@@ -8668,7 +8668,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetVertexInputEXT"))
     {
-        LOG_DEBUG("vkCmdSetVertexInputEXT");
+        // LOG_DEBUG("vkCmdSetVertexInputEXT");
 
         if (o_vkCmdSetVertexInputEXT == nullptr)
             o_vkCmdSetVertexInputEXT = (PFN_vkCmdSetVertexInputEXT) original;
@@ -8677,7 +8677,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSubpassShadingHUAWEI"))
     {
-        LOG_DEBUG("vkCmdSubpassShadingHUAWEI");
+        // LOG_DEBUG("vkCmdSubpassShadingHUAWEI");
 
         if (o_vkCmdSubpassShadingHUAWEI == nullptr)
             o_vkCmdSubpassShadingHUAWEI = (PFN_vkCmdSubpassShadingHUAWEI) original;
@@ -8686,7 +8686,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindInvocationMaskHUAWEI"))
     {
-        LOG_DEBUG("vkCmdBindInvocationMaskHUAWEI");
+        // LOG_DEBUG("vkCmdBindInvocationMaskHUAWEI");
 
         if (o_vkCmdBindInvocationMaskHUAWEI == nullptr)
             o_vkCmdBindInvocationMaskHUAWEI = (PFN_vkCmdBindInvocationMaskHUAWEI) original;
@@ -8695,7 +8695,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetPatchControlPointsEXT"))
     {
-        LOG_DEBUG("vkCmdSetPatchControlPointsEXT");
+        // LOG_DEBUG("vkCmdSetPatchControlPointsEXT");
 
         if (o_vkCmdSetPatchControlPointsEXT == nullptr)
             o_vkCmdSetPatchControlPointsEXT = (PFN_vkCmdSetPatchControlPointsEXT) original;
@@ -8704,7 +8704,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRasterizerDiscardEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetRasterizerDiscardEnableEXT");
+        // LOG_DEBUG("vkCmdSetRasterizerDiscardEnableEXT");
 
         if (o_vkCmdSetRasterizerDiscardEnableEXT == nullptr)
             o_vkCmdSetRasterizerDiscardEnableEXT = (PFN_vkCmdSetRasterizerDiscardEnableEXT) original;
@@ -8713,7 +8713,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthBiasEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthBiasEnableEXT");
+        // LOG_DEBUG("vkCmdSetDepthBiasEnableEXT");
 
         if (o_vkCmdSetDepthBiasEnableEXT == nullptr)
             o_vkCmdSetDepthBiasEnableEXT = (PFN_vkCmdSetDepthBiasEnableEXT) original;
@@ -8722,7 +8722,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetLogicOpEXT"))
     {
-        LOG_DEBUG("vkCmdSetLogicOpEXT");
+        // LOG_DEBUG("vkCmdSetLogicOpEXT");
 
         if (o_vkCmdSetLogicOpEXT == nullptr)
             o_vkCmdSetLogicOpEXT = (PFN_vkCmdSetLogicOpEXT) original;
@@ -8731,7 +8731,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetPrimitiveRestartEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetPrimitiveRestartEnableEXT");
+        // LOG_DEBUG("vkCmdSetPrimitiveRestartEnableEXT");
 
         if (o_vkCmdSetPrimitiveRestartEnableEXT == nullptr)
             o_vkCmdSetPrimitiveRestartEnableEXT = (PFN_vkCmdSetPrimitiveRestartEnableEXT) original;
@@ -8740,7 +8740,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetColorWriteEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetColorWriteEnableEXT");
+        // LOG_DEBUG("vkCmdSetColorWriteEnableEXT");
 
         if (o_vkCmdSetColorWriteEnableEXT == nullptr)
             o_vkCmdSetColorWriteEnableEXT = (PFN_vkCmdSetColorWriteEnableEXT) original;
@@ -8749,7 +8749,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawMultiEXT"))
     {
-        LOG_DEBUG("vkCmdDrawMultiEXT");
+        // LOG_DEBUG("vkCmdDrawMultiEXT");
 
         if (o_vkCmdDrawMultiEXT == nullptr)
             o_vkCmdDrawMultiEXT = (PFN_vkCmdDrawMultiEXT) original;
@@ -8758,7 +8758,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawMultiIndexedEXT"))
     {
-        LOG_DEBUG("vkCmdDrawMultiIndexedEXT");
+        // LOG_DEBUG("vkCmdDrawMultiIndexedEXT");
 
         if (o_vkCmdDrawMultiIndexedEXT == nullptr)
             o_vkCmdDrawMultiIndexedEXT = (PFN_vkCmdDrawMultiIndexedEXT) original;
@@ -8767,7 +8767,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBuildMicromapsEXT"))
     {
-        LOG_DEBUG("vkCmdBuildMicromapsEXT");
+        // LOG_DEBUG("vkCmdBuildMicromapsEXT");
 
         if (o_vkCmdBuildMicromapsEXT == nullptr)
             o_vkCmdBuildMicromapsEXT = (PFN_vkCmdBuildMicromapsEXT) original;
@@ -8776,7 +8776,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyMicromapEXT"))
     {
-        LOG_DEBUG("vkCmdCopyMicromapEXT");
+        // LOG_DEBUG("vkCmdCopyMicromapEXT");
 
         if (o_vkCmdCopyMicromapEXT == nullptr)
             o_vkCmdCopyMicromapEXT = (PFN_vkCmdCopyMicromapEXT) original;
@@ -8785,7 +8785,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyMicromapToMemoryEXT"))
     {
-        LOG_DEBUG("vkCmdCopyMicromapToMemoryEXT");
+        // LOG_DEBUG("vkCmdCopyMicromapToMemoryEXT");
 
         if (o_vkCmdCopyMicromapToMemoryEXT == nullptr)
             o_vkCmdCopyMicromapToMemoryEXT = (PFN_vkCmdCopyMicromapToMemoryEXT) original;
@@ -8794,7 +8794,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyMemoryToMicromapEXT"))
     {
-        LOG_DEBUG("vkCmdCopyMemoryToMicromapEXT");
+        // LOG_DEBUG("vkCmdCopyMemoryToMicromapEXT");
 
         if (o_vkCmdCopyMemoryToMicromapEXT == nullptr)
             o_vkCmdCopyMemoryToMicromapEXT = (PFN_vkCmdCopyMemoryToMicromapEXT) original;
@@ -8803,7 +8803,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWriteMicromapsPropertiesEXT"))
     {
-        LOG_DEBUG("vkCmdWriteMicromapsPropertiesEXT");
+        // LOG_DEBUG("vkCmdWriteMicromapsPropertiesEXT");
 
         if (o_vkCmdWriteMicromapsPropertiesEXT == nullptr)
             o_vkCmdWriteMicromapsPropertiesEXT = (PFN_vkCmdWriteMicromapsPropertiesEXT) original;
@@ -8812,7 +8812,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawClusterHUAWEI"))
     {
-        LOG_DEBUG("vkCmdDrawClusterHUAWEI");
+        // LOG_DEBUG("vkCmdDrawClusterHUAWEI");
 
         if (o_vkCmdDrawClusterHUAWEI == nullptr)
             o_vkCmdDrawClusterHUAWEI = (PFN_vkCmdDrawClusterHUAWEI) original;
@@ -8821,7 +8821,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawClusterIndirectHUAWEI"))
     {
-        LOG_DEBUG("vkCmdDrawClusterIndirectHUAWEI");
+        // LOG_DEBUG("vkCmdDrawClusterIndirectHUAWEI");
 
         if (o_vkCmdDrawClusterIndirectHUAWEI == nullptr)
             o_vkCmdDrawClusterIndirectHUAWEI = (PFN_vkCmdDrawClusterIndirectHUAWEI) original;
@@ -8830,7 +8830,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyMemoryIndirectNV"))
     {
-        LOG_DEBUG("vkCmdCopyMemoryIndirectNV");
+        // LOG_DEBUG("vkCmdCopyMemoryIndirectNV");
 
         if (o_vkCmdCopyMemoryIndirectNV == nullptr)
             o_vkCmdCopyMemoryIndirectNV = (PFN_vkCmdCopyMemoryIndirectNV) original;
@@ -8839,7 +8839,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyMemoryToImageIndirectNV"))
     {
-        LOG_DEBUG("vkCmdCopyMemoryToImageIndirectNV");
+        // LOG_DEBUG("vkCmdCopyMemoryToImageIndirectNV");
 
         if (o_vkCmdCopyMemoryToImageIndirectNV == nullptr)
             o_vkCmdCopyMemoryToImageIndirectNV = (PFN_vkCmdCopyMemoryToImageIndirectNV) original;
@@ -8848,7 +8848,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDecompressMemoryNV"))
     {
-        LOG_DEBUG("vkCmdDecompressMemoryNV");
+        // LOG_DEBUG("vkCmdDecompressMemoryNV");
 
         if (o_vkCmdDecompressMemoryNV == nullptr)
             o_vkCmdDecompressMemoryNV = (PFN_vkCmdDecompressMemoryNV) original;
@@ -8857,7 +8857,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDecompressMemoryIndirectCountNV"))
     {
-        LOG_DEBUG("vkCmdDecompressMemoryIndirectCountNV");
+        // LOG_DEBUG("vkCmdDecompressMemoryIndirectCountNV");
 
         if (o_vkCmdDecompressMemoryIndirectCountNV == nullptr)
             o_vkCmdDecompressMemoryIndirectCountNV = (PFN_vkCmdDecompressMemoryIndirectCountNV) original;
@@ -8866,7 +8866,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdUpdatePipelineIndirectBufferNV"))
     {
-        LOG_DEBUG("vkCmdUpdatePipelineIndirectBufferNV");
+        // LOG_DEBUG("vkCmdUpdatePipelineIndirectBufferNV");
 
         if (o_vkCmdUpdatePipelineIndirectBufferNV == nullptr)
             o_vkCmdUpdatePipelineIndirectBufferNV = (PFN_vkCmdUpdatePipelineIndirectBufferNV) original;
@@ -8875,7 +8875,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthClampEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthClampEnableEXT");
+        // LOG_DEBUG("vkCmdSetDepthClampEnableEXT");
 
         if (o_vkCmdSetDepthClampEnableEXT == nullptr)
             o_vkCmdSetDepthClampEnableEXT = (PFN_vkCmdSetDepthClampEnableEXT) original;
@@ -8884,7 +8884,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetPolygonModeEXT"))
     {
-        LOG_DEBUG("vkCmdSetPolygonModeEXT");
+        // LOG_DEBUG("vkCmdSetPolygonModeEXT");
 
         if (o_vkCmdSetPolygonModeEXT == nullptr)
             o_vkCmdSetPolygonModeEXT = (PFN_vkCmdSetPolygonModeEXT) original;
@@ -8893,7 +8893,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRasterizationSamplesEXT"))
     {
-        LOG_DEBUG("vkCmdSetRasterizationSamplesEXT");
+        // LOG_DEBUG("vkCmdSetRasterizationSamplesEXT");
 
         if (o_vkCmdSetRasterizationSamplesEXT == nullptr)
             o_vkCmdSetRasterizationSamplesEXT = (PFN_vkCmdSetRasterizationSamplesEXT) original;
@@ -8902,7 +8902,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetSampleMaskEXT"))
     {
-        LOG_DEBUG("vkCmdSetSampleMaskEXT");
+        // LOG_DEBUG("vkCmdSetSampleMaskEXT");
 
         if (o_vkCmdSetSampleMaskEXT == nullptr)
             o_vkCmdSetSampleMaskEXT = (PFN_vkCmdSetSampleMaskEXT) original;
@@ -8911,7 +8911,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetAlphaToCoverageEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetAlphaToCoverageEnableEXT");
+        // LOG_DEBUG("vkCmdSetAlphaToCoverageEnableEXT");
 
         if (o_vkCmdSetAlphaToCoverageEnableEXT == nullptr)
             o_vkCmdSetAlphaToCoverageEnableEXT = (PFN_vkCmdSetAlphaToCoverageEnableEXT) original;
@@ -8920,7 +8920,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetAlphaToOneEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetAlphaToOneEnableEXT");
+        // LOG_DEBUG("vkCmdSetAlphaToOneEnableEXT");
 
         if (o_vkCmdSetAlphaToOneEnableEXT == nullptr)
             o_vkCmdSetAlphaToOneEnableEXT = (PFN_vkCmdSetAlphaToOneEnableEXT) original;
@@ -8929,7 +8929,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetLogicOpEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetLogicOpEnableEXT");
+        // LOG_DEBUG("vkCmdSetLogicOpEnableEXT");
 
         if (o_vkCmdSetLogicOpEnableEXT == nullptr)
             o_vkCmdSetLogicOpEnableEXT = (PFN_vkCmdSetLogicOpEnableEXT) original;
@@ -8938,7 +8938,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetColorBlendEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetColorBlendEnableEXT");
+        // LOG_DEBUG("vkCmdSetColorBlendEnableEXT");
 
         if (o_vkCmdSetColorBlendEnableEXT == nullptr)
             o_vkCmdSetColorBlendEnableEXT = (PFN_vkCmdSetColorBlendEnableEXT) original;
@@ -8947,7 +8947,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetColorBlendEquationEXT"))
     {
-        LOG_DEBUG("vkCmdSetColorBlendEquationEXT");
+        // LOG_DEBUG("vkCmdSetColorBlendEquationEXT");
 
         if (o_vkCmdSetColorBlendEquationEXT == nullptr)
             o_vkCmdSetColorBlendEquationEXT = (PFN_vkCmdSetColorBlendEquationEXT) original;
@@ -8956,7 +8956,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetColorWriteMaskEXT"))
     {
-        LOG_DEBUG("vkCmdSetColorWriteMaskEXT");
+        // LOG_DEBUG("vkCmdSetColorWriteMaskEXT");
 
         if (o_vkCmdSetColorWriteMaskEXT == nullptr)
             o_vkCmdSetColorWriteMaskEXT = (PFN_vkCmdSetColorWriteMaskEXT) original;
@@ -8965,7 +8965,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetTessellationDomainOriginEXT"))
     {
-        LOG_DEBUG("vkCmdSetTessellationDomainOriginEXT");
+        // LOG_DEBUG("vkCmdSetTessellationDomainOriginEXT");
 
         if (o_vkCmdSetTessellationDomainOriginEXT == nullptr)
             o_vkCmdSetTessellationDomainOriginEXT = (PFN_vkCmdSetTessellationDomainOriginEXT) original;
@@ -8974,7 +8974,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRasterizationStreamEXT"))
     {
-        LOG_DEBUG("vkCmdSetRasterizationStreamEXT");
+        // LOG_DEBUG("vkCmdSetRasterizationStreamEXT");
 
         if (o_vkCmdSetRasterizationStreamEXT == nullptr)
             o_vkCmdSetRasterizationStreamEXT = (PFN_vkCmdSetRasterizationStreamEXT) original;
@@ -8983,7 +8983,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetConservativeRasterizationModeEXT"))
     {
-        LOG_DEBUG("vkCmdSetConservativeRasterizationModeEXT");
+        // LOG_DEBUG("vkCmdSetConservativeRasterizationModeEXT");
 
         if (o_vkCmdSetConservativeRasterizationModeEXT == nullptr)
             o_vkCmdSetConservativeRasterizationModeEXT = (PFN_vkCmdSetConservativeRasterizationModeEXT) original;
@@ -8992,7 +8992,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetExtraPrimitiveOverestimationSizeEXT"))
     {
-        LOG_DEBUG("vkCmdSetExtraPrimitiveOverestimationSizeEXT");
+        // LOG_DEBUG("vkCmdSetExtraPrimitiveOverestimationSizeEXT");
 
         if (o_vkCmdSetExtraPrimitiveOverestimationSizeEXT == nullptr)
             o_vkCmdSetExtraPrimitiveOverestimationSizeEXT = (PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT) original;
@@ -9001,7 +9001,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthClipEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthClipEnableEXT");
+        // LOG_DEBUG("vkCmdSetDepthClipEnableEXT");
 
         if (o_vkCmdSetDepthClipEnableEXT == nullptr)
             o_vkCmdSetDepthClipEnableEXT = (PFN_vkCmdSetDepthClipEnableEXT) original;
@@ -9010,7 +9010,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetSampleLocationsEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetSampleLocationsEnableEXT");
+        // LOG_DEBUG("vkCmdSetSampleLocationsEnableEXT");
 
         if (o_vkCmdSetSampleLocationsEnableEXT == nullptr)
             o_vkCmdSetSampleLocationsEnableEXT = (PFN_vkCmdSetSampleLocationsEnableEXT) original;
@@ -9019,7 +9019,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetColorBlendAdvancedEXT"))
     {
-        LOG_DEBUG("vkCmdSetColorBlendAdvancedEXT");
+        // LOG_DEBUG("vkCmdSetColorBlendAdvancedEXT");
 
         if (o_vkCmdSetColorBlendAdvancedEXT == nullptr)
             o_vkCmdSetColorBlendAdvancedEXT = (PFN_vkCmdSetColorBlendAdvancedEXT) original;
@@ -9028,7 +9028,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetProvokingVertexModeEXT"))
     {
-        LOG_DEBUG("vkCmdSetProvokingVertexModeEXT");
+        // LOG_DEBUG("vkCmdSetProvokingVertexModeEXT");
 
         if (o_vkCmdSetProvokingVertexModeEXT == nullptr)
             o_vkCmdSetProvokingVertexModeEXT = (PFN_vkCmdSetProvokingVertexModeEXT) original;
@@ -9037,7 +9037,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetLineRasterizationModeEXT"))
     {
-        LOG_DEBUG("vkCmdSetLineRasterizationModeEXT");
+        // LOG_DEBUG("vkCmdSetLineRasterizationModeEXT");
 
         if (o_vkCmdSetLineRasterizationModeEXT == nullptr)
             o_vkCmdSetLineRasterizationModeEXT = (PFN_vkCmdSetLineRasterizationModeEXT) original;
@@ -9046,7 +9046,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetLineStippleEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetLineStippleEnableEXT");
+        // LOG_DEBUG("vkCmdSetLineStippleEnableEXT");
 
         if (o_vkCmdSetLineStippleEnableEXT == nullptr)
             o_vkCmdSetLineStippleEnableEXT = (PFN_vkCmdSetLineStippleEnableEXT) original;
@@ -9055,7 +9055,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthClipNegativeOneToOneEXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthClipNegativeOneToOneEXT");
+        // LOG_DEBUG("vkCmdSetDepthClipNegativeOneToOneEXT");
 
         if (o_vkCmdSetDepthClipNegativeOneToOneEXT == nullptr)
             o_vkCmdSetDepthClipNegativeOneToOneEXT = (PFN_vkCmdSetDepthClipNegativeOneToOneEXT) original;
@@ -9064,7 +9064,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetViewportWScalingEnableNV"))
     {
-        LOG_DEBUG("vkCmdSetViewportWScalingEnableNV");
+        // LOG_DEBUG("vkCmdSetViewportWScalingEnableNV");
 
         if (o_vkCmdSetViewportWScalingEnableNV == nullptr)
             o_vkCmdSetViewportWScalingEnableNV = (PFN_vkCmdSetViewportWScalingEnableNV) original;
@@ -9073,7 +9073,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetViewportSwizzleNV"))
     {
-        LOG_DEBUG("vkCmdSetViewportSwizzleNV");
+        // LOG_DEBUG("vkCmdSetViewportSwizzleNV");
 
         if (o_vkCmdSetViewportSwizzleNV == nullptr)
             o_vkCmdSetViewportSwizzleNV = (PFN_vkCmdSetViewportSwizzleNV) original;
@@ -9082,7 +9082,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCoverageToColorEnableNV"))
     {
-        LOG_DEBUG("vkCmdSetCoverageToColorEnableNV");
+        // LOG_DEBUG("vkCmdSetCoverageToColorEnableNV");
 
         if (o_vkCmdSetCoverageToColorEnableNV == nullptr)
             o_vkCmdSetCoverageToColorEnableNV = (PFN_vkCmdSetCoverageToColorEnableNV) original;
@@ -9091,7 +9091,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCoverageToColorLocationNV"))
     {
-        LOG_DEBUG("vkCmdSetCoverageToColorLocationNV");
+        // LOG_DEBUG("vkCmdSetCoverageToColorLocationNV");
 
         if (o_vkCmdSetCoverageToColorLocationNV == nullptr)
             o_vkCmdSetCoverageToColorLocationNV = (PFN_vkCmdSetCoverageToColorLocationNV) original;
@@ -9100,7 +9100,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCoverageModulationModeNV"))
     {
-        LOG_DEBUG("vkCmdSetCoverageModulationModeNV");
+        // LOG_DEBUG("vkCmdSetCoverageModulationModeNV");
 
         if (o_vkCmdSetCoverageModulationModeNV == nullptr)
             o_vkCmdSetCoverageModulationModeNV = (PFN_vkCmdSetCoverageModulationModeNV) original;
@@ -9109,7 +9109,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCoverageModulationTableEnableNV"))
     {
-        LOG_DEBUG("vkCmdSetCoverageModulationTableEnableNV");
+        // LOG_DEBUG("vkCmdSetCoverageModulationTableEnableNV");
 
         if (o_vkCmdSetCoverageModulationTableEnableNV == nullptr)
             o_vkCmdSetCoverageModulationTableEnableNV = (PFN_vkCmdSetCoverageModulationTableEnableNV) original;
@@ -9118,7 +9118,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCoverageModulationTableNV"))
     {
-        LOG_DEBUG("vkCmdSetCoverageModulationTableNV");
+        // LOG_DEBUG("vkCmdSetCoverageModulationTableNV");
 
         if (o_vkCmdSetCoverageModulationTableNV == nullptr)
             o_vkCmdSetCoverageModulationTableNV = (PFN_vkCmdSetCoverageModulationTableNV) original;
@@ -9127,7 +9127,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetShadingRateImageEnableNV"))
     {
-        LOG_DEBUG("vkCmdSetShadingRateImageEnableNV");
+        // LOG_DEBUG("vkCmdSetShadingRateImageEnableNV");
 
         if (o_vkCmdSetShadingRateImageEnableNV == nullptr)
             o_vkCmdSetShadingRateImageEnableNV = (PFN_vkCmdSetShadingRateImageEnableNV) original;
@@ -9136,7 +9136,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRepresentativeFragmentTestEnableNV"))
     {
-        LOG_DEBUG("vkCmdSetRepresentativeFragmentTestEnableNV");
+        // LOG_DEBUG("vkCmdSetRepresentativeFragmentTestEnableNV");
 
         if (o_vkCmdSetRepresentativeFragmentTestEnableNV == nullptr)
             o_vkCmdSetRepresentativeFragmentTestEnableNV = (PFN_vkCmdSetRepresentativeFragmentTestEnableNV) original;
@@ -9145,7 +9145,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetCoverageReductionModeNV"))
     {
-        LOG_DEBUG("vkCmdSetCoverageReductionModeNV");
+        // LOG_DEBUG("vkCmdSetCoverageReductionModeNV");
 
         if (o_vkCmdSetCoverageReductionModeNV == nullptr)
             o_vkCmdSetCoverageReductionModeNV = (PFN_vkCmdSetCoverageReductionModeNV) original;
@@ -9154,7 +9154,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdOpticalFlowExecuteNV"))
     {
-        LOG_DEBUG("vkCmdOpticalFlowExecuteNV");
+        // LOG_DEBUG("vkCmdOpticalFlowExecuteNV");
 
         if (o_vkCmdOpticalFlowExecuteNV == nullptr)
             o_vkCmdOpticalFlowExecuteNV = (PFN_vkCmdOpticalFlowExecuteNV) original;
@@ -9163,7 +9163,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBindShadersEXT"))
     {
-        LOG_DEBUG("vkCmdBindShadersEXT");
+        // LOG_DEBUG("vkCmdBindShadersEXT");
 
         if (o_vkCmdBindShadersEXT == nullptr)
             o_vkCmdBindShadersEXT = (PFN_vkCmdBindShadersEXT) original;
@@ -9172,7 +9172,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetDepthClampRangeEXT"))
     {
-        LOG_DEBUG("vkCmdSetDepthClampRangeEXT");
+        // LOG_DEBUG("vkCmdSetDepthClampRangeEXT");
 
         if (o_vkCmdSetDepthClampRangeEXT == nullptr)
             o_vkCmdSetDepthClampRangeEXT = (PFN_vkCmdSetDepthClampRangeEXT) original;
@@ -9181,7 +9181,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdConvertCooperativeVectorMatrixNV"))
     {
-        LOG_DEBUG("vkCmdConvertCooperativeVectorMatrixNV");
+        // LOG_DEBUG("vkCmdConvertCooperativeVectorMatrixNV");
 
         if (o_vkCmdConvertCooperativeVectorMatrixNV == nullptr)
             o_vkCmdConvertCooperativeVectorMatrixNV = (PFN_vkCmdConvertCooperativeVectorMatrixNV) original;
@@ -9190,7 +9190,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetAttachmentFeedbackLoopEnableEXT"))
     {
-        LOG_DEBUG("vkCmdSetAttachmentFeedbackLoopEnableEXT");
+        // LOG_DEBUG("vkCmdSetAttachmentFeedbackLoopEnableEXT");
 
         if (o_vkCmdSetAttachmentFeedbackLoopEnableEXT == nullptr)
             o_vkCmdSetAttachmentFeedbackLoopEnableEXT = (PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT) original;
@@ -9199,7 +9199,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBuildClusterAccelerationStructureIndirectNV"))
     {
-        LOG_DEBUG("vkCmdBuildClusterAccelerationStructureIndirectNV");
+        // LOG_DEBUG("vkCmdBuildClusterAccelerationStructureIndirectNV");
 
         if (o_vkCmdBuildClusterAccelerationStructureIndirectNV == nullptr)
             o_vkCmdBuildClusterAccelerationStructureIndirectNV =
@@ -9209,7 +9209,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBuildPartitionedAccelerationStructuresNV"))
     {
-        LOG_DEBUG("vkCmdBuildPartitionedAccelerationStructuresNV");
+        // LOG_DEBUG("vkCmdBuildPartitionedAccelerationStructuresNV");
 
         if (o_vkCmdBuildPartitionedAccelerationStructuresNV == nullptr)
             o_vkCmdBuildPartitionedAccelerationStructuresNV =
@@ -9219,7 +9219,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdPreprocessGeneratedCommandsEXT"))
     {
-        LOG_DEBUG("vkCmdPreprocessGeneratedCommandsEXT");
+        // LOG_DEBUG("vkCmdPreprocessGeneratedCommandsEXT");
 
         if (o_vkCmdPreprocessGeneratedCommandsEXT == nullptr)
             o_vkCmdPreprocessGeneratedCommandsEXT = (PFN_vkCmdPreprocessGeneratedCommandsEXT) original;
@@ -9228,7 +9228,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdExecuteGeneratedCommandsEXT"))
     {
-        LOG_DEBUG("vkCmdExecuteGeneratedCommandsEXT");
+        // LOG_DEBUG("vkCmdExecuteGeneratedCommandsEXT");
 
         if (o_vkCmdExecuteGeneratedCommandsEXT == nullptr)
             o_vkCmdExecuteGeneratedCommandsEXT = (PFN_vkCmdExecuteGeneratedCommandsEXT) original;
@@ -9237,7 +9237,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBuildAccelerationStructuresKHR"))
     {
-        LOG_DEBUG("vkCmdBuildAccelerationStructuresKHR");
+        // LOG_DEBUG("vkCmdBuildAccelerationStructuresKHR");
 
         if (o_vkCmdBuildAccelerationStructuresKHR == nullptr)
             o_vkCmdBuildAccelerationStructuresKHR = (PFN_vkCmdBuildAccelerationStructuresKHR) original;
@@ -9246,7 +9246,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdBuildAccelerationStructuresIndirectKHR"))
     {
-        LOG_DEBUG("vkCmdBuildAccelerationStructuresIndirectKHR");
+        // LOG_DEBUG("vkCmdBuildAccelerationStructuresIndirectKHR");
 
         if (o_vkCmdBuildAccelerationStructuresIndirectKHR == nullptr)
             o_vkCmdBuildAccelerationStructuresIndirectKHR = (PFN_vkCmdBuildAccelerationStructuresIndirectKHR) original;
@@ -9255,7 +9255,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyAccelerationStructureKHR"))
     {
-        LOG_DEBUG("vkCmdCopyAccelerationStructureKHR");
+        // LOG_DEBUG("vkCmdCopyAccelerationStructureKHR");
 
         if (o_vkCmdCopyAccelerationStructureKHR == nullptr)
             o_vkCmdCopyAccelerationStructureKHR = (PFN_vkCmdCopyAccelerationStructureKHR) original;
@@ -9264,7 +9264,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyAccelerationStructureToMemoryKHR"))
     {
-        LOG_DEBUG("vkCmdCopyAccelerationStructureToMemoryKHR");
+        // LOG_DEBUG("vkCmdCopyAccelerationStructureToMemoryKHR");
 
         if (o_vkCmdCopyAccelerationStructureToMemoryKHR == nullptr)
             o_vkCmdCopyAccelerationStructureToMemoryKHR = (PFN_vkCmdCopyAccelerationStructureToMemoryKHR) original;
@@ -9273,7 +9273,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdCopyMemoryToAccelerationStructureKHR"))
     {
-        LOG_DEBUG("vkCmdCopyMemoryToAccelerationStructureKHR");
+        // LOG_DEBUG("vkCmdCopyMemoryToAccelerationStructureKHR");
 
         if (o_vkCmdCopyMemoryToAccelerationStructureKHR == nullptr)
             o_vkCmdCopyMemoryToAccelerationStructureKHR = (PFN_vkCmdCopyMemoryToAccelerationStructureKHR) original;
@@ -9282,7 +9282,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdWriteAccelerationStructuresPropertiesKHR"))
     {
-        LOG_DEBUG("vkCmdWriteAccelerationStructuresPropertiesKHR");
+        // LOG_DEBUG("vkCmdWriteAccelerationStructuresPropertiesKHR");
 
         if (o_vkCmdWriteAccelerationStructuresPropertiesKHR == nullptr)
             o_vkCmdWriteAccelerationStructuresPropertiesKHR =
@@ -9292,7 +9292,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdTraceRaysKHR"))
     {
-        LOG_DEBUG("vkCmdTraceRaysKHR");
+        // LOG_DEBUG("vkCmdTraceRaysKHR");
 
         if (o_vkCmdTraceRaysKHR == nullptr)
             o_vkCmdTraceRaysKHR = (PFN_vkCmdTraceRaysKHR) original;
@@ -9301,7 +9301,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdTraceRaysIndirectKHR"))
     {
-        LOG_DEBUG("vkCmdTraceRaysIndirectKHR");
+        // LOG_DEBUG("vkCmdTraceRaysIndirectKHR");
 
         if (o_vkCmdTraceRaysIndirectKHR == nullptr)
             o_vkCmdTraceRaysIndirectKHR = (PFN_vkCmdTraceRaysIndirectKHR) original;
@@ -9310,7 +9310,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdSetRayTracingPipelineStackSizeKHR"))
     {
-        LOG_DEBUG("vkCmdSetRayTracingPipelineStackSizeKHR");
+        // LOG_DEBUG("vkCmdSetRayTracingPipelineStackSizeKHR");
 
         if (o_vkCmdSetRayTracingPipelineStackSizeKHR == nullptr)
             o_vkCmdSetRayTracingPipelineStackSizeKHR = (PFN_vkCmdSetRayTracingPipelineStackSizeKHR) original;
@@ -9319,7 +9319,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawMeshTasksEXT"))
     {
-        LOG_DEBUG("vkCmdDrawMeshTasksEXT");
+        // LOG_DEBUG("vkCmdDrawMeshTasksEXT");
 
         if (o_vkCmdDrawMeshTasksEXT == nullptr)
             o_vkCmdDrawMeshTasksEXT = (PFN_vkCmdDrawMeshTasksEXT) original;
@@ -9328,7 +9328,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawMeshTasksIndirectEXT"))
     {
-        LOG_DEBUG("vkCmdDrawMeshTasksIndirectEXT");
+        // LOG_DEBUG("vkCmdDrawMeshTasksIndirectEXT");
 
         if (o_vkCmdDrawMeshTasksIndirectEXT == nullptr)
             o_vkCmdDrawMeshTasksIndirectEXT = (PFN_vkCmdDrawMeshTasksIndirectEXT) original;
@@ -9337,7 +9337,7 @@ PFN_vkVoidFunction Vulkan_wDx12::GetAddress(const PFN_vkVoidFunction original, c
     }
     if (procName == std::string("vkCmdDrawMeshTasksIndirectCountEXT"))
     {
-        LOG_DEBUG("vkCmdDrawMeshTasksIndirectCountEXT");
+        // LOG_DEBUG("vkCmdDrawMeshTasksIndirectCountEXT");
 
         if (o_vkCmdDrawMeshTasksIndirectCountEXT == nullptr)
             o_vkCmdDrawMeshTasksIndirectCountEXT = (PFN_vkCmdDrawMeshTasksIndirectCountEXT) original;
