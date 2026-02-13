@@ -884,7 +884,7 @@ class CommandBufferStateTracker
             _cmdBufferToPool.erase(pCommandBuffers[i]);
         }
 
-        LOG_DEBUG("Freed {} command buffers from pool {:X}", count, (size_t) pool);
+        // LOG_DEBUG("Freed {} command buffers from pool {:X}", count, (size_t) pool);
     }
 
     // Call this when a command pool is destroyed

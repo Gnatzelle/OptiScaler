@@ -258,7 +258,10 @@ inline static VKAPI_ATTR VkBool32 VKAPI_CALL VulkanDebugCallback(
 VkResult VulkanSpoofing::hkvkCreateInstance(VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator,
                                             VkInstance* pInstance)
 {
-    if (pCreateInfo->pApplicationInfo->pApplicationName != nullptr)
+    if (pCreateInfo == nullptr)
+        return VK_ERROR_INITIALIZATION_FAILED;
+
+    if (pCreateInfo->pApplicationInfo != nullptr && pCreateInfo->pApplicationInfo->pApplicationName != nullptr)
         LOG_DEBUG("ApplicationName: {}", pCreateInfo->pApplicationInfo->pApplicationName);
 
     static std::vector<const char*> newExtensionList;
