@@ -139,17 +139,18 @@ int IFGFeature::GetDispatchIndex(UINT64& willDispatchFrame)
     if (_frameCount == _lastDispatchedFrame)
         return -1;
 
+    willDispatchFrame = _lastDispatchedFrame + 1; // By default render next one
+
     auto diff = _frameCount - _lastDispatchedFrame;
     if (diff > Config::Instance()->FGAllowedFrameAhead.value_or_default() || diff < 0 || _lastDispatchedFrame == 0)
     {
-        if (HasResource(FG_ResourceType::Depth))
-            willDispatchFrame = _frameCount; // Set dispatch frame as new one
-        else
-            willDispatchFrame = _lastDispatchedFrame + 1; // Render next one
-    }
-    else
-    {
-        willDispatchFrame = _lastDispatchedFrame + 1; // Render next one
+        auto index = GetIndex();
+
+        if (HasResource(FG_ResourceType::Depth, index) || HasResource(FG_ResourceType::Velocity, index) ||
+            HasResource(FG_ResourceType::UIColor, index) || HasResource(FG_ResourceType::HudlessColor, index))
+        {
+            willDispatchFrame = _frameCount; // Set dispatch frame as latest one
+        }
     }
 
     _lastDispatchedFrame = willDispatchFrame;
