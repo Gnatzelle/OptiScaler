@@ -3247,14 +3247,15 @@ bool MenuCommon::RenderMenu()
                         ImGui::Spacing();
                     }
 
-                    if ((state.activeFgOutput == FGOutput::FSRFG || state.activeFgOutput == FGOutput::XeFG) &&
-                        state.activeFgInput != FGInput::NoFG && state.activeFgInput != FGInput::Nukems)
+                    auto fgOutput = reinterpret_cast<IFGFeature_Dx12*>(state.currentFG);
+                    if (((state.activeFgOutput == FGOutput::FSRFG || state.activeFgOutput == FGOutput::XeFG) &&
+                         state.activeFgInput != FGInput::NoFG && state.activeFgInput != FGInput::Nukems) &&
+                        fgOutput)
                     {
                         ImGui::Checkbox("Show Detected UI", &state.FGHudlessCompare);
                         ShowHelpMarker("Needs Hudless texture to compare with final image.\n"
                                        "UI elements and ONLY UI elements should have a pink tint!");
 
-                        auto fgOutput = reinterpret_cast<IFGFeature_Dx12*>(state.currentFG);
                         const auto isUsingUIAny = fgOutput->IsUsingUIAny();
 
                         ImGui::BeginDisabled(!isUsingUIAny);
