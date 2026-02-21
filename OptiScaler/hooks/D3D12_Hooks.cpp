@@ -550,7 +550,6 @@ static ULONG hkD3D12DeviceRelease(IUnknown* device)
     {
         device->AddRef();
         auto refCount = o_D3D12DeviceRelease(device);
-        LOG_DEBUG("Found currentD3D12Device: {:X}, refCount: {}", (size_t) device, refCount);
 
         if (refCount == 1)
         {
