@@ -455,7 +455,7 @@ HMODULE LibraryLoadHooks::LoadLibraryCheckW(std::wstring libName, LPCWSTR lpLibF
     {
         auto module = NtdllProxy::LoadLibraryExW_Ldr(libName.c_str(), NULL, 0);
 
-        FSR4ModelSelection::Hook(module, true);
+        FSR4ModelSelection::Hook(module, FSR4Source::SDK);
 
         if (module != nullptr)
             FfxApiProxy::InitFfxDx12_SR(module);

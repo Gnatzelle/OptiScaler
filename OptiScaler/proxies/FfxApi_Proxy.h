@@ -321,7 +321,7 @@ class FfxApiProxy
                     if (upscaling_dx12.dll != nullptr)
                     {
                         LOG_INFO("{} loaded from exe folder", wstring_to_string(dllNames[i]));
-                        FSR4ModelSelection::Hook(upscaling_dx12.dll);
+                        FSR4ModelSelection::Hook(upscaling_dx12.dll, FSR4Source::SDK);
                         break;
                     }
                 }
