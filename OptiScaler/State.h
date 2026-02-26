@@ -198,6 +198,7 @@ class State
 
     // Other checks
     bool isRunningOnNvidia = false;
+    std::optional<bool> isRunningOnRDNA4;
     bool isPascalOrOlder = false;
     bool isDxgiMode = false;
     bool isD3D12Mode = false;

@@ -1025,7 +1025,9 @@ void MenuCommon::GetCurrentBackendInfo(const API api, std::string* code, std::st
 void MenuCommon::AddDx11Backends(std::string* code, std::string* name)
 {
     std::string selectedUpscalerName = "";
-    std::string fsr3xName = Config::Instance()->Fsr4Update.value_or_default() ? "FSR 3.X/4 w/Dx12" : "FSR 3.X w/Dx12";
+    bool fsr4Possible =
+        Config::Instance()->Fsr4Update.value_or_default() || State::Instance().isRunningOnRDNA4.value_or(false);
+    std::string fsr3xName = fsr4Possible ? "FSR 3.X/4 w/Dx12" : "FSR 3.X w/Dx12";
 
     if (State::Instance().newBackend == "fsr22" || (State::Instance().newBackend == "" && *code == "fsr22"))
         selectedUpscalerName = "FSR 2.2.1";
@@ -1078,7 +1080,9 @@ void MenuCommon::AddDx11Backends(std::string* code, std::string* name)
 void MenuCommon::AddDx12Backends(std::string* code, std::string* name)
 {
     std::string selectedUpscalerName = "";
-    std::string fsr3xName = Config::Instance()->Fsr4Update.value_or_default() ? "FSR 3.X/4" : "FSR 3.X";
+    bool fsr4Possible =
+        Config::Instance()->Fsr4Update.value_or_default() || State::Instance().isRunningOnRDNA4.value_or(false);
+    std::string fsr3xName = fsr4Possible ? "FSR 3.X/4 w/Dx12" : "FSR 3.X w/Dx12";
 
     if (State::Instance().newBackend == "fsr21" || (State::Instance().newBackend == "" && *code == "fsr21"))
         selectedUpscalerName = "FSR 2.1.2";
@@ -1116,7 +1120,9 @@ void MenuCommon::AddDx12Backends(std::string* code, std::string* name)
 void MenuCommon::AddVulkanBackends(std::string* code, std::string* name)
 {
     std::string selectedUpscalerName = "";
-    std::string fsr3xName = Config::Instance()->Fsr4Update.value_or_default() ? "FSR 3.X/4 w/Dx12" : "FSR 3.X w/Dx12";
+    bool fsr4Possible =
+        Config::Instance()->Fsr4Update.value_or_default() || State::Instance().isRunningOnRDNA4.value_or(false);
+    std::string fsr3xName = fsr4Possible ? "FSR 3.X/4 w/Dx12" : "FSR 3.X w/Dx12";
 
     if (State::Instance().newBackend == "fsr21" || (State::Instance().newBackend == "" && *code == "fsr21"))
         selectedUpscalerName = "FSR 2.1.2";
