@@ -267,7 +267,6 @@ struct AmdExtFfxApi : public IAmdExtFfxApi
             }
 
             auto sdk2upscalingModule = KernelBaseProxy::GetModuleHandleA_()("amd_fidelityfx_upscaler_dx12.dll");
-            constexpr bool unhookOld = false;
 
             if (sdk2upscalingModule)
                 FSR4ModelSelection::Hook(sdk2upscalingModule, FSR4Source::SDK);

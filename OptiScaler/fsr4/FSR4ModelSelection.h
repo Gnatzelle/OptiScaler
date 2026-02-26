@@ -13,8 +13,10 @@ enum class FSR4Source
 
 class FSR4ModelSelection
 {
-    static uint64_t hkgetModelBlob(uint32_t preset, uint64_t unknown, uint64_t* source, uint64_t* size);
-    static PFN_getModelBlob o_getModelBlob;
+    static uint64_t hkgetModelBlobSDK(uint32_t preset, uint64_t unknown, uint64_t* source, uint64_t* size);
+    static uint64_t hkgetModelBlobDriver(uint32_t preset, uint64_t unknown, uint64_t* source, uint64_t* size);
+    static PFN_getModelBlob o_getModelBlobSDK;
+    static PFN_getModelBlob o_getModelBlobDriver;
     static uint64_t hkcreateModelSDK(void* context, uint32_t preset);
     static uint64_t hkcreateModelDriver(void* context, uint32_t preset);
     static PFN_createModel o_createModelSDK;

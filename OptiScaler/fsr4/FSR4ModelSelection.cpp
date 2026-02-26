@@ -3,7 +3,8 @@
 #include <scanner/scanner.h>
 #include <detours/detours.h>
 
-PFN_getModelBlob FSR4ModelSelection::o_getModelBlob = nullptr;
+PFN_getModelBlob FSR4ModelSelection::o_getModelBlobSDK = nullptr;
+PFN_getModelBlob FSR4ModelSelection::o_getModelBlobDriver = nullptr;
 PFN_createModel FSR4ModelSelection::o_createModelSDK = nullptr;
 PFN_createModel FSR4ModelSelection::o_createModelDriver = nullptr;
 
@@ -33,13 +34,24 @@ uint32_t getCorrectedPreset(uint32_t preset)
     return correctedPreset;
 }
 
-uint64_t FSR4ModelSelection::hkgetModelBlob(uint32_t preset, uint64_t unknown, uint64_t* source, uint64_t* size)
+uint64_t FSR4ModelSelection::hkgetModelBlobSDK(uint32_t preset, uint64_t unknown, uint64_t* source, uint64_t* size)
 {
     LOG_FUNC();
 
     preset = getCorrectedPreset(preset);
 
-    auto result = o_getModelBlob(preset, unknown, source, size);
+    auto result = o_getModelBlobSDK(preset, unknown, source, size);
+
+    return result;
+}
+
+uint64_t FSR4ModelSelection::hkgetModelBlobDriver(uint32_t preset, uint64_t unknown, uint64_t* source, uint64_t* size)
+{
+    LOG_FUNC();
+
+    preset = getCorrectedPreset(preset);
+
+    auto result = o_getModelBlobDriver(preset, unknown, source, size);
 
     return result;
 }
@@ -71,59 +83,88 @@ void FSR4ModelSelection::Hook(HMODULE module, FSR4Source source)
     if (module == nullptr)
         return;
 
-    if (o_getModelBlob)
+    if (source == FSR4Source::SDK && (o_getModelBlobSDK || o_createModelSDK))
     {
-        LOG_DEBUG("Unhooking old model selection hooks");
-
         DetourTransactionBegin();
         DetourUpdateThread(GetCurrentThread());
 
-        if (o_getModelBlob != nullptr)
-            DetourDetach(&(PVOID&) o_getModelBlob, hkgetModelBlob);
+        if (o_getModelBlobSDK)
+            DetourDetach(&(PVOID&) o_getModelBlobSDK, hkgetModelBlobSDK);
 
-        if (o_createModelSDK && source == FSR4Source::SDK)
+        if (o_createModelSDK)
             DetourDetach(&(PVOID&) o_createModelSDK, hkcreateModelSDK);
-        else if (o_createModelDriver && source == FSR4Source::DriverDll)
+
+        if (DetourTransactionCommit() == 0)
+        {
+            LOG_DEBUG("Unhooked old model selection hooks for SDK");
+
+            o_createModelSDK = nullptr;
+            o_getModelBlobSDK = nullptr;
+        }
+    }
+    else if (source == FSR4Source::DriverDll && (o_getModelBlobDriver || o_createModelDriver))
+    {
+        DetourTransactionBegin();
+        DetourUpdateThread(GetCurrentThread());
+
+        if (o_getModelBlobDriver)
+            DetourDetach(&(PVOID&) o_getModelBlobDriver, hkgetModelBlobDriver);
+
+        else if (o_createModelDriver)
             DetourDetach(&(PVOID&) o_createModelDriver, hkcreateModelDriver);
 
         if (DetourTransactionCommit() == 0)
         {
-            LOG_DEBUG("Unhooked old model selection hooks");
-            o_getModelBlob = nullptr;
+            LOG_DEBUG("Unhooked old model selection hooks for the driver dll");
 
-            if (source == FSR4Source::SDK)
-                o_createModelSDK = nullptr;
-            else if (source == FSR4Source::DriverDll)
-                o_createModelDriver = nullptr;
+            o_createModelDriver = nullptr;
+            o_getModelBlobDriver = nullptr;
         }
     }
 
-    if (o_getModelBlob == nullptr)
+    // Older SDK and Driver use this
+    const char* modelBlobPattern = "83 F9 05 0F 87";
+    if (!o_getModelBlobSDK && source == FSR4Source::SDK)
     {
-        const char* pattern = "83 F9 05 0F 87";
-        o_getModelBlob = (PFN_getModelBlob) scanner::GetAddress(module, pattern);
+        o_getModelBlobSDK = (PFN_getModelBlob) scanner::GetAddress(module, modelBlobPattern);
 
-        if (o_getModelBlob)
+        if (o_getModelBlobSDK)
         {
-            LOG_DEBUG("Hooking model selection o_getModelBlob: {:X}", (uintptr_t) o_getModelBlob);
+            LOG_DEBUG("Hooking model selection o_getModelBlobSDK: {:X}", (uintptr_t) o_getModelBlobSDK);
 
             DetourTransactionBegin();
             DetourUpdateThread(GetCurrentThread());
 
-            DetourAttach(&(PVOID&) o_getModelBlob, hkgetModelBlob);
+            DetourAttach(&(PVOID&) o_getModelBlobSDK, hkgetModelBlobSDK);
+
+            DetourTransactionCommit();
+        }
+    }
+    else if (!o_getModelBlobDriver && source == FSR4Source::DriverDll)
+    {
+        o_getModelBlobDriver = (PFN_getModelBlob) scanner::GetAddress(module, modelBlobPattern);
+
+        if (o_getModelBlobDriver)
+        {
+            LOG_DEBUG("Hooking model selection o_getModelBlobDriver: {:X}", (uintptr_t) o_getModelBlobDriver);
+
+            DetourTransactionBegin();
+            DetourUpdateThread(GetCurrentThread());
+
+            DetourAttach(&(PVOID&) o_getModelBlobDriver, hkgetModelBlobDriver);
 
             DetourTransactionCommit();
         }
     }
 
+    // From amd_fidelityfx_upscaler_dx12 4.0.3.604
+    // Used by some versions of SDK and Driver
     const char* pattern403 =
         "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 0F 29 B4 24 "
         "? ? ? ? 0F 29 BC 24 ? ? ? ? 48 8B 05 ? ? ? ? 48 33 C4 48 89 85 ? ? ? ? 44 8B F2";
 
     if (!o_createModelSDK && source == FSR4Source::SDK)
     {
-        // From amd_fidelityfx_upscaler_dx12 4.0.3.604
-
         o_createModelSDK = (PFN_createModel) scanner::GetAddress(module, pattern403);
 
         LOG_DEBUG("Hooking model selection, o_createModelSDK: {:X}", (uintptr_t) o_createModelSDK);
