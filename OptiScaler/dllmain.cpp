@@ -30,8 +30,6 @@
 #include "fsr4/FSR4Upgrade.h"
 #include <fsr4/FSR4ModelSelection.h>
 
-// #include "spoofing/Vulkan_Spoofing.h"
-
 #include <hooks/Dxgi_Hooks.h>
 #include <hooks/D3D11_Hooks.h>
 #include <hooks/D3D12_Hooks.h>

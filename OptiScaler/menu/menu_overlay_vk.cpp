@@ -589,7 +589,7 @@ bool MenuOverlayVk::QueuePresent(VkQueue queue, VkPresentInfoKHR* pPresentInfo)
                     return false;
                 }
 
-                pPresentInfo->waitSemaphoreCount = pPresentInfo->swapchainCount;
+                pPresentInfo->waitSemaphoreCount = 1;
                 pPresentInfo->pWaitSemaphores = &_ImVulkan_Semaphores[semaphoreIndex];
             }
             else
@@ -599,24 +599,6 @@ bool MenuOverlayVk::QueuePresent(VkQueue queue, VkPresentInfoKHR* pPresentInfo)
             }
         }
     }
-
-    // if (!errorWhenRenderingMenu)
-    //     LOG_DEBUG("rendering done without errors");
-    // else
-    //     LOG_ERROR("rendering done with errors");
-
-    // if (!errorWhenRenderingMenu)
-    //{
-    //  already waited original calls semaphores when running commands
-    //  set menu draw signal semaphores as wait semaphores for present
-    //}
-    // else
-    //{
-    //    // if there are errors when rendering try to recreate swapchain
-    //    //_vkPresentMutex.unlock();
-    //    LOG_FUNC_RESULT(VK_ERROR_OUT_OF_DATE_KHR);
-    //    return false;
-    //}
 
     return true;
 }
