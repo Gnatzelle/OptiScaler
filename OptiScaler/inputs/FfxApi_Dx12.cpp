@@ -731,7 +731,7 @@ ffxReturnCode_t ffxDispatch_Dx12(ffxContext* context, ffxDispatchDescHeader* des
 
         header = header->pNext;
 
-    } while (header != nullptr);
+    } while (header != nullptr && (size_t) header > 0x10000);
 
     if (dispatchDesc == nullptr)
     {

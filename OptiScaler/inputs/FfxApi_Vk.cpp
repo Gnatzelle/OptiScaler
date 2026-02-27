@@ -689,14 +689,18 @@ ffxReturnCode_t ffxDispatch_Vk(ffxContext* context, ffxDispatchDescHeader* desc)
     do
     {
         if (header->type == FFX_API_DISPATCH_DESC_TYPE_UPSCALE)
+        {
             dispatchDesc = (ffxDispatchDescUpscale*) header;
+        }
         else if (!Config::Instance()->EnableHotSwapping.value_or_default() &&
                  header->type == FFX_API_DISPATCH_DESC_TYPE_UPSCALE_GENERATEREACTIVEMASK)
+        {
             return FFX_API_RETURN_OK;
+        }
 
         header = header->pNext;
 
-    } while (header != nullptr);
+    } while (header != nullptr && (size_t) header > 0x10000);
 
     if (dispatchDesc == nullptr)
     {
