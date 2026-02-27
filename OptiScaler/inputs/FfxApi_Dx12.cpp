@@ -323,7 +323,6 @@ ffxReturnCode_t ffxCreateContext_Dx12(ffxContext* context, ffxCreateContextDescH
     LOG_DEBUG("type: {}", FfxGetGetDescTypeName(desc->type));
 
     auto& state = State::Instance();
-
     auto type = FfxApiProxy::GetType(desc->type);
 
     // Extra checks added for Silent Hill f
