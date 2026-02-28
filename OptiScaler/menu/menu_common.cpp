@@ -5494,7 +5494,7 @@ bool MenuCommon::RenderMenu()
                 {
                     ImGui::TableNextColumn();
                     ImGui::Text("FrameTime");
-                    auto ft = StrFmt("%7.2f ms / %6.1f fps", state.frameTimes.back(), frameRate);
+                    auto ft = StrFmt("%7.2f ms / %6.1f fps", frameTime, frameRate);
                     ImGui::PlotLines(
                         ft.c_str(), [](void* rb, int idx) -> float
                         { return static_cast<RingBuffer<float, plotWidth>*>(rb)->At(idx); }, &gFrameTimes, plotWidth);
