@@ -910,8 +910,8 @@ NVSDK_NGX_API NVSDK_NGX_Result NVSDK_NGX_D3D12_EvaluateFeature(ID3D12GraphicsCom
     State::Instance().currentFeature = deviceContext->feature.get();
 
     // Root signature restore
-    if (deviceContext->feature->Name() != "DLSSD" && (Config::Instance()->RestoreComputeSignature.value_or_default() ||
-                                                      Config::Instance()->RestoreGraphicSignature.value_or_default()))
+    if (Config::Instance()->RestoreComputeSignature.value_or_default() ||
+        Config::Instance()->RestoreGraphicSignature.value_or_default())
     {
         contextRendering = true;
     }
@@ -945,8 +945,8 @@ NVSDK_NGX_API NVSDK_NGX_Result NVSDK_NGX_D3D12_EvaluateFeature(ID3D12GraphicsCom
     }
 
     // Root signature restore
-    if (deviceContext->feature->Name() != "DLSSD" && (Config::Instance()->RestoreComputeSignature.value_or_default() ||
-                                                      Config::Instance()->RestoreGraphicSignature.value_or_default()))
+    if (Config::Instance()->RestoreComputeSignature.value_or_default() ||
+        Config::Instance()->RestoreGraphicSignature.value_or_default())
     {
         if (Config::Instance()->RestoreComputeSignature.value_or_default() && computeSignatures.contains(InCmdList))
         {
